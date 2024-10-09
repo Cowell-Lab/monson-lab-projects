@@ -12,9 +12,9 @@ When the OrderNumber_Original folder with OrderNumber_TSVready.xls in OneDrive i
 1. Copy folder with OrderNumber_TSVready.xls workbook to local drive (data/immune/MonsonLab/Sanger). Avoid complications with OneDrive and prevent polluting with intermediate and/or temporary analysis files.
 2. Export OrderNumber_TSVready.xls to CSV file (not UTF-8 CSV) using Excel. Might need to change the names of files and/or folders in case they contain spaces, just to make them easier to process at command line. Columns are “PCR product name” and “Sequence”.
 3. Use the docker-repcalc alias to start docker container for running local programs.
-  1. cd ~/Projects
-  2. docker-repcalc
-  3. cd /work/data/immune/MonsonLab/Sanger/FOLDER
+   1. cd ~/Projects
+   2. docker-repcalc
+   3. cd /work/data/immune/MonsonLab/Sanger/FOLDER
 4. Generate FASTA file from the exported CSV. Provide the script with the CSV filename and the output filename. Produce NAME.fasta where NAME is the name of the folder for the data.
   a. python3 /work/research/immune/code/MonsonLab/RHAB/make_fasta.py CSV NAME
   b. Verify the number of sequences in the FASTA file and that they all have unique sequence IDs
