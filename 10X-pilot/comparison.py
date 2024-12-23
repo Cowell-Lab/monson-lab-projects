@@ -9,14 +9,15 @@ import scanpy as sc
 # update to add user defined paths as args for read_data()
 def read_data():
     '''
-    Read in the data necessary to use this. Currently paths are hardcoded and will need to be changed.
+    Read in the data necessary to use this. 
+    Currently filepaths are hardcoded and will need to be changed.
 
     Returns
     -------
     vdj : pd.DataFrame()
-        The vdj information.
+        - The vdj information.
     gex : pd.DataFrame()
-        The gene expression information.
+        - The gene expression information.
     '''
     # read in vdj info, make easily searchable
     vdj = pd.read_csv('../../projects/2024_11_20_10X11_14234_0/out/outs/per_sample_outs/2024_11_20_10X11_14234_0_multi/vdj_b/filtered_contig_annotations.csv')
@@ -45,19 +46,19 @@ def select_cells(chain, family, vdj, gex):
 
     Parameters
     ----------
-    chain : char
-        A character representing which chain to select (H, L, K)
-    family : char
-        A character (not an int) representing which family to select.
+    chain : str
+        - A string representing which chain to select (H, L, K)
+    family : str
+        - A string (not an int) representing which family to select.
     vdj : pd.DataFrame()
-        The vdj dataframe read in
+        - The vdj dataframe read in
     gex : pd.DataFrame()
-        The gene expression dataframe read in
+        - The gene expression dataframe read in
 
     Returns
     -------
-    intersenction : pd.DataFrame()
-        The intersection between vdj and gex for cells in vdj that were of the chain and family.
+    intersection : pd.DataFrame()
+        - The intersection between vdj and gex for cells in vdj that were of the chain and family.
     '''
     # vdj_filtered = vdj[(vdj[vdj['chain']==chain]) & (vdj['family']==family)]
     vdj_chain = vdj[vdj['chain']==chain]
@@ -73,42 +74,38 @@ def select_gene(df, gene):
     Parameters
     ----------
     df : pd.DataFrame()
-        A dataframe of selected cells.
+        - A dataframe of selected cells.
     gene : str
-        The gene to select on
+        - The gene to select on
     
     Returns
     -------
-    tuple
-        A tuple containing two dataframes. 
-        Index 0 contains cells that were negative for gene expression of 'gene'.
-        Index 1 contains cells that were positive for gene expression of 'gene'.
+    - (neg, pos) : tuple
+        - A tuple containing two dataframes. 
+        - Index 0 contains cells that were negative for gene expression of 'gene'.
+        - Index 1 contains cells that were positive for gene expression of 'gene'.
     '''
     neg = df[df[gene]==0]
     pos = df[df[gene]>0]
-
+    
     return (neg, pos)
 
-def compare(gene, vdj, gex, type1='IGHV3', type2='IGHV4'):
+def compare(gene:str, vdj, gex, type1='IGHV3', type2='IGHV4'):
     '''
-    Compare two selected groups of cells on a gene
+    Compare two selected groups of cells on a gene.  Prints table of result.
 
     Parameters
     ----------
     gene : str
-        The gene to compare
+        - The gene to compare
     vdj : pd.DataFrame()
-        vdj inforation read in
+        - VDJ information to read in
     gex : pd.DataFrame()
-        gene expression data read in
+        - Gene expression data to read in
     type1 : str
-        The qualifier for cell clonotype
+        - The qualifier for cell clonotype
     type2 : str
-        The qualifier for cell clonotype
-
-    Returns
-    --------
-    Printed table of result.
+        - The qualifier for cell clonotype
     '''
     print(f'Selecting {type1} cells...')
     cells1 = select_cells(type1[2], type1[4], vdj, gex)
@@ -129,20 +126,16 @@ def compare(gene, vdj, gex, type1='IGHV3', type2='IGHV4'):
 
 def compare_selected(gene, cells1, cells2):
     '''
-    Compare two selected groups of cells on a gene
+    Compare two selected groups of cells on a gene. Prints table of result.
 
     Parameters
     ----------
     gene : str
-        The gene to compare
+        - The gene to compare
     cells1 : pd.DataFrame()
-        The first group of cells
+        - The first group of cells
     cells2 : pd.DataFrame()
-        The second group of cells
-
-    Returns
-    --------
-    Printed table of result.
+        - The second group of cells
     '''
     selected1 = print(f'Selecting for {gene}...')
     selected1 = select_gene(cells1, gene)
@@ -160,22 +153,20 @@ def compare_selected(gene, cells1, cells2):
 
 def create_clusters(group_name, genes, cells, location='local'):
     '''
-    Creates clusters for loupe browser with list of genes and list of cells
+    Creates clusters for loupe browser with list of genes and list of cells. 
+    Save a csv file containing Loupe Browser clustering data.
 
     Parameters
     ----------
     group_name : str
-        The name of the group to be used in Loupe Browser
+        - The name of the group to be used in Loupe Browser
     genes : list
-        A list of the genes to compare
+        - A list of the genes to compare
     cells : list
-        A list of groups of cells to compare
+        - A list of groups of cells to compare
     location : list
-        A file path location where the csv can be saved, must end in a '/'
-
-    Returns
-    -------
-    A csv file containing Loupe Browser clustering data
+        - Default is local and generates the file where ran. 
+        - A file path location for saving the csv must end in a '/'
     '''
     if len(group_name.split('/'))>1:
         group_name_no_slash = '&'.join(group_name.split('/'))
