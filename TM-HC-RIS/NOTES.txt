@@ -1,5 +1,9 @@
 MonsonLab TM-HC-RIS Notes
 
+NOTE: We are now on V2 of analysis after reviews from submission. We added some samples
+and reworked the groups to focus mostly on HC and RIS. I'm updating these notes with
+new info as I go.
+
 The data has come in multiple waves across multiple libraries. I've been pre-processing
 and running IgBlast on VDJServer V1, then downloading the resultant AIRR TSV files for
 additional analysis locally. These steps rarely need to be re-done once the base set of
@@ -13,6 +17,8 @@ The downloaded AIRR TSV files are kept in separate library directories, and a se
 secondary analysis steps are performed in each library directory. Finally, all of the
 resultant AIRR TSV files are copied into an analysis directory for tertiary analysis.
 
+Using docker image: vdjserver/repertoire-summarization:2.0-imm4.4
+
 Secondary Analysis
 
 - Assign repertoire_id. Because the raw files were processed on VDJServer V1, they lack the repertoire_id in the
@@ -20,17 +26,22 @@ Secondary Analysis
   mutational analysis.
 
   1. Create AIRR repertoire metadata, this links the repertoire to the AIRR TSV file(s)
-  2. Generate AIRR repertoire group file
+  2. Generate AIRR repertoire group file (make_groups_v2.py)
   3. Run bulk_assign_repertoire_ids.py in each library directory.
   4. Run rename_makedb.sh to swap AIRR TSV files with repertoire_id.
 
-- Clonal assignment.
+- Clonal assignment. (NOTE: This should be done by VDJServer IgBlast now)
 
-  1. bash /work/research/immune/code/MonsonLab/TM-HC-RIS/assign_clones.sh
+  1. bash /work/research/monson-lab-projects/TM-HC-RIS/assign_clones.sh
+
+- Calculate gene usage, gene combo, and junction length statistics
+  Fill out repcalc templates
+  (NOTE: This should be done by VDJServer RepCalc, but we need repertoire groups and filters)
 
 - Calculate observed mutations
+  (NOTE: This should be done by VDJServer RepCalc, but we need repertoire groups and filters)
 
-  1. bash /work/research/immune/code/MonsonLab/TM-HC-RIS/calc_mutations.sh
+  1. bash /work/research/monson-lab-projects/TM-HC-RIS/calc_mutations.sh
 
 
 Tertiary Analysis
@@ -44,9 +55,9 @@ Generate SHM ratios
 -------------------------------------
 
 stats:
-python3 /work/research/immune/code/MonsonLab/TM-HC-RIS/shm_ratio.py ../../repertoires.v2.airr.json ../../repertoire_groups.airr.json
+python3 /work/research/monson-lab-projects/TM-HC-RIS/shm_ratio.py ../../repertoires.v2.airr.json ../../repertoire_groups.airr.json
 
-ls *shm_ratios.csv | xargs -I % -n 1 python3 /work/research/immune/code/MonsonLab/TM-HC-RIS/attach_airr_metadata.py ../../repertoires.v2.airr.json % Fig2_
+ls *shm_ratios.csv | xargs -I % -n 1 python3 /work/research/monson-lab-projects/TM-HC-RIS/attach_airr_metadata.py ../../repertoires.v2.airr.json % Fig2_
 
 
 Generate VH family usage spreadsheets
@@ -56,18 +67,28 @@ From the main repcalc output, I run two scripts to extract result rows for each 
 sample columns.
 
 stats:
-python3 /Users/scottc/Projects/vdjserver/irplus/tapis/vdjserver/common/make_usage_table.py v_call subgroup proportion ../../repertoires.v2.airr.json --group ../../repertoire_groups.airr.json HC_PB_DNA HC_PB_DNA.VHfamily.all
-python3 /Users/scottc/Projects/vdjserver/irplus/tapis/vdjserver/common/make_usage_table.py v_call subgroup proportion ../../repertoires.v2.airr.json --group ../../repertoire_groups.airr.json RIS_PB_DNA RIS_PB_DNA.VHfamily.all
-python3 /Users/scottc/Projects/vdjserver/irplus/tapis/vdjserver/common/make_usage_table.py v_call subgroup proportion ../../repertoires.v2.airr.json --group ../../repertoire_groups.airr.json TM_PB_DNA TM_PB_DNA.VHfamily.all
+python3 /work/vdjserver/vdjserver-tapis/scripts/make_usage_table.py v_call subgroup proportion ../../repertoires.v2.airr.json --stage gene.mutations --group ../../repertoire_groups.airr.json HC_PB_DNA HC_PB_DNA.VHfamily.all
+python3 /work/vdjserver/vdjserver-tapis/scripts/make_usage_table.py v_call subgroup proportion ../../repertoires.v2.airr.json --stage gene.mutations --group ../../repertoire_groups.airr.json CIS_PB_DNA CIS_PB_DNA.VHfamily.all
+python3 /work/vdjserver/vdjserver-tapis/scripts/make_usage_table.py v_call subgroup proportion ../../repertoires.v2.airr.json --stage gene.mutations --group ../../repertoire_groups.airr.json RIS_PB_DNA RIS_PB_DNA.VHfamily.all
+python3 /work/vdjserver/vdjserver-tapis/scripts/make_usage_table.py v_call subgroup proportion ../../repertoires.v2.airr.json --stage gene.mutations --group ../../repertoire_groups.airr.json RIS_ADVANCING RIS_ADVANCING.VHfamily.all
+python3 /work/vdjserver/vdjserver-tapis/scripts/make_usage_table.py v_call subgroup proportion ../../repertoires.v2.airr.json --stage gene.mutations --group ../../repertoire_groups.airr.json RIS_STABLE RIS_STABLE.VHfamily.all
+python3 /work/vdjserver/vdjserver-tapis/scripts/make_usage_table.py v_call subgroup proportion ../../repertoires.v2.airr.json --stage gene.mutations --group ../../repertoire_groups.airr.json RIS_POS RIS_POS.VHfamily.all
+python3 /work/vdjserver/vdjserver-tapis/scripts/make_usage_table.py v_call subgroup proportion ../../repertoires.v2.airr.json --stage gene.mutations --group ../../repertoire_groups.airr.json RIS_NEG RIS_NEG.VHfamily.all
+#v1#python3 /work/vdjserver/vdjserver-tapis/scripts/make_usage_table.py v_call subgroup proportion ../../repertoires.v2.airr.json --group ../../repertoire_groups.airr.json TM_PB_DNA TM_PB_DNA.VHfamily.all
 
-ls *family*usage_table.csv | xargs -I % -n 1 python3 /Users/scottc/Projects/research/immune/code/MonsonLab/TM-HC-RIS/attach_airr_metadata.py ../../repertoires.v2.airr.json % Fig3_
+ls *family*usage_table.csv | xargs -I % -n 1 python3 /work/research/monson-lab-projects/TM-HC-RIS/attach_airr_metadata.py ../../repertoires.v2.airr.json % Fig3_
 
 gt3shm:
-python3 /Users/scottc/Projects/vdjserver/irplus/tapis/vdjserver/common/make_usage_table.py v_call subgroup proportion ../../repertoires.v2.airr.json --group ../../repertoire_groups.airr.json HC_PB_DNA HC_PB_DNA.VHfamily.gt3shm
-python3 /Users/scottc/Projects/vdjserver/irplus/tapis/vdjserver/common/make_usage_table.py v_call subgroup proportion ../../repertoires.v2.airr.json --group ../../repertoire_groups.airr.json RIS_PB_DNA RIS_PB_DNA.VHfamily.gt3shm
-python3 /Users/scottc/Projects/vdjserver/irplus/tapis/vdjserver/common/make_usage_table.py v_call subgroup proportion ../../repertoires.v2.airr.json --group ../../repertoire_groups.airr.json TM_PB_DNA TM_PB_DNA.VHfamily.gt3shm
+python3 /work/vdjserver/vdjserver-tapis/scripts/make_usage_table.py v_call subgroup proportion ../../repertoires.v2.airr.json --stage gt3shm.mutations --group ../../repertoire_groups.airr.json HC_PB_DNA HC_PB_DNA.VHfamily.gt3shm
+python3 /work/vdjserver/vdjserver-tapis/scripts/make_usage_table.py v_call subgroup proportion ../../repertoires.v2.airr.json --stage gt3shm.mutations --group ../../repertoire_groups.airr.json CIS_PB_DNA CIS_PB_DNA.VHfamily.gt3shm
+python3 /work/vdjserver/vdjserver-tapis/scripts/make_usage_table.py v_call subgroup proportion ../../repertoires.v2.airr.json --stage gt3shm.mutations --group ../../repertoire_groups.airr.json RIS_PB_DNA RIS_PB_DNA.VHfamily.gt3shm
+python3 /work/vdjserver/vdjserver-tapis/scripts/make_usage_table.py v_call subgroup proportion ../../repertoires.v2.airr.json --stage gt3shm.mutations --group ../../repertoire_groups.airr.json RIS_ADVANCING RIS_ADVANCING.VHfamily.gt3shm
+python3 /work/vdjserver/vdjserver-tapis/scripts/make_usage_table.py v_call subgroup proportion ../../repertoires.v2.airr.json --stage gt3shm.mutations --group ../../repertoire_groups.airr.json RIS_STABLE RIS_STABLE.VHfamily.gt3shm
+python3 /work/vdjserver/vdjserver-tapis/scripts/make_usage_table.py v_call subgroup proportion ../../repertoires.v2.airr.json --stage gt3shm.mutations --group ../../repertoire_groups.airr.json RIS_POS RIS_POS.VHfamily.gt3shm
+python3 /work/vdjserver/vdjserver-tapis/scripts/make_usage_table.py v_call subgroup proportion ../../repertoires.v2.airr.json --stage gt3shm.mutations --group ../../repertoire_groups.airr.json RIS_NEG RIS_NEG.VHfamily.gt3shm
+#v1#python3 /work/vdjserver/vdjserver-tapis/scripts/common/make_usage_table.py v_call subgroup proportion ../../repertoires.v2.airr.json --group ../../repertoire_groups.airr.json TM_PB_DNA TM_PB_DNA.VHfamily.gt3shm
 
-ls *family*usage_table.csv | xargs -I % -n 1 python3 /work/research/immune/code/MonsonLab/TM-HC-RIS/attach_airr_metadata.py ../../repertoires.v2.airr.json % Fig3_
+ls *family*usage_table.csv | xargs -I % -n 1 python3 /work/research/monson-lab-projects/TM-HC-RIS/attach_airr_metadata.py ../../repertoires.v2.airr.json % Fig3_
 
 Generate VH gene usage spreadsheets
 -------------------------------------
@@ -75,86 +96,150 @@ Generate VH gene usage spreadsheets
 Similar to family usage, just a different level and different file names
 
 stats:
-python3 /work/vdjserver/irplus/tapis/vdjserver/common/make_usage_table.py v_call gene proportion ../../repertoires.v2.airr.json --group ../../repertoire_groups.airr.json HC_PB_DNA HC_PB_DNA.VHgene.all
-python3 /work/vdjserver/irplus/tapis/vdjserver/common/make_usage_table.py v_call gene proportion ../../repertoires.v2.airr.json --group ../../repertoire_groups.airr.json RIS_PB_DNA RIS_PB_DNA.VHgene.all
-python3 /work/vdjserver/irplus/tapis/vdjserver/common/make_usage_table.py v_call gene proportion ../../repertoires.v2.airr.json --group ../../repertoire_groups.airr.json TM_PB_DNA TM_PB_DNA.VHgene.all
+python3 /work/vdjserver/vdjserver-tapis/scripts/make_usage_table.py v_call gene proportion ../../repertoires.v2.airr.json --stage gene.mutations --group ../../repertoire_groups.airr.json HC_PB_DNA HC_PB_DNA.VHgene.all
+python3 /work/vdjserver/vdjserver-tapis/scripts/make_usage_table.py v_call gene proportion ../../repertoires.v2.airr.json --stage gene.mutations --group ../../repertoire_groups.airr.json CIS_PB_DNA CIS_PB_DNA.VHgene.all
+python3 /work/vdjserver/vdjserver-tapis/scripts/make_usage_table.py v_call gene proportion ../../repertoires.v2.airr.json --stage gene.mutations --group ../../repertoire_groups.airr.json RIS_PB_DNA RIS_PB_DNA.VHgene.all
+python3 /work/vdjserver/vdjserver-tapis/scripts/make_usage_table.py v_call gene proportion ../../repertoires.v2.airr.json --stage gene.mutations --group ../../repertoire_groups.airr.json RIS_ADVANCING RIS_ADVANCING.VHgene.all
+python3 /work/vdjserver/vdjserver-tapis/scripts/make_usage_table.py v_call gene proportion ../../repertoires.v2.airr.json --stage gene.mutations --group ../../repertoire_groups.airr.json RIS_STABLE RIS_STABLE.VHgene.all
+python3 /work/vdjserver/vdjserver-tapis/scripts/make_usage_table.py v_call gene proportion ../../repertoires.v2.airr.json --stage gene.mutations --group ../../repertoire_groups.airr.json RIS_POS RIS_POS.VHgene.all
+python3 /work/vdjserver/vdjserver-tapis/scripts/make_usage_table.py v_call gene proportion ../../repertoires.v2.airr.json --stage gene.mutations --group ../../repertoire_groups.airr.json RIS_NEG RIS_NEG.VHgene.all
+#v1#python3 /work/vdjserver/irplus/tapis/vdjserver/common/make_usage_table.py v_call gene proportion ../../repertoires.v2.airr.json --group ../../repertoire_groups.airr.json TM_PB_DNA TM_PB_DNA.VHgene.all
 
-ls *VHgene*usage_table.csv | xargs -I % -n 1 python3 /work/research/immune/code/MonsonLab/TM-HC-RIS/attach_airr_metadata.py ../../repertoires.v2.airr.json % Fig4_
+ls *VHgene*usage_table.csv | xargs -I % -n 1 python3 /work/research/monson-lab-projects/TM-HC-RIS/attach_airr_metadata.py ../../repertoires.v2.airr.json % Fig4_
 
 gt3shm:
-python3 /work/vdjserver/irplus/tapis/vdjserver/common/make_usage_table.py v_call gene proportion ../../repertoires.v2.airr.json --group ../../repertoire_groups.airr.json HC_PB_DNA HC_PB_DNA.VHgene.gt3shm
-python3 /work/vdjserver/irplus/tapis/vdjserver/common/make_usage_table.py v_call gene proportion ../../repertoires.v2.airr.json --group ../../repertoire_groups.airr.json RIS_PB_DNA RIS_PB_DNA.VHgene.gt3shm
-python3 /work/vdjserver/irplus/tapis/vdjserver/common/make_usage_table.py v_call gene proportion ../../repertoires.v2.airr.json --group ../../repertoire_groups.airr.json TM_PB_DNA TM_PB_DNA.VHgene.gt3shm
+python3 /work/vdjserver/vdjserver-tapis/scripts/make_usage_table.py v_call gene proportion ../../repertoires.v2.airr.json --stage gt3shm.mutations --group ../../repertoire_groups.airr.json HC_PB_DNA HC_PB_DNA.VHgene.gt3shm
+python3 /work/vdjserver/vdjserver-tapis/scripts/make_usage_table.py v_call gene proportion ../../repertoires.v2.airr.json --stage gt3shm.mutations --group ../../repertoire_groups.airr.json CIS_PB_DNA CIS_PB_DNA.VHgene.gt3shm
+python3 /work/vdjserver/vdjserver-tapis/scripts/make_usage_table.py v_call gene proportion ../../repertoires.v2.airr.json --stage gt3shm.mutations --group ../../repertoire_groups.airr.json RIS_PB_DNA RIS_PB_DNA.VHgene.gt3shm
+python3 /work/vdjserver/vdjserver-tapis/scripts/make_usage_table.py v_call gene proportion ../../repertoires.v2.airr.json --stage gt3shm.mutations --group ../../repertoire_groups.airr.json RIS_ADVANCING RIS_ADVANCING.VHgene.gt3shm
+python3 /work/vdjserver/vdjserver-tapis/scripts/make_usage_table.py v_call gene proportion ../../repertoires.v2.airr.json --stage gt3shm.mutations --group ../../repertoire_groups.airr.json RIS_STABLE RIS_STABLE.VHgene.gt3shm
+python3 /work/vdjserver/vdjserver-tapis/scripts/make_usage_table.py v_call gene proportion ../../repertoires.v2.airr.json --stage gt3shm.mutations --group ../../repertoire_groups.airr.json RIS_POS RIS_POS.VHgene.gt3shm
+python3 /work/vdjserver/vdjserver-tapis/scripts/make_usage_table.py v_call gene proportion ../../repertoires.v2.airr.json --stage gt3shm.mutations --group ../../repertoire_groups.airr.json RIS_NEG RIS_NEG.VHgene.gt3shm
+#v1#python3 /work/vdjserver/vdjserver-tapis/scripts/make_usage_table.py v_call gene proportion ../../repertoires.v2.airr.json --group ../../repertoire_groups.airr.json TM_PB_DNA TM_PB_DNA.VHgene.gt3shm
 
-ls *VHgene*usage_table.csv | xargs -I % -n 1 python3 /work/research/immune/code/MonsonLab/TM-HC-RIS/attach_airr_metadata.py ../../repertoires.v2.airr.json % Fig4_
+ls *VHgene*usage_table.csv | xargs -I % -n 1 python3 /work/research/monson-lab-projects/TM-HC-RIS/attach_airr_metadata.py ../../repertoires.v2.airr.json % Fig4_
 
 Generate JH gene usage spreadsheets
 -------------------------------------
 
 stats:
-python3 /work/vdjserver/irplus/tapis/vdjserver/common/make_usage_table.py j_call gene proportion ../../repertoires.v2.airr.json --group ../../repertoire_groups.airr.json HC_PB_DNA HC_PB_DNA.JHgene.all
-python3 /work/vdjserver/irplus/tapis/vdjserver/common/make_usage_table.py j_call gene proportion ../../repertoires.v2.airr.json --group ../../repertoire_groups.airr.json RIS_PB_DNA RIS_PB_DNA.JHgene.all
-python3 /work/vdjserver/irplus/tapis/vdjserver/common/make_usage_table.py j_call gene proportion ../../repertoires.v2.airr.json --group ../../repertoire_groups.airr.json TM_PB_DNA TM_PB_DNA.JHgene.all
+python3 /work/vdjserver/vdjserver-tapis/scripts/make_usage_table.py j_call gene proportion ../../repertoires.v2.airr.json --stage gene.mutations --group ../../repertoire_groups.airr.json HC_PB_DNA HC_PB_DNA.JHgene.all
+python3 /work/vdjserver/vdjserver-tapis/scripts/make_usage_table.py j_call gene proportion ../../repertoires.v2.airr.json --stage gene.mutations --group ../../repertoire_groups.airr.json CIS_PB_DNA CIS_PB_DNA.JHgene.all
+python3 /work/vdjserver/vdjserver-tapis/scripts/make_usage_table.py j_call gene proportion ../../repertoires.v2.airr.json --stage gene.mutations --group ../../repertoire_groups.airr.json RIS_PB_DNA RIS_PB_DNA.JHgene.all
+python3 /work/vdjserver/vdjserver-tapis/scripts/make_usage_table.py j_call gene proportion ../../repertoires.v2.airr.json --stage gene.mutations --group ../../repertoire_groups.airr.json RIS_ADVANCING RIS_ADVANCING.JHgene.all
+python3 /work/vdjserver/vdjserver-tapis/scripts/make_usage_table.py j_call gene proportion ../../repertoires.v2.airr.json --stage gene.mutations --group ../../repertoire_groups.airr.json RIS_STABLE RIS_STABLE.JHgene.all
+python3 /work/vdjserver/vdjserver-tapis/scripts/make_usage_table.py j_call gene proportion ../../repertoires.v2.airr.json --stage gene.mutations --group ../../repertoire_groups.airr.json RIS_POS RIS_POS.JHgene.all
+python3 /work/vdjserver/vdjserver-tapis/scripts/make_usage_table.py j_call gene proportion ../../repertoires.v2.airr.json --stage gene.mutations --group ../../repertoire_groups.airr.json RIS_NEG RIS_NEG.JHgene.all
+#v1#python3 /work/vdjserver/irplus/tapis/vdjserver/common/make_usage_table.py j_call gene proportion ../../repertoires.v2.airr.json --group ../../repertoire_groups.airr.json TM_PB_DNA TM_PB_DNA.JHgene.all
 
-ls *JHgene*usage_table.csv | xargs -I % -n 1 python3 /work/research/immune/code/MonsonLab/TM-HC-RIS/attach_airr_metadata.py ../../repertoires.v2.airr.json % Fig5_
+ls *JHgene*usage_table.csv | xargs -I % -n 1 python3 /work/research/monson-lab-projects/TM-HC-RIS/attach_airr_metadata.py ../../repertoires.v2.airr.json % Fig5_
 
 gt3shm:
-python3 /work/vdjserver/irplus/tapis/vdjserver/common/make_usage_table.py j_call gene proportion ../../repertoires.v2.airr.json --group ../../repertoire_groups.airr.json HC_PB_DNA HC_PB_DNA.JHgene.gt3shm
-python3 /work/vdjserver/irplus/tapis/vdjserver/common/make_usage_table.py j_call gene proportion ../../repertoires.v2.airr.json --group ../../repertoire_groups.airr.json RIS_PB_DNA RIS_PB_DNA.JHgene.gt3shm
-python3 /work/vdjserver/irplus/tapis/vdjserver/common/make_usage_table.py j_call gene proportion ../../repertoires.v2.airr.json --group ../../repertoire_groups.airr.json TM_PB_DNA TM_PB_DNA.JHgene.gt3shm
+python3 /work/vdjserver/vdjserver-tapis/scripts/make_usage_table.py j_call gene proportion ../../repertoires.v2.airr.json --stage gt3shm.mutations --group ../../repertoire_groups.airr.json HC_PB_DNA HC_PB_DNA.JHgene.gt3shm
+python3 /work/vdjserver/vdjserver-tapis/scripts/make_usage_table.py j_call gene proportion ../../repertoires.v2.airr.json --stage gt3shm.mutations --group ../../repertoire_groups.airr.json CIS_PB_DNA CIS_PB_DNA.JHgene.gt3shm
+python3 /work/vdjserver/vdjserver-tapis/scripts/make_usage_table.py j_call gene proportion ../../repertoires.v2.airr.json --stage gt3shm.mutations --group ../../repertoire_groups.airr.json RIS_PB_DNA RIS_PB_DNA.JHgene.gt3shm
+python3 /work/vdjserver/vdjserver-tapis/scripts/make_usage_table.py j_call gene proportion ../../repertoires.v2.airr.json --stage gt3shm.mutations --group ../../repertoire_groups.airr.json RIS_ADVANCING RIS_ADVANCING.JHgene.gt3shm
+python3 /work/vdjserver/vdjserver-tapis/scripts/make_usage_table.py j_call gene proportion ../../repertoires.v2.airr.json --stage gt3shm.mutations --group ../../repertoire_groups.airr.json RIS_STABLE RIS_STABLE.JHgene.gt3shm
+python3 /work/vdjserver/vdjserver-tapis/scripts/make_usage_table.py j_call gene proportion ../../repertoires.v2.airr.json --stage gt3shm.mutations --group ../../repertoire_groups.airr.json RIS_POS RIS_POS.JHgene.gt3shm
+python3 /work/vdjserver/vdjserver-tapis/scripts/make_usage_table.py j_call gene proportion ../../repertoires.v2.airr.json --stage gt3shm.mutations --group ../../repertoire_groups.airr.json RIS_NEG RIS_NEG.JHgene.gt3shm
+#v1#python3 /work/vdjserver/irplus/tapis/vdjserver/common/make_usage_table.py j_call gene proportion ../../repertoires.v2.airr.json --group ../../repertoire_groups.airr.json TM_PB_DNA TM_PB_DNA.JHgene.gt3shm
 
-ls *JHgene*usage_table.csv | xargs -I % -n 1 python3 /work/research/immune/code/MonsonLab/TM-HC-RIS/attach_airr_metadata.py ../../repertoires.v2.airr.json % Fig5_
+ls *JHgene*usage_table.csv | xargs -I % -n 1 python3 /work/research/monson-lab-projects/TM-HC-RIS/attach_airr_metadata.py ../../repertoires.v2.airr.json % Fig5_
 
 Generate VH/JH gene combo usage spreadsheets
 --------------------------------------------
 
 stats:
-python3 /work/vdjserver/irplus/tapis/vdjserver/common/make_usage_table.py vj_combo subgroup proportion ../../repertoires.v2.airr.json --group ../../repertoire_groups.airr.json HC_PB_DNA HC_PB_DNA.VJcombo.all
-python3 /work/vdjserver/irplus/tapis/vdjserver/common/make_usage_table.py vj_combo subgroup proportion ../../repertoires.v2.airr.json --group ../../repertoire_groups.airr.json RIS_PB_DNA RIS_PB_DNA.VJcombo.all
-python3 /work/vdjserver/irplus/tapis/vdjserver/common/make_usage_table.py vj_combo subgroup proportion ../../repertoires.v2.airr.json --group ../../repertoire_groups.airr.json TM_PB_DNA TM_PB_DNA.VJcombo.all
+python3 /work/vdjserver/vdjserver-tapis/scripts/make_usage_table.py vj_combo subgroup proportion ../../repertoires.v2.airr.json --stage gene.mutations --group ../../repertoire_groups.airr.json HC_PB_DNA HC_PB_DNA.VJcombo.all
+python3 /work/vdjserver/vdjserver-tapis/scripts/make_usage_table.py vj_combo subgroup proportion ../../repertoires.v2.airr.json --stage gene.mutations --group ../../repertoire_groups.airr.json CIS_PB_DNA CIS_PB_DNA.VJcombo.all
+python3 /work/vdjserver/vdjserver-tapis/scripts/make_usage_table.py vj_combo subgroup proportion ../../repertoires.v2.airr.json --stage gene.mutations --group ../../repertoire_groups.airr.json RIS_PB_DNA RIS_PB_DNA.VJcombo.all
+python3 /work/vdjserver/vdjserver-tapis/scripts/make_usage_table.py vj_combo subgroup proportion ../../repertoires.v2.airr.json --stage gene.mutations --group ../../repertoire_groups.airr.json RIS_ADVANCING RIS_ADVANCING.VJcombo.all
+python3 /work/vdjserver/vdjserver-tapis/scripts/make_usage_table.py vj_combo subgroup proportion ../../repertoires.v2.airr.json --stage gene.mutations --group ../../repertoire_groups.airr.json RIS_STABLE RIS_STABLE.VJcombo.all
+python3 /work/vdjserver/vdjserver-tapis/scripts/make_usage_table.py vj_combo subgroup proportion ../../repertoires.v2.airr.json --stage gene.mutations --group ../../repertoire_groups.airr.json RIS_POS RIS_POS.VJcombo.all
+python3 /work/vdjserver/vdjserver-tapis/scripts/make_usage_table.py vj_combo subgroup proportion ../../repertoires.v2.airr.json --stage gene.mutations --group ../../repertoire_groups.airr.json RIS_NEG RIS_NEG.VJcombo.all
+#v1#python3 /work/vdjserver/irplus/tapis/vdjserver/common/make_usage_table.py vj_combo subgroup proportion ../../repertoires.v2.airr.json --group ../../repertoire_groups.airr.json TM_PB_DNA TM_PB_DNA.VJcombo.all
 
-ls *VJcombo*combo_table.csv | xargs -I % -n 1 python3 /work/research/immune/code/MonsonLab/TM-HC-RIS/attach_airr_metadata.py ../../repertoires.v2.airr.json % Fig6_
+ls *VJcombo*combo_table.csv | xargs -I % -n 1 python3 /work/research/monson-lab-projects/TM-HC-RIS/attach_airr_metadata.py ../../repertoires.v2.airr.json % Fig6_
 
 gt3shm:
-python3 /work/vdjserver/irplus/tapis/vdjserver/common/make_usage_table.py vj_combo subgroup proportion ../../repertoires.v2.airr.json --group ../../repertoire_groups.airr.json HC_PB_DNA HC_PB_DNA.VJcombo.gt3shm
-python3 /work/vdjserver/irplus/tapis/vdjserver/common/make_usage_table.py vj_combo subgroup proportion ../../repertoires.v2.airr.json --group ../../repertoire_groups.airr.json RIS_PB_DNA RIS_PB_DNA.VJcombo.gt3shm
-python3 /work/vdjserver/irplus/tapis/vdjserver/common/make_usage_table.py vj_combo subgroup proportion ../../repertoires.v2.airr.json --group ../../repertoire_groups.airr.json TM_PB_DNA TM_PB_DNA.VJcombo.gt3shm
+python3 /work/vdjserver/vdjserver-tapis/scripts/make_usage_table.py vj_combo subgroup proportion ../../repertoires.v2.airr.json --stage gt3shm.mutations --group ../../repertoire_groups.airr.json HC_PB_DNA HC_PB_DNA.VJcombo.gt3shm
+python3 /work/vdjserver/vdjserver-tapis/scripts/make_usage_table.py vj_combo subgroup proportion ../../repertoires.v2.airr.json --stage gt3shm.mutations --group ../../repertoire_groups.airr.json CIS_PB_DNA CIS_PB_DNA.VJcombo.gt3shm
+python3 /work/vdjserver/vdjserver-tapis/scripts/make_usage_table.py vj_combo subgroup proportion ../../repertoires.v2.airr.json --stage gt3shm.mutations --group ../../repertoire_groups.airr.json RIS_PB_DNA RIS_PB_DNA.VJcombo.gt3shm
+python3 /work/vdjserver/vdjserver-tapis/scripts/make_usage_table.py vj_combo subgroup proportion ../../repertoires.v2.airr.json --stage gt3shm.mutations --group ../../repertoire_groups.airr.json RIS_ADVANCING RIS_ADVANCING.VJcombo.gt3shm
+python3 /work/vdjserver/vdjserver-tapis/scripts/make_usage_table.py vj_combo subgroup proportion ../../repertoires.v2.airr.json --stage gt3shm.mutations --group ../../repertoire_groups.airr.json RIS_STABLE RIS_STABLE.VJcombo.gt3shm
+python3 /work/vdjserver/vdjserver-tapis/scripts/make_usage_table.py vj_combo subgroup proportion ../../repertoires.v2.airr.json --stage gt3shm.mutations --group ../../repertoire_groups.airr.json RIS_POS RIS_POS.VJcombo.gt3shm
+python3 /work/vdjserver/vdjserver-tapis/scripts/make_usage_table.py vj_combo subgroup proportion ../../repertoires.v2.airr.json --stage gt3shm.mutations --group ../../repertoire_groups.airr.json RIS_NEG RIS_NEG.VJcombo.gt3shm
+#v1#python3 /work/vdjserver/irplus/tapis/vdjserver/common/make_usage_table.py vj_combo subgroup proportion ../../repertoires.v2.airr.json --group ../../repertoire_groups.airr.json TM_PB_DNA TM_PB_DNA.VJcombo.gt3shm
 
-ls *VJcombo*combo_table.csv | xargs -I % -n 1 python3 /work/research/immune/code/MonsonLab/TM-HC-RIS/attach_airr_metadata.py ../../repertoires.v2.airr.json % Fig6_
+ls *VJcombo*combo_table.csv | xargs -I % -n 1 python3 /work/research/monson-lab-projects/TM-HC-RIS/attach_airr_metadata.py ../../repertoires.v2.airr.json % Fig6_
 
 Generate CDR3 junction length spreadsheets
 ------------------------------------------
 
 Generated as part of do_statistics2.sh, so just attach metadata to appropriate files
 
-ls HC_PB_DNA*repertoire*productive*junction_aa_length.csv | xargs -I % -n 1 python3 /work/research/immune/code/MonsonLab/TM-HC-RIS/attach_airr_metadata.py ../../repertoires.v2.airr.json % Fig7_
-ls RIS_PB_DNA*repertoire*productive*junction_aa_length.csv | xargs -I % -n 1 python3 /work/research/immune/code/MonsonLab/TM-HC-RIS/attach_airr_metadata.py ../../repertoires.v2.airr.json % Fig7_
-ls TM_PB_DNA*repertoire*productive*junction_aa_length.csv | xargs -I % -n 1 python3 /work/research/immune/code/MonsonLab/TM-HC-RIS/attach_airr_metadata.py ../../repertoires.v2.airr.json % Fig7_
+stats:
+gt3shm
+ls HC_PB_DNA*repertoire*productive*junction_aa_length.csv | xargs -I % -n 1 python3 /work/research/monson-lab-projects/TM-HC-RIS/attach_airr_metadata.py ../../repertoires.v2.airr.json % Fig7_
+ls CIS_PB_DNA*repertoire*productive*junction_aa_length.csv | xargs -I % -n 1 python3 /work/research/monson-lab-projects/TM-HC-RIS/attach_airr_metadata.py ../../repertoires.v2.airr.json % Fig7_
+ls RIS_PB_DNA*repertoire*productive*junction_aa_length.csv | xargs -I % -n 1 python3 /work/research/monson-lab-projects/TM-HC-RIS/attach_airr_metadata.py ../../repertoires.v2.airr.json % Fig7_
+ls RIS_ADVANCING*repertoire*productive*junction_aa_length.csv | xargs -I % -n 1 python3 /work/research/monson-lab-projects/TM-HC-RIS/attach_airr_metadata.py ../../repertoires.v2.airr.json % Fig7_
+ls RIS_STABLE*repertoire*productive*junction_aa_length.csv | xargs -I % -n 1 python3 /work/research/monson-lab-projects/TM-HC-RIS/attach_airr_metadata.py ../../repertoires.v2.airr.json % Fig7_
+ls RIS_POS*repertoire*productive*junction_aa_length.csv | xargs -I % -n 1 python3 /work/research/monson-lab-projects/TM-HC-RIS/attach_airr_metadata.py ../../repertoires.v2.airr.json % Fig7_
+ls RIS_NEG*repertoire*productive*junction_aa_length.csv | xargs -I % -n 1 python3 /work/research/monson-lab-projects/TM-HC-RIS/attach_airr_metadata.py ../../repertoires.v2.airr.json % Fig7_
+#v1#ls TM_PB_DNA*repertoire*productive*junction_aa_length.csv | xargs -I % -n 1 python3 /work/research/immune/code/MonsonLab/TM-HC-RIS/attach_airr_metadata.py ../../repertoires.v2.airr.json % Fig7_
 
-ls HC_PB_DNA*repertoire*productive*aa_wo_duplicates_length.csv | xargs -I % -n 1 python3 /work/research/immune/code/MonsonLab/TM-HC-RIS/attach_airr_metadata.py ../../repertoires.v2.airr.json % Fig7_
-ls RIS_PB_DNA*repertoire*productive*aa_wo_duplicates_length.csv | xargs -I % -n 1 python3 /work/research/immune/code/MonsonLab/TM-HC-RIS/attach_airr_metadata.py ../../repertoires.v2.airr.json % Fig7_
-ls TM_PB_DNA*repertoire*productive*aa_wo_duplicates_length.csv | xargs -I % -n 1 python3 /work/research/immune/code/MonsonLab/TM-HC-RIS/attach_airr_metadata.py ../../repertoires.v2.airr.json % Fig7_
+ls HC_PB_DNA*repertoire*productive*aa_wo_duplicates_length.csv | xargs -I % -n 1 python3 /work/research/monson-lab-projects/TM-HC-RIS/attach_airr_metadata.py ../../repertoires.v2.airr.json % Fig7_
+ls CIS_PB_DNA*repertoire*productive*aa_wo_duplicates_length.csv | xargs -I % -n 1 python3 /work/research/monson-lab-projects/TM-HC-RIS/attach_airr_metadata.py ../../repertoires.v2.airr.json % Fig7_
+ls RIS_PB_DNA*repertoire*productive*aa_wo_duplicates_length.csv | xargs -I % -n 1 python3 /work/research/monson-lab-projects/TM-HC-RIS/attach_airr_metadata.py ../../repertoires.v2.airr.json % Fig7_
+ls RIS_ADVANCING*repertoire*productive*aa_wo_duplicates_length.csv | xargs -I % -n 1 python3 /work/research/monson-lab-projects/TM-HC-RIS/attach_airr_metadata.py ../../repertoires.v2.airr.json % Fig7_
+ls RIS_STABLE*repertoire*productive*aa_wo_duplicates_length.csv | xargs -I % -n 1 python3 /work/research/monson-lab-projects/TM-HC-RIS/attach_airr_metadata.py ../../repertoires.v2.airr.json % Fig7_
+ls RIS_POS*repertoire*productive*aa_wo_duplicates_length.csv | xargs -I % -n 1 python3 /work/research/monson-lab-projects/TM-HC-RIS/attach_airr_metadata.py ../../repertoires.v2.airr.json % Fig7_
+ls RIS_NEG*repertoire*productive*aa_wo_duplicates_length.csv | xargs -I % -n 1 python3 /work/research/monson-lab-projects/TM-HC-RIS/attach_airr_metadata.py ../../repertoires.v2.airr.json % Fig7_
+#v1#ls TM_PB_DNA*repertoire*productive*aa_wo_duplicates_length.csv | xargs -I % -n 1 python3 /work/research/immune/code/MonsonLab/TM-HC-RIS/attach_airr_metadata.py ../../repertoires.v2.airr.json % Fig7_
 
-Split out by IGHJ with ighj1_files.py and etc into separate directories. Run repcalc
+Split out by IGHJ with ighj1_files.py and etc into separate directories.
+Run repcalc junction_length_config.json to calculate junction length.
+Commands are the same as above but with different path to repertoire AIRR JSON.
 
-ls HC_PB_DNA*repertoire*productive*junction_aa_length.csv | xargs -I % -n 1 python3 /work/research/immune/code/MonsonLab/TM-HC-RIS/attach_airr_metadata.py ../../../repertoires.v2.airr.json % Fig7_
-ls RIS_PB_DNA*repertoire*productive*junction_aa_length.csv | xargs -I % -n 1 python3 /work/research/immune/code/MonsonLab/TM-HC-RIS/attach_airr_metadata.py ../../../repertoires.v2.airr.json % Fig7_
-ls TM_PB_DNA*repertoire*productive*junction_aa_length.csv | xargs -I % -n 1 python3 /work/research/immune/code/MonsonLab/TM-HC-RIS/attach_airr_metadata.py ../../../repertoires.v2.airr.json % Fig7_
+ls HC_PB_DNA*repertoire*productive*junction_aa_length.csv | xargs -I % -n 1 python3 /work/research/monson-lab-projects/TM-HC-RIS/attach_airr_metadata.py ../../../repertoires.v2.airr.json % Fig7_
+ls CIS_PB_DNA*repertoire*productive*junction_aa_length.csv | xargs -I % -n 1 python3 /work/research/monson-lab-projects/TM-HC-RIS/attach_airr_metadata.py ../../../repertoires.v2.airr.json % Fig7_
+ls RIS_PB_DNA*repertoire*productive*junction_aa_length.csv | xargs -I % -n 1 python3 /work/research/monson-lab-projects/TM-HC-RIS/attach_airr_metadata.py ../../../repertoires.v2.airr.json % Fig7_
+ls RIS_ADVANCING*repertoire*productive*junction_aa_length.csv | xargs -I % -n 1 python3 /work/research/monson-lab-projects/TM-HC-RIS/attach_airr_metadata.py ../../../repertoires.v2.airr.json % Fig7_
+ls RIS_STABLE*repertoire*productive*junction_aa_length.csv | xargs -I % -n 1 python3 /work/research/monson-lab-projects/TM-HC-RIS/attach_airr_metadata.py ../../../repertoires.v2.airr.json % Fig7_
+ls RIS_POS*repertoire*productive*junction_aa_length.csv | xargs -I % -n 1 python3 /work/research/monson-lab-projects/TM-HC-RIS/attach_airr_metadata.py ../../../repertoires.v2.airr.json % Fig7_
+ls RIS_NEG*repertoire*productive*junction_aa_length.csv | xargs -I % -n 1 python3 /work/research/monson-lab-projects/TM-HC-RIS/attach_airr_metadata.py ../../../repertoires.v2.airr.json % Fig7_
+#v1#ls TM_PB_DNA*repertoire*productive*junction_aa_length.csv | xargs -I % -n 1 python3 /work/research/immune/code/MonsonLab/TM-HC-RIS/attach_airr_metadata.py ../../../repertoires.v2.airr.json % Fig7_
 
-ls HC_PB_DNA*repertoire*productive*aa_wo_duplicates_length.csv | xargs -I % -n 1 python3 /work/research/immune/code/MonsonLab/TM-HC-RIS/attach_airr_metadata.py ../../../repertoires.v2.airr.json % Fig7_
-ls RIS_PB_DNA*repertoire*productive*aa_wo_duplicates_length.csv | xargs -I % -n 1 python3 /work/research/immune/code/MonsonLab/TM-HC-RIS/attach_airr_metadata.py ../../../repertoires.v2.airr.json % Fig7_
-ls TM_PB_DNA*repertoire*productive*aa_wo_duplicates_length.csv | xargs -I % -n 1 python3 /work/research/immune/code/MonsonLab/TM-HC-RIS/attach_airr_metadata.py ../../../repertoires.v2.airr.json % Fig7_
+ls HC_PB_DNA*repertoire*productive*aa_wo_duplicates_length.csv | xargs -I % -n 1 python3 /work/research/monson-lab-projects/TM-HC-RIS/attach_airr_metadata.py ../../../repertoires.v2.airr.json % Fig7_
+ls CIS_PB_DNA*repertoire*productive*aa_wo_duplicates_length.csv | xargs -I % -n 1 python3 /work/research/monson-lab-projects/TM-HC-RIS/attach_airr_metadata.py ../../../repertoires.v2.airr.json % Fig7_
+ls RIS_PB_DNA*repertoire*productive*aa_wo_duplicates_length.csv | xargs -I % -n 1 python3 /work/research/monson-lab-projects/TM-HC-RIS/attach_airr_metadata.py ../../../repertoires.v2.airr.json % Fig7_
+ls RIS_ADVANCING*repertoire*productive*aa_wo_duplicates_length.csv | xargs -I % -n 1 python3 /work/research/monson-lab-projects/TM-HC-RIS/attach_airr_metadata.py ../../../repertoires.v2.airr.json % Fig7_
+ls RIS_STABLE*repertoire*productive*aa_wo_duplicates_length.csv | xargs -I % -n 1 python3 /work/research/monson-lab-projects/TM-HC-RIS/attach_airr_metadata.py ../../../repertoires.v2.airr.json % Fig7_
+ls RIS_POS*repertoire*productive*aa_wo_duplicates_length.csv | xargs -I % -n 1 python3 /work/research/monson-lab-projects/TM-HC-RIS/attach_airr_metadata.py ../../../repertoires.v2.airr.json % Fig7_
+ls RIS_NEG*repertoire*productive*aa_wo_duplicates_length.csv | xargs -I % -n 1 python3 /work/research/monson-lab-projects/TM-HC-RIS/attach_airr_metadata.py ../../../repertoires.v2.airr.json % Fig7_
+#v1#ls TM_PB_DNA*repertoire*productive*aa_wo_duplicates_length.csv | xargs -I % -n 1 python3 /work/research/immune/code/MonsonLab/TM-HC-RIS/attach_airr_metadata.py ../../../repertoires.v2.airr.json % Fig7_
 
-To get V/J combos, split out by IGHV for each IGHJ folder with ighv1_files.py and etc into separate directories. Run repcalc
+To get V/J combos, split out by IGHV for each IGHJ folder with ighv1_files.py and etc into separate directories.
+We only did this split with IGHJ6.
+Run repcalc junction_length_config.json to calculate junction length.
+Commands are the same as above but with different path to repertoire AIRR JSON.
 
-ls HC_PB_DNA*repertoire*productive*junction_aa_length.csv | xargs -I % -n 1 python3 /work/research/immune/code/MonsonLab/TM-HC-RIS/attach_airr_metadata.py ../../../../repertoires.v2.airr.json % Fig7_
-ls RIS_PB_DNA*repertoire*productive*junction_aa_length.csv | xargs -I % -n 1 python3 /work/research/immune/code/MonsonLab/TM-HC-RIS/attach_airr_metadata.py ../../../../repertoires.v2.airr.json % Fig7_
-ls TM_PB_DNA*repertoire*productive*junction_aa_length.csv | xargs -I % -n 1 python3 /work/research/immune/code/MonsonLab/TM-HC-RIS/attach_airr_metadata.py ../../../../repertoires.v2.airr.json % Fig7_
+ls HC_PB_DNA*repertoire*productive*junction_aa_length.csv | xargs -I % -n 1 python3 /work/research/monson-lab-projects/TM-HC-RIS/attach_airr_metadata.py ../../../repertoires.v2.airr.json % Fig7_
+ls RIS_PB_DNA*repertoire*productive*junction_aa_length.csv | xargs -I % -n 1 python3 /work/research/monson-lab-projects/TM-HC-RIS/attach_airr_metadata.py ../../../repertoires.v2.airr.json % Fig7_
+ls RIS_ADVANCING*repertoire*productive*junction_aa_length.csv | xargs -I % -n 1 python3 /work/research/monson-lab-projects/TM-HC-RIS/attach_airr_metadata.py ../../../repertoires.v2.airr.json % Fig7_
+ls RIS_STABLE*repertoire*productive*junction_aa_length.csv | xargs -I % -n 1 python3 /work/research/monson-lab-projects/TM-HC-RIS/attach_airr_metadata.py ../../../repertoires.v2.airr.json % Fig7_
+ls RIS_POS*repertoire*productive*junction_aa_length.csv | xargs -I % -n 1 python3 /work/research/monson-lab-projects/TM-HC-RIS/attach_airr_metadata.py ../../../repertoires.v2.airr.json % Fig7_
+ls RIS_NEG*repertoire*productive*junction_aa_length.csv | xargs -I % -n 1 python3 /work/research/monson-lab-projects/TM-HC-RIS/attach_airr_metadata.py ../../../repertoires.v2.airr.json % Fig7_
+#v1#ls TM_PB_DNA*repertoire*productive*junction_aa_length.csv | xargs -I % -n 1 python3 /work/research/immune/code/MonsonLab/TM-HC-RIS/attach_airr_metadata.py ../../../repertoires.v2.airr.json % Fig7_
 
-ls HC_PB_DNA*repertoire*productive*aa_wo_duplicates_length.csv | xargs -I % -n 1 python3 /work/research/immune/code/MonsonLab/TM-HC-RIS/attach_airr_metadata.py ../../../../repertoires.v2.airr.json % Fig7_
-ls RIS_PB_DNA*repertoire*productive*aa_wo_duplicates_length.csv | xargs -I % -n 1 python3 /work/research/immune/code/MonsonLab/TM-HC-RIS/attach_airr_metadata.py ../../../../repertoires.v2.airr.json % Fig7_
-ls TM_PB_DNA*repertoire*productive*aa_wo_duplicates_length.csv | xargs -I % -n 1 python3 /work/research/immune/code/MonsonLab/TM-HC-RIS/attach_airr_metadata.py ../../../../repertoires.v2.airr.json % Fig7_
-
+ls HC_PB_DNA*repertoire*productive*aa_wo_duplicates_length.csv | xargs -I % -n 1 python3 /work/research/monson-lab-projects/TM-HC-RIS/attach_airr_metadata.py ../../../repertoires.v2.airr.json % Fig7_
+ls RIS_PB_DNA*repertoire*productive*aa_wo_duplicates_length.csv | xargs -I % -n 1 python3 /work/research/monson-lab-projects/TM-HC-RIS/attach_airr_metadata.py ../../../repertoires.v2.airr.json % Fig7_
+ls RIS_ADVANCING*repertoire*productive*aa_wo_duplicates_length.csv | xargs -I % -n 1 python3 /work/research/monson-lab-projects/TM-HC-RIS/attach_airr_metadata.py ../../../repertoires.v2.airr.json % Fig7_
+ls RIS_STABLE*repertoire*productive*aa_wo_duplicates_length.csv | xargs -I % -n 1 python3 /work/research/monson-lab-projects/TM-HC-RIS/attach_airr_metadata.py ../../../repertoires.v2.airr.json % Fig7_
+ls RIS_POS*repertoire*productive*aa_wo_duplicates_length.csv | xargs -I % -n 1 python3 /work/research/monson-lab-projects/TM-HC-RIS/attach_airr_metadata.py ../../../repertoires.v2.airr.json % Fig7_
+ls RIS_NEG*repertoire*productive*aa_wo_duplicates_length.csv | xargs -I % -n 1 python3 /work/research/monson-lab-projects/TM-HC-RIS/attach_airr_metadata.py ../../../repertoires.v2.airr.json % Fig7_
+#v1#ls TM_PB_DNA*repertoire*productive*aa_wo_duplicates_length.csv | xargs -I % -n 1 python3 /work/research/immune/code/MonsonLab/TM-HC-RIS/attach_airr_metadata.py ../../../repertoires.v2.airr.json % Fig7_
 
 Generate CDR3 charge spreadsheets
 ------------------------------------------
@@ -162,23 +247,21 @@ Generate CDR3 charge spreadsheets
 Run ighvX_files.py to filter for specific VH family with the files in a separate directory.
 Manually run summary_aa_properties.R for each directory to generate summary CSV.
 
-ls HC_PB_DNA*aa_properties.csv | xargs -I % -n 1 python3 /work/research/immune/code/MonsonLab/TM-HC-RIS/attach_airr_metadata.py ../../repertoires.v2.airr.json % Fig7_
-ls RIS_PB_DNA*aa_properties.csv | xargs -I % -n 1 python3 /work/research/immune/code/MonsonLab/TM-HC-RIS/attach_airr_metadata.py ../../repertoires.v2.airr.json % Fig7_
-ls TM_PB_DNA*aa_properties.csv | xargs -I % -n 1 python3 /work/research/immune/code/MonsonLab/TM-HC-RIS/attach_airr_metadata.py ../../repertoires.v2.airr.json % Fig7_
+ls *summary.aa_properties.csv | xargs -I % -n 1 python3 /work/research/monson-lab-projects/TM-HC-RIS/attach_airr_metadata.py ../../repertoires.v2.airr.json % Fig7_
 
 Split out by IGHJ with ighj1_files.py and etc into separate directories. Modify and run R script
 
-Rscript /Volumes/Antigen/Projects/research/immune/code/MonsonLab/TM-HC-RIS/summary_aa_properties.R
+Rscript /work/research/monson-lab-projects/TM-HC-RIS/summary_aa_properties.R
 
-ls *.csv | xargs -I % -n 1 python3 /work/research/immune/code/MonsonLab/TM-HC-RIS/attach_airr_metadata.py ../../../repertoires.v2.airr.json % Fig7_
+ls *summary.aa_properties.csv | xargs -I % -n 1 python3 /work/research/monson-lab-projects/TM-HC-RIS/attach_airr_metadata.py ../../../repertoires.v2.airr.json % Fig7_
 
 To get V/J combos, split out by IGHV for each IGHJ folder with ighv1_files.py and etc into separate directories. This might have already been done above for junction length.
 
 Modify and run R script
 
-Rscript /Volumes/Antigen/Projects/research/immune/code/MonsonLab/TM-HC-RIS/summary_aa_properties.R
+Rscript /work/research/monson-lab-projects/TM-HC-RIS/summary_aa_properties.R
 
-ls *.aa_properties.csv | xargs -I % -n 1 python3 /work/research/immune/code/MonsonLab/TM-HC-RIS/attach_airr_metadata.py ../../../../repertoires.v2.airr.json % Fig7_
+ls *summary.aa_properties.csv | xargs -I % -n 1 python3 /work/research/monson-lab-projects/TM-HC-RIS/attach_airr_metadata.py ../../../../repertoires.v2.airr.json % Fig7_
 
 Generate mutation frequency spreadsheets
 ----------------------------------------
@@ -192,15 +275,26 @@ python3 /work/research/immune/code/MonsonLab/TM-HC-RIS/ighv4_files.py
 
 then run repcalc mutations_config.json
 
-ls HC_PB_DNA*mutational_report.csv | xargs -I % -n 1 python3 /work/research/immune/code/MonsonLab/TM-HC-RIS/attach_airr_metadata.py ../../repertoires.v2.airr.json % Fig8_
-ls RIS_PB_DNA*mutational_report.csv | xargs -I % -n 1 python3 /work/research/immune/code/MonsonLab/TM-HC-RIS/attach_airr_metadata.py ../../repertoires.v2.airr.json % Fig8_
-ls TM_PB_DNA*mutational_report.csv | xargs -I % -n 1 python3 /work/research/immune/code/MonsonLab/TM-HC-RIS/attach_airr_metadata.py ../../repertoires.v2.airr.json % Fig8_
+ls HC_PB_DNA*mutational_report.csv | xargs -I % -n 1 python3 /work/research/monson-lab-projects/TM-HC-RIS/attach_airr_metadata.py ../../repertoires.v2.airr.json % Fig8_
+ls CIS_PB_DNA*mutational_report.csv | xargs -I % -n 1 python3 /work/research/monson-lab-projects/TM-HC-RIS/attach_airr_metadata.py ../../repertoires.v2.airr.json % Fig8_
+ls RIS_PB_DNA*mutational_report.csv | xargs -I % -n 1 python3 /work/research/monson-lab-projects/TM-HC-RIS/attach_airr_metadata.py ../../repertoires.v2.airr.json % Fig8_
+ls RIS_ADVANCING*mutational_report.csv | xargs -I % -n 1 python3 /work/research/monson-lab-projects/TM-HC-RIS/attach_airr_metadata.py ../../repertoires.v2.airr.json % Fig8_
+ls RIS_STABLE*mutational_report.csv | xargs -I % -n 1 python3 /work/research/monson-lab-projects/TM-HC-RIS/attach_airr_metadata.py ../../repertoires.v2.airr.json % Fig8_
+ls RIS_POS*mutational_report.csv | xargs -I % -n 1 python3 /work/research/monson-lab-projects/TM-HC-RIS/attach_airr_metadata.py ../../repertoires.v2.airr.json % Fig8_
+ls RIS_NEG*mutational_report.csv | xargs -I % -n 1 python3 /work/research/monson-lab-projects/TM-HC-RIS/attach_airr_metadata.py ../../repertoires.v2.airr.json % Fig8_
+#v1#ls TM_PB_DNA*mutational_report.csv | xargs -I % -n 1 python3 /work/research/monson-lab-projects/TM-HC-RIS/attach_airr_metadata.py ../../repertoires.v2.airr.json % Fig8_
 
 For IGHJ split under IGHV4
 
 ls HC_PB_DNA*mutational_report.csv | xargs -I % -n 1 python3 /work/research/immune/code/MonsonLab/TM-HC-RIS/attach_airr_metadata.py ../../../repertoires.v2.airr.json % Fig8_
 ls RIS_PB_DNA*mutational_report.csv | xargs -I % -n 1 python3 /work/research/immune/code/MonsonLab/TM-HC-RIS/attach_airr_metadata.py ../../../repertoires.v2.airr.json % Fig8_
 ls TM_PB_DNA*mutational_report.csv | xargs -I % -n 1 python3 /work/research/immune/code/MonsonLab/TM-HC-RIS/attach_airr_metadata.py ../../../repertoires.v2.airr.json % Fig8_
+
+Generate mutation hedgehog plots
+----------------------------------------
+
+Modify cluster_mutations.R and run for each group to generate png file.
+
 
 Top 1/5 clones for bubbleplot
 -------------------------------------

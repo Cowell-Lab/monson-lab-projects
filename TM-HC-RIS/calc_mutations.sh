@@ -6,10 +6,11 @@ fileList=($(ls *.clone.airr.tsv))
 #fileList=($(ls 2070_S19_L001_R1_001*.clone.airr.tsv))
 #fileList=(1068_S35_L001_R1_001.fastq.merged.unique.igblast.makedb.allele.clone.airr.tsv)
 
-#metadata_file=../../repertoires.v2.airr.json
-metadata_file=../repertoires.airr.json
+metadata_file=../../repertoires.v2.airr.json
+#metadata_file=../repertoires.airr.json
 germline_fasta=/work/vdjserver/db/db.2019.01.23/germline/human/ReferenceDirectorySet/IG_VDJ.fna
 common_dir=/work/vdjserver/vdjserver-agave/common
+#common_dir=/work/vdjserver/vdjserver-tapis/scripts
 
 
 # The Tapis script assumes some programs are in the current directory so copy them
@@ -20,6 +21,7 @@ cp ${common_dir}/mutational_analysis.sh .
 cp ${common_dir}/mutational_template.json .
 cp ${common_dir}/get_repertoire_id_for_file.py .
 cp ${common_dir}/repcalc_create_config.py .
+cp ${common_dir}/parse_changeo.py .
 
     count=0
     while [ "x${fileList[count]}" != "x" ]

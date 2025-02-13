@@ -13,10 +13,12 @@ import csv
 #out_stage = 'ighv1.mutations'
 
 #dir = '../stats/'
+#in_stage = 'gene.mutations.aa_properties'
+#out_stage = 'ighv1.gene.mutations.aa_properties'
 
-#dir = '../gt3shm/'
-#in_stage = 'gt3shm.mutations.aa_properties'
-#out_stage = 'gt3shm.ighv1.mutations.aa_properties'
+dir = '../gt3shm/'
+in_stage = 'gt3shm.mutations.aa_properties'
+out_stage = 'gt3shm.ighv1.mutations.aa_properties'
 
 #dir = '../gt3shm/'
 #in_stage = 'gt3shm.mutations'
@@ -26,9 +28,9 @@ import csv
 #in_stage = 'ighj6.gene.mutations.aa_properties'
 #out_stage = 'ighv1.ighj6.gene.mutations.aa_properties'
 
-dir = '../'
-in_stage = 'ighj6.gt3shm.mutations.aa_properties'
-out_stage = 'ighv1.ighj6.gt3shm.mutations.aa_properties'
+#dir = '../'
+#in_stage = 'ighj6.gt3shm.mutations.aa_properties'
+#out_stage = 'ighv1.ighj6.gt3shm.mutations.aa_properties'
 
 def get_duplicate_count(fields):
     if fields.get('duplicate_count') is None: return 1
@@ -40,7 +42,7 @@ if (__name__=="__main__"):
     args = parser.parse_args()
 
     if args:
-        data = airr.load_repertoire(args.airr_metadata)
+        data = airr.read_airr(args.airr_metadata)
         reps = data['Repertoire']
         print('Loaded', len(reps), 'repertoires.')
 

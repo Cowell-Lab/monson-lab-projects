@@ -12,21 +12,27 @@ data_dir = '/Users/s166813/Projects/data/immune/MonsonLab/TM-HC-RIS/'
 #data_dir = '/Users/scottc/Projects/data/immune/MonsonLab/TM-HC-RIS/'
 
 #lib_dir = 'vdjserver/library_all/mutations/'
-lib_dir = 'vdjserver/analysis/mutations/'
-file_prefix = 'Fig8.all.'
-#lib_dir = 'vdjserver/analysis/ighv1_mutations/'
-#file_prefix = 'Fig8.ighv1.'
-#lib_dir = 'vdjserver/analysis/ighv2_mutations/'
+#lib_dir = 'vdjserver/analysis_v2/stats/'
+#file_prefix = 'Fig8.all.'
+lib_dir = 'vdjserver/analysis_v2/gt3shm/'
+file_prefix = 'Fig8.gt3shm.'
+
+#lib_dir = 'vdjserver/analysis_v2/ighv1_mutations/'
+#file_prefix = 'Fig8.all.ighv1.'
+#lib_dir = 'vdjserver/analysis_v2/gt3shm_ighv1/'
+#file_prefix = 'Fig8.gt3shm.ighv1.'
+
+#lib_dir = 'vdjserver/analysis_v2/ighv2_mutations/'
 #file_prefix = 'Fig8.ighv2.'
-#lib_dir = 'vdjserver/analysis/ighv3_mutations/'
+#lib_dir = 'vdjserver/analysis_v2/ighv3_mutations/'
 #file_prefix = 'Fig8.ighv3.'
-#lib_dir = 'vdjserver/analysis/ighv4_mutations/'
+#lib_dir = 'vdjserver/analysis_v2/ighv4_mutations/'
 #file_prefix = 'Fig8.ighv4.'
-#lib_dir = 'vdjserver/analysis/ighv5_mutations/'
+#lib_dir = 'vdjserver/analysis_v2/ighv5_mutations/'
 #file_prefix = 'Fig8.ighv5.'
-#lib_dir = 'vdjserver/analysis/ighv6_mutations/'
+#lib_dir = 'vdjserver/analysis_v2/ighv6_mutations/'
 #file_prefix = 'Fig8.ighv6.'
-#lib_dir = 'vdjserver/analysis/ighv7_mutations/'
+#lib_dir = 'vdjserver/analysis_v2/ighv7_mutations/'
 #file_prefix = 'Fig8.ighv7.'
 
 #lib_dir = 'vdjserver/analysis/ighv4_mutations/ighj6/'
@@ -36,15 +42,28 @@ file_prefix = 'Fig8.all.'
 #lib_dir = 'vdjserver/analysis/AJL10_gt3shm/'
 #file_prefix = 'Fig10.AJL10.'
 
+#
+#data_dir = '/Users/s166813/Projects/data/immune/NaeemKhanLab/'
+#lib_dir = 'analysis/'
+#file_prefix = 'Fig.'
+
 # beginning codons to trim
-#trim_codons = 0
-trim_codons = 16
+trim_codons = 0
+#trim_codons = 16
 
 #
 #group.muts = read.table(paste(data_dir, lib_dir, 'mutational_report.group.csv',sep=''), header=T, sep=',')
 #group.muts = read.table(paste(data_dir, lib_dir, 'mutational_report.frequency.group.csv',sep=''), header=T, sep=',')
-group.muts = read.table(paste(data_dir, lib_dir, 'gene.mutations.repertoire_group.frequency.mutational_report.csv',sep=''), header=T, sep=',')
-#group.muts = read.table(paste(data_dir, lib_dir, 'ighv1.mutations.repertoire_group.frequency.mutational_report.csv',sep=''), header=T, sep=',')
+#group.muts = read.table(paste(data_dir, lib_dir, 'gene.mutations.repertoire_group.frequency.mutational_report.csv',sep=''), header=T, sep=',')
+group.muts = read.table(paste(data_dir, lib_dir, 'gt3shm.mutations.repertoire_group.frequency.mutational_report.csv',sep=''), header=T, sep=',')
+
+#group.muts = read.table(paste(data_dir, lib_dir, 'gt3shm.ighv1.mutations.aa_properties.repertoire_group.frequency.mutational_report.csv',sep=''), header=T, sep=',')
+
+#group.muts = read.table(paste(data_dir, lib_dir, 'igblast.makedb.gene.clone.mutations.repertoire_group.frequency.mutational_report.csv',sep=''), header=T, sep=',')
+
+#group.muts = read.table(paste(data_dir, lib_dir, 'ighv1.gene.mutations.aa_properties.repertoire_group.frequency.mutational_report.csv',sep=''), header=T, sep=',')
+#group.muts = read.table(paste(data_dir, lib_dir, 'ighv4.mutations.aa_properties.repertoire_group.frequency.mutational_report.csv',sep=''), header=T, sep=',')
+
 #group.muts = read.table(paste(data_dir, lib_dir, 'ighv2.mutations.repertoire_group.frequency.mutational_report.csv',sep=''), header=T, sep=',')
 #group.muts = read.table(paste(data_dir, lib_dir, 'ighv3.mutations.repertoire_group.frequency.mutational_report.csv',sep=''), header=T, sep=',')
 #group.muts = read.table(paste(data_dir, lib_dir, 'ighv4.mutations.repertoire_group.frequency.mutational_report.csv',sep=''), header=T, sep=',')
@@ -62,6 +81,23 @@ rownames(group.muts) = group.muts$repertoire_group_id
 #RIS.rep.muts = read.table(paste(data_dir, lib_dir, 'RIS_PB_DNA.gene.mutations.repertoire.frequency.mutational_report.csv',sep=''), header=T, sep=',')
 #TM.rep.muts = read.table(paste(data_dir, lib_dir, 'TM_PB_DNA.gene.mutations.repertoire.frequency.mutational_report.csv',sep=''), header=T, sep=',')
 #rownames(rep.muts) = rep.muts$repertoire_id
+
+#group_name = 'HC_PB_DNA'
+group_name = 'CIS_PB_DNA'
+#group_name = 'RIS_PB_DNA'
+#group_name = 'RIS_ADVANCING'
+#group_name = 'RIS_STABLE'
+#group_name = 'RIS_POS'
+#group_name = 'RIS_NEG'
+
+#v1#group_name = 'TM_PB_DNA'
+
+#group_name = 'VDJServer-IgH-Group-A'
+#group_name = 'VDJServer-IgH-Group-B'
+#group_name = 'VDJServer-IgK-Group-A'
+#group_name = 'VDJServer-IgK-Group-B'
+#group_name = 'VDJServer-IgL-Group-A'
+#group_name = 'VDJServer-IgL-Group-B'
 
 # define regions
 fwr1_r_nt = c()
@@ -146,9 +182,6 @@ for (r in pos_cols_r_aa) {
 #lib.muts.avg = group.muts['RIS_PB',pos_cols_r_nt_avg]
 #lib.muts.se = group.muts['RIS_PB',pos_cols_r_nt_std] / sqrt(group.muts['RIS_PB','N'])
 
-#group_name = 'HC_PB_DNA'
-#group_name = 'RIS_PB_DNA'
-group_name = 'TM_PB_DNA'
 filename = paste(file_prefix, "mutations_", group_name, "_N=", group.muts[group_name,'N'], ".png", sep='')
 lib.muts.avg = group.muts[group_name,pos_cols_r_aa_avg]
 lib.muts.se = group.muts[group_name,pos_cols_r_aa_std] / sqrt(group.muts[group_name,pos_cols_r_aa_N])
@@ -351,9 +384,10 @@ p <- ggplot(data, aes(x=as.factor(id), y=value, fill=group)) +       # Note that
   geom_segment(data=grid_data, aes(x = end, y = 0.05, xend = start, yend = 0.05), colour = "grey", alpha=1, size=0.3 , inherit.aes = FALSE ) +
   geom_segment(data=grid_data, aes(x = end, y = 0.1, xend = start, yend = 0.1), colour = "grey", alpha=1, size=0.3 , inherit.aes = FALSE ) +
   geom_segment(data=grid_data, aes(x = end, y = 0.15, xend = start, yend = 0.15), colour = "grey", alpha=1, size=0.3 , inherit.aes = FALSE ) +
-  annotate("text", x = rep(max(data$id),3) + c(1.1,0.5,0.5), y = c(0.04, 0.09, 0.14), label = c("0.05", "0.1", "0.15") , color="grey", size=3 , angle=5, fontface="bold", hjust=1) +
+  geom_segment(data=grid_data, aes(x = end, y = 0.2, xend = start, yend = 0.2), colour = "grey", alpha=1, size=0.3 , inherit.aes = FALSE ) +
+  annotate("text", x = rep(max(data$id),4) + c(1.1,0.5,0.5,0.5), y = c(0.04, 0.09, 0.14, 0.19), label = c("0.05", "0.1", "0.15", "0.20") , color="grey", size=2 , angle=5, fontface="bold", hjust=1) +
   geom_segment(aes(x = id, y = se_start, xend = id, yend = se_end), colour = "black", alpha=1, size=0.3 , inherit.aes = FALSE ) +
-  ylim(-0.2,0.3) +
+  ylim(-0.2,0.6) +
   theme_minimal() +
   theme(
     legend.position = "none",

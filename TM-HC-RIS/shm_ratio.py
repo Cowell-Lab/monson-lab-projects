@@ -13,7 +13,7 @@ def get_duplicate_count(fields):
     if fields.get('duplicate_count') is None: return 1
     else: return int(fields['duplicate_count'])
 
-names = ['repertoire_id', '#seq 0 SHM', '#seq >3 SHM', 'total #seq', 'abundance 0 SHM', 'abundance >3 SHM', 'total abundance']
+names = ['repertoire_id', '#seq 0 SHM', '#seq 0 R SHM', '#seq >3 SHM', '#seq >2 R SHM', '#seq >3 R SHM', 'total #seq', 'abundance 0 SHM', 'abundance 0 R SHM', 'abundance >3 SHM', 'abundance >2 R SHM','abundance >3 R SHM', 'total abundance']
 
 if (__name__=="__main__"):
     parser = argparse.ArgumentParser(description='Calculate SHM ratios.')
@@ -22,7 +22,7 @@ if (__name__=="__main__"):
     args = parser.parse_args()
 
     if args:
-        data = airr.load_repertoire(args.airr_metadata)
+        data = airr.read_airr(args.airr_metadata)
         reps_all = { obj['repertoire_id'] : obj for obj in data['Repertoire'] }
         print('Loaded', len(reps_all), 'repertoires.')
 
@@ -48,29 +48,50 @@ if (__name__=="__main__"):
                 print('Processing:', filename)
 
                 shm0_seq_cnt = 0
+                shm0_r_seq_cnt = 0
                 shm3_seq_cnt = 0
+                shm2_r_seq_cnt = 0
+                shm3_r_seq_cnt = 0
                 total_seq_cnt = 0
                 shm0_ab_cnt = 0
+                shm0_r_ab_cnt = 0
                 shm3_ab_cnt = 0
+                shm2_r_ab_cnt = 0
+                shm3_r_ab_cnt = 0
                 total_ab_cnt = 0
                 try:
                     reader = airr.read_rearrangement(filename)
                     for row in reader:
                         total_ab_cnt += get_duplicate_count(row)
                         total_seq_cnt += 1
+                        if int(row['mu_count_v_r']) == 0:
+                            shm0_r_ab_cnt += get_duplicate_count(row)
+                            shm0_r_seq_cnt += 1
                         if int(row['mu_count_v_r']) + int(row['mu_count_v_s']) == 0:
                             shm0_ab_cnt += get_duplicate_count(row)
                             shm0_seq_cnt += 1
+                        if int(row['mu_count_v_r']) > 2:
+                            shm2_r_ab_cnt += get_duplicate_count(row)
+                            shm2_r_seq_cnt += 1
+                        if int(row['mu_count_v_r']) > 3:
+                            shm3_r_ab_cnt += get_duplicate_count(row)
+                            shm3_r_seq_cnt += 1
                         if int(row['mu_count_v_r']) + int(row['mu_count_v_s']) > 3:
                             shm3_ab_cnt += get_duplicate_count(row)
                             shm3_seq_cnt += 1
 
                     entry = { 'repertoire_id':r['repertoire_id'] }
                     entry['#seq 0 SHM'] = shm0_seq_cnt
+                    entry['#seq 0 R SHM'] = shm0_r_seq_cnt
                     entry['#seq >3 SHM'] = shm3_seq_cnt
+                    entry['#seq >2 R SHM'] = shm2_r_seq_cnt
+                    entry['#seq >3 R SHM'] = shm3_r_seq_cnt
                     entry['total #seq'] = total_seq_cnt
                     entry['abundance 0 SHM'] = shm0_ab_cnt
+                    entry['abundance 0 R SHM'] = shm0_r_ab_cnt
                     entry['abundance >3 SHM'] = shm3_ab_cnt
+                    entry['abundance >2 R SHM'] = shm2_r_ab_cnt
+                    entry['abundance >3 R SHM'] = shm3_r_ab_cnt
                     entry['total abundance'] = total_ab_cnt
                     writer.writerow(entry)
 

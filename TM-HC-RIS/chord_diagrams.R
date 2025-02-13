@@ -10,9 +10,9 @@ library(tidyr)
 data_dir = '/Users/s166813/Projects/data/immune/MonsonLab/TM-HC-RIS/vdjserver/'
 #data_dir = '/Users/scottc/Projects/data/immune/MonsonLab/TM-HC-RIS/vdjserver/'
 
-#lib_dir = paste(data_dir, 'analysis/stats/', sep='')
+#lib_dir = paste(data_dir, 'analysis_v2/stats/', sep='')
 #file_prefix = 'Fig6.all.'
-lib_dir = paste(data_dir, 'analysis/gt3shm/', sep='')
+lib_dir = paste(data_dir, 'analysis_v2/gt3shm/', sep='')
 file_prefix = 'Fig6.gt3shm.'
 
 #lib_dir = paste(data_dir, 'analysis/0shm/', sep='')
@@ -88,9 +88,16 @@ ighj.names = c('IGHJ1', 'IGHJ2', 'IGHJ3', 'IGHJ4', 'IGHJ5', 'IGHJ6')
 #liball = read.table(paste(lib_dir, 'TM_PB_DNA.group.vj_combo.tsv',sep=''), header=T, sep='\t')
 
 #group_name = 'HC_PB_DNA'
+group_name = 'CIS_PB_DNA'
 #group_name = 'RIS_PB_DNA'
-group_name = 'TM_PB_DNA'
+#group_name = 'RIS_ADVANCING'
+#group_name = 'RIS_STABLE'
+#group_name = 'RIS_POS'
+#group_name = 'RIS_NEG'
+#v1#group_name = 'TM_PB_DNA'
+
 processing_stage = '.gt3shm.mutations'
+#processing_stage = '.gene.mutations'
 liball = read.table(paste(lib_dir, group_name, processing_stage, '.group.vj_combo.tsv',sep=''), header=T, sep='\t')
 
 # extract the data

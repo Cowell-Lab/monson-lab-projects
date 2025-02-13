@@ -28,7 +28,7 @@ if (__name__=="__main__"):
     args = parser.parse_args()
 
     if args:
-        data = airr.load_repertoire(args.airr_metadata)
+        data = airr.read_airr(args.airr_metadata)
         reps = data['Repertoire']
         print('Loaded', len(reps), 'repertoires.')
 

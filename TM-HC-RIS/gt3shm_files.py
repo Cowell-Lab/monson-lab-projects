@@ -8,14 +8,14 @@ import argparse
 import airr
 import csv
 
-dir = '../new_mutations/'
+dir = '../stats/'
 
 def get_duplicate_count(fields):
     if fields.get('duplicate_count') is None: return 1
     else: return int(fields['duplicate_count'])
 
 if (__name__=="__main__"):
-    parser = argparse.ArgumentParser(description='Split files for IGHV4.')
+    parser = argparse.ArgumentParser(description='Split files for 3+ SHM.')
     parser.add_argument('airr_metadata', type=str, help='AIRR repertoire metadata file name')
     args = parser.parse_args()
 
