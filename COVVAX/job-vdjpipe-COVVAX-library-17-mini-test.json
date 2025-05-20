@@ -1,0 +1,110 @@
+{
+    "name": "COVVAX - library 17 mini test",
+    "appId": "vdjpipe-ls6",
+    "appVersion": "0.2",
+    "maxMinutes": 480,
+    "nodeCount": 1,
+    "archiveSystemId": "data-storage.vdjserver.org",
+    "archiveSystemDir": "/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/analyses/${JobUUID}",
+    "fileInputArrays": [
+        {
+            "name": "SequenceForwardPairedFiles",
+            "sourceUrls": [
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/4505_S40_L001_R1_001.fastq.gz"
+            ]
+        },
+        {
+            "name": "SequenceReversePairedFiles",
+            "sourceUrls": [
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/4505_S40_L001_R2_001.fastq.gz"
+            ]
+        }
+    ],
+    "fileInputs": [
+        {
+            "name": "ForwardPrimerFile",
+            "sourceUrl": "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/primers.fasta",
+            "targetPath": "primers.fasta"
+        }
+    ],
+    "parameterSet": {
+        "schedulerOptions": [
+            {
+                "name": "allocation",
+                "arg": "-A MCB23006"
+            }
+        ],
+        "containerArgs": [],
+        "appArgs": [],
+        "envVariables": [
+            {
+                "key": "Workflow",
+                "value": "paired"
+            },
+            {
+                "key": "SequenceForwardPairedFiles",
+                "value": "4505_S40_L001_R1_001.fastq.gz"
+            },
+            {
+                "key": "SequenceForwardPairedFilesMetadata",
+                "value": "12348"
+            },
+            {
+                "key": "SequenceReversePairedFiles",
+                "value": "4505_S40_L001_R2_001.fastq.gz"
+            },
+            {
+                "key": "SequenceReversePairedFilesMetadata",
+                "value": "4567"
+            },
+            {
+                "key": "MergeMinimumScore",
+                "value": "10"
+            },
+            {
+                "key": "PreFilterStatisticsFlag",
+                "value": "1"
+            },
+            {
+                "key": "FilterFlag",
+                "value": "1"
+            },
+            {
+                "key": "PostFilterStatisticsFlag",
+                "value": "1"
+            },
+            {
+                "key": "MinimumAverageQuality",
+                "value": "35"
+            },
+            {
+                "key": "MinimumLength",
+                "value": "200"
+            },
+            {
+                "key": "MaximumHomopolymer",
+                "value": "20"
+            },
+            {
+                "key": "ForwardPrimer",
+                "value": "1"
+            },
+            {
+                "key": "ForwardPrimerMaximumMismatches",
+                "value": "1"
+            },
+            {
+                "key": "ForwardPrimerTrim",
+                "value": "1"
+            },
+            {
+                "key": "ForwardPrimerSearchWindow",
+                "value": "50"
+            },
+            {
+                "key": "FindUniqueFlag",
+                "value": "1"
+            }
+        ]
+    }
+}
