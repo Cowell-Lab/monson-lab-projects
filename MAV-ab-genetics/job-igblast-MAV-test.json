@@ -1,0 +1,33 @@
+{
+    "name": "igblast_MAV_test",
+    "appId": "igblast-ls6",
+    "appVersion": "0.3",
+    "maxMinutes": 60,
+    "nodeCount": 1,
+    "archiveSystemId": "data-storage.vdjserver.org",
+    "archiveSystemDir": "/projects/34434b1e-bd36-4253-9109-58d4aab2f33b/analyses/${JobUUID}",
+    "fileInputs":[
+      { "name":"AIRRMetadata", "sourceUrl":"tapis://data-storage.vdjserver.org/projects/34434b1e-bd36-4253-9109-58d4aab2f33b/files/repertoires-br2180.airr.json", "targetPath":"repertoires-br2180.airr.json" }
+    ],
+    "fileInputArrays":[
+      { "name":"query", "sourceUrls": [
+            "tapis://data-storage.vdjserver.org/projects/34434b1e-bd36-4253-9109-58d4aab2f33b/files/BR2180_trust_vdjseq.fasta"
+            ]}
+    ],
+    "parameterSet": {
+        "schedulerOptions": [
+            { "name":"allocation", "arg":"-A MCB23006" }
+        ],
+        "containerArgs": [
+        ],
+        "appArgs": [
+        ],
+        "envVariables": [
+            {"key": "query", "value": "BR2180_trust_vdjseq.fasta" },
+            {"key": "repertoires", "value": "3153842a-fa80-4743-948f-67cbf47e785c" },
+            {"key": "species", "value": "human" },
+            {"key": "ig_seqtype", "value": "IG" },
+            {"key": "ClonalTool", "value": "changeo" }
+        ]
+    }
+}
