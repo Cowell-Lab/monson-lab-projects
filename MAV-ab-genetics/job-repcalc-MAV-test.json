@@ -1,0 +1,32 @@
+{
+    "name": "repcalc_mav_test",
+    "appId": "repcalc2-ls6",
+    "appVersion": "0.2",
+    "maxMinutes": 30,
+    "archiveSystemId": "data-storage.vdjserver.org",
+    "archiveSystemDir": "/projects/34434b1e-bd36-4253-9109-58d4aab2f33b/analyses/${JobUUID}",
+    "fileInputs":[
+      { "name":"AIRRMetadata", "sourceUrl":"tapis://data-storage.vdjserver.org/projects/34434b1e-bd36-4253-9109-58d4aab2f33b/files/repertoires-br2180.airr.json", "targetPath":"repertoires-br2180.airr.json" }
+    ],
+    "fileInputArrays":[
+      { "name":"JobFiles", "sourceUrls": [ "tapis://data-storage.vdjserver.org/projects/34434b1e-bd36-4253-9109-58d4aab2f33b/analyses/3a733332-49f1-456a-903b-b71eed421dac-007/3a733332-49f1-456a-903b-b71eed421dac-007.zip" ]}
+    ],
+    "parameterSet": {
+        "schedulerOptions": [
+            { "name":"allocation", "arg":"-A MCB23006" }
+        ],
+        "containerArgs": [
+        ],
+        "appArgs": [
+        ],
+        "envVariables": [
+            {"key": "JobFiles", "value": "3a733332-49f1-456a-903b-b71eed421dac-007.zip" },
+            {"key": "GeneSegmentFlag", "value": "1" },
+            {"key": "CDR3Flag", "value": "1" },
+            {"key": "DiversityFlag", "value": "1" },
+            {"key": "ClonalFlag", "value": "0" },
+            {"key": "LineageFlag", "value": "0" },
+            {"key": "MutationalFlag", "value": "1" }
+        ]
+    }
+}
