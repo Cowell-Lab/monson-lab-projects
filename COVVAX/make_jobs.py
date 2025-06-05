@@ -76,10 +76,10 @@ def create_json_job_files(data, project_id, save=True):
                     {'key' : 'FilterFlag', 'value' : '1'},
                     {'key' : 'PostFilterStatisticsFlag', 'value' : '1'},
                     {'key' : 'MinimumAverageQuality', 'value' : '35'},
-                    {'key' : 'MinimumLength', 'value' : '200'},
+                    {'key' : 'MinimumLength', 'value' : '250'},
                     {'key' : 'MaximumHomopolymer', 'value' : '20'},
                     {'key' : 'ForwardPrimer', 'value': '1'},
-                    {'key' : 'ForwardPrimerMaximumMismatches', 'value': '1'},
+                    {'key' : 'ForwardPrimerMaximumMismatches', 'value': '0'},
                     {'key' : 'ForwardPrimerTrim', 'value': '1'},
                     {'key' : 'ForwardPrimerSearchWindow', 'value': '50'},
                     {'key' : 'FindUniqueFlag', 'value' : '1'}

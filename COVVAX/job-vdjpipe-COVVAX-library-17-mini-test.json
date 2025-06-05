@@ -2,7 +2,7 @@
     "name": "COVVAX - library 17 mini test",
     "appId": "vdjpipe-ls6",
     "appVersion": "0.2",
-    "maxMinutes": 480,
+    "maxMinutes": 30,
     "nodeCount": 1,
     "archiveSystemId": "data-storage.vdjserver.org",
     "archiveSystemDir": "/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/analyses/${JobUUID}",
@@ -79,7 +79,7 @@
             },
             {
                 "key": "MinimumLength",
-                "value": "200"
+                "value": "250"
             },
             {
                 "key": "MaximumHomopolymer",
@@ -91,7 +91,7 @@
             },
             {
                 "key": "ForwardPrimerMaximumMismatches",
-                "value": "1"
+                "value": "0"
             },
             {
                 "key": "ForwardPrimerTrim",
