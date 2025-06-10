@@ -1,0 +1,131 @@
+vdjserver_uuid	subject_id	synthetic	species	sex	age_min	age_max	age_unit	age_event	ancestry_population	ethnicity	race	strain_name	linked_subjects	link_type	diagnosis.0.study_group_description	diagnosis.0.disease_diagnosis	diagnosis.0.disease_length	diagnosis.0.disease_stage	diagnosis.0.prior_therapies	diagnosis.0.immunogen	diagnosis.0.intervention	diagnosis.0.medical_history
+	283	FALSE	NCBITAXON:9606	female	56	56	UO:0000036			Non-Hispanic/Latino	Caucasian				Neuroimmunology							
+	381	FALSE	NCBITAXON:9606	female	51	51	UO:0000036			hispanic/latino	white				Neuroimmunology							
+	432	FALSE	NCBITAXON:9606	female	59	59	UO:0000036			Non-Hispanic/Latino	White				Neuroimmunology							
+	468	FALSE	NCBITAXON:9606	female	64	64	UO:0000036			Non-Hispanic/Latino	White				Neuroimmunology							
+	548	FALSE	NCBITAXON:9606	female	56	56	UO:0000036			Declined to answer	Declined to answer				Neuroimmunology							
+	735	FALSE	NCBITAXON:9606	male	54	54	UO:0000036			Non-Hispanic/Latino	White				Neuroimmunology							
+	763	FALSE	NCBITAXON:9606	female	26	26	UO:0000036			non-hispanic/latino	black or african american				Neuroimmunology							
+	1315	FALSE	NCBITAXON:9606	female	29	29	UO:0000036			Hispanic or Latino	White				Neuroimmunology							
+	2249	FALSE	NCBITAXON:9606	female	59	59	UO:0000036			Non-Hispanic/Latino	White				Neuroimmunology							
+	3192	FALSE	NCBITAXON:9606	female	57	57	UO:0000036			Hispanic	White				Heme Cancer							
+	3193	FALSE	NCBITAXON:9606	male	67	67	UO:0000036			Non-Hispanic/Latino	White				Solid Cancer							
+	3194	FALSE	NCBITAXON:9606	female	63	63	UO:0000036			Non-Hispanic/Latino	White				Heme Cancer							
+	3196	FALSE	NCBITAXON:9606	female	30	30	UO:0000036			Non-Hispanic/latino	White				Solid Cancer							
+	3199	FALSE	NCBITAXON:9606	female	46	46	UO:0000036			Non-Hispanic/Latino	White				Healthy Control							
+	3203	FALSE	NCBITAXON:9606	male	52	52	UO:0000036			Hispanic or Latino	White				Heme Cancer							
+	3204	FALSE	NCBITAXON:9606	female	50	50	UO:0000036			Hispanic or Latino	White				Heme Cancer							
+	3205	FALSE	NCBITAXON:9606	male	37	37	UO:0000036			Non Hispanic	Asian				Heme Cancer							
+	3207	FALSE	NCBITAXON:9606	female	53	53	UO:0000036			Non-Hispanic/Latino	Black or African American				Solid Cancer							
+	3219	FALSE	NCBITAXON:9606	male	37	37	UO:0000036			Non-Hispanic/Latino	Black or African American				Heme Cancer							
+	3221	FALSE	NCBITAXON:9606	female	48	48	UO:0000036			Hispanic or Latino	White				Solid Cancer							
+	3222	FALSE	NCBITAXON:9606	female	29	29	UO:0000036			Hispanic or Latino	White				Solid Cancer							
+	3223	FALSE	NCBITAXON:9606	female	45	45	UO:0000036			Hispanic or Latino	White				Solid Cancer							
+	3224	FALSE	NCBITAXON:9606	female	49	49	UO:0000036			Hispanic or Latino	White				Solid Cancer							
+	3225	FALSE	NCBITAXON:9606	male	51	51	UO:0000036			Non Hispanic	Asian				Bone Marrow Transplant							
+	3226	FALSE	NCBITAXON:9606	male	51	51	UO:0000036			Non-Hispanic/Latino	American Indian or Alaska Native				Heme Cancer							
+	3227	FALSE	NCBITAXON:9606	male	42	42	UO:0000036			Non-Hispanic/Latino	White				Solid Cancer							
+	3228	FALSE	NCBITAXON:9606	female	56	56	UO:0000036			Hispanic or Latino	White				Solid Cancer							
+	3229	FALSE	NCBITAXON:9606	male	61	61	UO:0000036			Non-Hispanic/Latino	White				Heme Cancer							
+	3230	FALSE	NCBITAXON:9606	female	40	40	UO:0000036			Hispanic or Latino	White				other							
+	3232	FALSE	NCBITAXON:9606	female	52	52	UO:0000036			Non-Hispanic/Latino	White				Solid Cancer							
+	3233	FALSE	NCBITAXON:9606	male	62	62	UO:0000036			Non Hispanic/Latino	White				Heme Cancer							
+	3235	FALSE	NCBITAXON:9606	male	60	60	UO:0000036			Non-Hispanic/Latino	White				Solid Cancer							
+	3236	FALSE	NCBITAXON:9606	female	49	49	UO:0000036			hispanic/latino	white				Solid Cancer							
+	3241	FALSE	NCBITAXON:9606	female	58	58	UO:0000036			Non-Hispanic/Latino	White				Neuroimmunology							
+	3242	FALSE	NCBITAXON:9606	male	63	63	UO:0000036			Non-Hispanic/Latino	White				Healthy Control							
+	3243	FALSE	NCBITAXON:9606	female	59	59	UO:0000036			Non-Hispanic/Latino	Black or African American				Heme Cancer							
+	3246	FALSE	NCBITAXON:9606	female	34	34	UO:0000036			Non-Hispanic/Latino	White				Healthy Control							
+	3247	FALSE	NCBITAXON:9606	female	54	54	UO:0000036			Hispanic or Latino	White				Solid Cancer							
+	3250	FALSE	NCBITAXON:9606	male	64	64	UO:0000036			Non-Hispanic/Latino	White				Healthy Control							
+	3251	FALSE	NCBITAXON:9606	female	51	51	UO:0000036			Non-Hispanic/Latino	White				Healthy Control							
+	3254	FALSE	NCBITAXON:9606	female	42	42	UO:0000036			Hispanic or Latino	White				Healthy Control							
+	3260	FALSE	NCBITAXON:9606	female	62	62	UO:0000036			Non-Hispanic/Latino	White				Heme Cancer							
+	3264	FALSE	NCBITAXON:9606	female	48	48	UO:0000036			Hispanic or Latino	White				Solid Cancer							
+	3266	FALSE	NCBITAXON:9606	female	50	50	UO:0000036			Non-Hispanic/Latino	White				Neuroimmunology							
+	3268	FALSE	NCBITAXON:9606	female	44	44	UO:0000036			Non-Hispanic/Latino	Black or African American				Neuroimmunology							
+	3269	FALSE	NCBITAXON:9606	female	75	75	UO:0000036			Non-Hispanic/Latino	White				Solid Cancer							
+	3271	FALSE	NCBITAXON:9606	female	77	77	UO:0000036			hispanic/latino	white				Solid Cancer							
+	3272	FALSE	NCBITAXON:9606	female	70	70	UO:0000036			hispanic/latino	white				Solid Cancer							
+	3274	FALSE	NCBITAXON:9606	male	80	80	UO:0000036			Non-Hispanic/Latino	White				Solid Cancer							
+	3276	FALSE	NCBITAXON:9606	female	61	61	UO:0000036			Non-Hispanic/Latino	White				Neuroimmunology							
+	3280	FALSE	NCBITAXON:9606	female	66	66	UO:0000036			Non-Hispanic/Latino	Black or African American				Solid Cancer							
+	3281	FALSE	NCBITAXON:9606	male	36	36	UO:0000036			Non-Hispanic/Latino	Asian				Heme Cancer							
+	3282	FALSE	NCBITAXON:9606	female	36	36	UO:0000036			Non-Hispanic/Latino	White				Neuroimmunology							
+	3283	FALSE	NCBITAXON:9606	male	53	53	UO:0000036			hispanic/latino	White				Solid Cancer							
+	3287	FALSE	NCBITAXON:9606	female	22	22	UO:0000036			Non-Hispanic/Latino	Black or African American				Neuroimmunology							
+	3288	FALSE	NCBITAXON:9606	female	45	45	UO:0000036			Non-Hispanic/Latino	Black or African American				Healthy Control							
+	3289	FALSE	NCBITAXON:9606	female	62	62	UO:0000036			Non-Hispanic/Latino	White				Solid Cancer							
+	3293	FALSE	NCBITAXON:9606	male	31	31	UO:0000036			Hispanic or Latino	White				Healthy Control							
+	3298	FALSE	NCBITAXON:9606	female	69	69	UO:0000036			non-hispanic/latino	asian				Neuroimmunology							
+	3304	FALSE	NCBITAXON:9606	male	53	53	UO:0000036			Non- Hispanic/ Latino	Native Hawaiian / other pacific islander				Neuroimmunology							
+	3306	FALSE	NCBITAXON:9606	male	60	60	UO:0000036			Non-Hispanic/Latino	White				Solid Cancer							
+	3307	FALSE	NCBITAXON:9606	female	72	72	UO:0000036			Non-Hispanic/Latino	White				Solid Cancer							
+	3308	FALSE	NCBITAXON:9606	female	40	40	UO:0000036			Hispanic or Latino	White				Heme Cancer							
+	3313	FALSE	NCBITAXON:9606	male	77	77	UO:0000036			Non-Hispanic/Latino	White				Solid Cancer							
+	3322	FALSE	NCBITAXON:9606	female	40	40	UO:0000036			Non-Hispanic/Latino	Black or African American				Healthy Control							
+	3324	FALSE	NCBITAXON:9606	female	76	76	UO:0000036			Non-Hispanic/Latino	White				Healthy Control							
+	3327	FALSE	NCBITAXON:9606	female	62	62	UO:0000036			Non-Hispanic/Latino	White				Neuroimmunology							
+	3330	FALSE	NCBITAXON:9606	female	52	52	UO:0000036			Hispanic or Latino	White				Solid Cancer							
+	3331	FALSE	NCBITAXON:9606	male	68	68	UO:0000036			Non-Hispanic/Latino	White				Solid Cancer							
+	3334	FALSE	NCBITAXON:9606	male	66	66	UO:0000036			Non-Hispanic/Latino	White				Solid Cancer							
+	3335	FALSE	NCBITAXON:9606	female	56	56	UO:0000036			non-hispanic/latino	white				Neuroimmunology							
+	3343	FALSE	NCBITAXON:9606	male	65	65	UO:0000036			Non- Hispanic/ Latino	White				Solid Cancer							
+	3349	FALSE	NCBITAXON:9606	male	64	64	UO:0000036			Non Hispanic	White				Solid Cancer							
+	3353	FALSE	NCBITAXON:9606	female	82	82	UO:0000036			Non- Hispanic/ Latino	White				Solid Cancer							
+	3361	FALSE	NCBITAXON:9606	female	48	48	UO:0000036			Non-Hispanic/Latino	White				Solid Cancer							
+	3362	FALSE	NCBITAXON:9606	male	63	63	UO:0000036			Non-Hispanic/Latino	White				Solid Cancer							
+	3364	FALSE	NCBITAXON:9606	female	67	67	UO:0000036			Non Hispanic	not reported				Neuroimmunology							
+	3365	FALSE	NCBITAXON:9606	male	82	82	UO:0000036			Non Hispanic	White				Solid Cancer							
+	3366	FALSE	NCBITAXON:9606	male	60	60	UO:0000036			Non-Hispanic/Latino	White				Solid Cancer							
+	3367	FALSE	NCBITAXON:9606	male	61	61	UO:0000036			Non-Hispanic/Latino	White				Solid Cancer							
+	3369	FALSE	NCBITAXON:9606	male	63	63	UO:0000036			Non-Hispanic/Latino	White				Neuroimmunology							
+	3375	FALSE	NCBITAXON:9606	male	53	53	UO:0000036			Non-Hispanic/Latino	White				Solid Cancer							
+	3377	FALSE	NCBITAXON:9606	male	73	73	UO:0000036			Non-Hispanic/Latino	Black or African American				Solid Cancer							
+	3381	FALSE	NCBITAXON:9606	male	20	20	UO:0000036			non-Hispanic or latino	white				Neuroimmunology							
+	3382	FALSE	NCBITAXON:9606	male	75	75	UO:0000036			Non- Hispanic/ Latino	White				Solid Cancer							
+	3384	FALSE	NCBITAXON:9606	male	45	45	UO:0000036			Non-Hispanic/Latino	White				Solid Cancer							
+	3385	FALSE	NCBITAXON:9606	female	45	45	UO:0000036			Non-Hispanic/Latino	White				Solid Cancer							
+	3389	FALSE	NCBITAXON:9606	female	44	44	UO:0000036			Non Hispanic	White				Solid Cancer							
+	3392	FALSE	NCBITAXON:9606	female	63	63	UO:0000036			Non- Hispanic/ Latino	White				Solid Cancer							
+	3393	FALSE	NCBITAXON:9606	male	67	67	UO:0000036			Non Hispanic	White				Heme Cancer							
+	3394	FALSE	NCBITAXON:9606	female	40	40	UO:0000036			Non Hispanic	White				Neuroimmunology							
+	3395	FALSE	NCBITAXON:9606	male	71	71	UO:0000036			Non-Hispanic/Latino	White				Solid Cancer							
+	3396	FALSE	NCBITAXON:9606	male	70	70	UO:0000036			Non- Hispanic / Latino	White				Solid Cancer							
+	3401	FALSE	NCBITAXON:9606	male	85	85	UO:0000036			Non- Hispanic/Latino	White				Solid Cancer							
+	3402	FALSE	NCBITAXON:9606	female	27	27	UO:0000036			Non- Hispanic/ Latino	White				Neuroimmunology							
+	3403	FALSE	NCBITAXON:9606	male	80	80	UO:0000036			Non-Hispanic/Latino	White				Heme Cancer							
+	3405	FALSE	NCBITAXON:9606	male	75	75	UO:0000036			Non-Hispanic/Latino	White				Solid Cancer							
+	3406	FALSE	NCBITAXON:9606	female	64	64	UO:0000036			Hispanic or Latino	White				Solid Cancer							
+	3407	FALSE	NCBITAXON:9606	female	37	37	UO:0000036			Non- Hispanic/Latino	White				Solid Cancer							
+	3416	FALSE	NCBITAXON:9606	female	34	34	UO:0000036			Non- Hispanic/ Latino	White				Solid Cancer							
+	3422	FALSE	NCBITAXON:9606	female	85	85	UO:0000036			Non- Hispanic/ Latino	White				Solid Cancer							
+	3423	FALSE	NCBITAXON:9606	female	30	30	UO:0000036			non-hispanic/latino	white				Neuroimmunology							
+	3428	FALSE	NCBITAXON:9606	male	45	45	UO:0000036			Non- Hispanic/ Latino	Asian				Solid Cancer							
+	3436	FALSE	NCBITAXON:9606	female	66	66	UO:0000036			Non-Hispanic/Latino	White				Solid Cancer							
+	3437	FALSE	NCBITAXON:9606	female	58	58	UO:0000036			Non- Hispanic/ Latino	Asian				Solid Cancer							
+	3439	FALSE	NCBITAXON:9606	male	58	58	UO:0000036			Unknown	Unavailable/ Unknown				Solid Cancer							
+	3444	FALSE	NCBITAXON:9606	female	60	60	UO:0000036			Non-Hispanic / Latino	White				Solid Cancer							
+	3445	FALSE	NCBITAXON:9606	female	73	73	UO:0000036			Non-Hispanic / Latino	White				Solid Cancer							
+	3446	FALSE	NCBITAXON:9606	female	78	78	UO:0000036			Non-Hispanic / Latino	White				Solid Cancer							
+	3447	FALSE	NCBITAXON:9606	male	72	72	UO:0000036			Non-Hispanic / Latino	White				Solid Cancer							
+	3454	FALSE	NCBITAXON:9606	male	58	58	UO:0000036			Unknown	Unavailable				Solid Cancer							
+	3458	FALSE	NCBITAXON:9606	female	89	89	UO:0000036			Unknown	White				Solid Cancer							
+	3465	FALSE	NCBITAXON:9606	male	81	81	UO:0000036			Non-Hispanic / Latino	Unavailable/ Unknown				Solid Cancer							
+	3466	FALSE	NCBITAXON:9606	female	74	74	UO:0000036			Non- Hispanic / Latino	White				Solid Cancer							
+	3468	FALSE	NCBITAXON:9606	male	74	74	UO:0000036			Non-Hispanic / Latino	White				Solid Cancer							
+	3470	FALSE	NCBITAXON:9606	female	72	72	UO:0000036			Non-Hispanic / Latino	White				Solid Cancer							
+	3476	FALSE	NCBITAXON:9606	female	71	71	UO:0000036			Non-Hispanic / Latino	White				Solid Cancer							
+	3480	FALSE	NCBITAXON:9606	male	64	64	UO:0000036			Non-Hispanic/Latino	White				Solid Cancer							
+	3482	FALSE	NCBITAXON:9606	female	83	83	UO:0000036			Non- Hispanic/ Latino	White				Solid Cancer							
+	3483	FALSE	NCBITAXON:9606	female	54	54	UO:0000036			non-hispanic/latino	white				Neuroimmunology							
+	3484	FALSE	NCBITAXON:9606	female	55	55	UO:0000036			Non- Hispanic/ Latino	White				Solid Cancer							
+	3487	FALSE	NCBITAXON:9606	female	80	80	UO:0000036			Non- Hispanic / Latino	White				Solid Cancer							
+	3493	FALSE	NCBITAXON:9606	female	78	78	UO:0000036			hispanic/latino	white				Neuroimmunology							
+	3495	FALSE	NCBITAXON:9606	male	68	68	UO:0000036			Non- Hispanic/ Latino	White				Solid Cancer							
+	3497	FALSE	NCBITAXON:9606	female	60	60	UO:0000036			Non-Hispanic/Latino	Asian				Heme Cancer							
+	3500	FALSE	NCBITAXON:9606	female	55	55	UO:0000036			Non- Hispanic/ Latino	White				Neuroimmunology							
+	3501	FALSE	NCBITAXON:9606	male	71	71	UO:0000036			Non-Hispanic/Latino	White				Solid Cancer							
+	3502	FALSE	NCBITAXON:9606	female	75	75	UO:0000036			Non-Hispanic /Latino	White				Solid Cancer							
+	3508	FALSE	NCBITAXON:9606	female	69	69	UO:0000036			Non-Hispanic/Latino	White				Solid Cancer							
+	3509	FALSE	NCBITAXON:9606	male	66	66	UO:0000036			Non-Hispanic/Latino	White				Solid Cancer							
