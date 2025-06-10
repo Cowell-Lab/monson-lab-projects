@@ -113,7 +113,7 @@
             },
             {
                 "key": "MinimumLength",
-                "value": "200"
+                "value": "250"
             },
             {
                 "key": "MaximumHomopolymer",
@@ -125,7 +125,7 @@
             },
             {
                 "key": "ForwardPrimerMaximumMismatches",
-                "value": "1"
+                "value": "0"
             },
             {
                 "key": "ForwardPrimerTrim",
