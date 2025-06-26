@@ -196,10 +196,16 @@ def create_repcalc_job_file(data, project_id, job_id, project_name='', save=True
     '''
     # Create file
     if type(job_id) != list:
-        job_id = list(job_id)
+        if type(job_id) == str:
+            job_id = [job_id]
+        elif type(job_id) == tuple:
+            job_id = list(job_id)
+        else:
+            print('job_id not an acceptable format. Must be of string, list, or tuple, not '+str(type(job_id)))
+    
     zip_files_source_urls = ['tapis://data-storage.vdjserver.org/projects/'+project_id+'/analyses/'+job+'/'+job+'.zip' for job in job_id]
     
-    zip_files = [job+'.zip' for job in job_id]
+    zip_files = ' '.join([job+'.zip' for job in job_id])
 
     file_name = 'job-repcalc-'+project_name+'.json' if project_name else 'job-repcalc.json'
 
