@@ -1,0 +1,7 @@
+# Ignore files
+.DS_Store
+tapisjob.err
+tapisjob.out
+
+# Ignore directories
+__pycache__
