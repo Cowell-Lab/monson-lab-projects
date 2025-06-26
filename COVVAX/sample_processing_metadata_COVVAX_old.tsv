@@ -1,4 +1,5 @@
 repertoire_id	subject_id	sample_processing_id	sample_id	sample_type	tissue	anatomic_site	disease_state_sample	collection_time_point_relative	collection_time_point_relative_unit	collection_time_point_reference	biomaterial_provider	tissue_processing	cell_subset	cell_phenotype	cell_species	single_cell	cell_number	cells_per_reaction	cell_storage	cell_quality	cell_isolation	cell_processing_protocol	template_class	template_quality	template_amount	template_amount_unit	library_generation_method	library_generation_protocol	library_generation_kit_version	complete_sequences	physical_linkage	sequencing_run_id	total_reads_passing_qc_filter	sequencing_platform	sequencing_facility	sequencing_run_date	sequencing_kit	pcr_target.0.pcr_target_locus	pcr_target.0.forward_pcr_primer_target_location	pcr_target.0.reverse_pcr_primer_target_location	sequencing_files.sequencing_data_id	sequencing_files.file_type	sequencing_files.filename	sequencing_files.read_direction	sequencing_files.read_length	sequencing_files.paired_filename	sequencing_files.paired_read_direction	sequencing_files.paired_read_length	sequencing_files.index_filename	sequencing_files.index_length
+	3192		4490				high	-21	days	"1, 0-4 Weeks Before Vaccination"													DNA				PCR			partial	none	18						IGH				fastq	4490_S16_L001_R1_001.fastq.gz	forward		4490_S16_L001_R2_001.fastq.gz	reverse			
 	3193		4492				low	0	days	"1, 0-4 Weeks Before Vaccination"													DNA				PCR			partial	none	18						IGH				fastq	4492_S1_L001_R1_001.fastq.gz	forward		4492_S1_L001_R2_001.fastq.gz	reverse			
 	3196		4505				low	-1	days	"1, 0-4 Weeks Before Vaccination"													DNA				PCR			partial	none	20						IGH				fastq	4505_S48_R1_001.fastq.gz	forward		4505_S48_R2_001.fastq.gz	reverse			
 	283		4518				low	0	days	"1, 0-4 Weeks Before Vaccination"													DNA				PCR			partial	none	17						IGH				fastq	4518_S41_L001_R1_001.fastq.gz	forward		4518_S41_L001_R2_001.fastq.gz	reverse			
@@ -17,6 +18,7 @@ repertoire_id	subject_id	sample_processing_id	sample_id	sample_type	tissue	anato
 	3228		4593				high	12	days	"4, 0-3 Weeks Post-2nd Dose"													DNA				PCR			partial	none	20						IGH				fastq	4593_S35_R1_001.fastq.gz	forward		4593_S35_R2_001.fastq.gz	reverse			
 	3229		4594				high	32	days	"5, 3-8 Weeks Post-2nd Dose"													DNA				PCR			partial	none	20						IGH				fastq	4594_S36_R1_001.fastq.gz	forward		4594_S36_R2_001.fastq.gz	reverse			
 	3230		4595				high	35	days	"5, 3-8 Weeks Post-2nd Dose"													DNA				PCR			partial	none	20						IGH				fastq	4595_S37_R1_001.fastq.gz	forward		4595_S37_R2_001.fastq.gz	reverse			
+	3233		4599				high	36	days	"5, 3-8 Weeks Post-2nd Dose"													DNA				PCR			partial	none	17						IGH				fastq	4599_S16_L001_R1_001.fastq.gz	forward		4599_S16_L001_R2_001.fastq.gz	reverse			
 	3232		4600				high	19	days	"4, 0-3 Weeks Post-2nd Dose"													DNA				PCR			partial	none	22						IGH				fastq	4600_S34_L001_R1_001.fastq.gz	forward		4600_S34_L001_R2_001.fastq.gz	reverse			
 	3236		4603				high	-2	days	"1, 0-4 Weeks Before Vaccination"													DNA				PCR			partial	none	17						IGH				fastq	4603_S43_L001_R1_001.fastq.gz	forward		4603_S43_L001_R2_001.fastq.gz	reverse			
 	432		4605				high	32	days	"5, 3-8 Weeks Post-2nd Dose"													DNA				PCR			partial	none	20						IGH				fastq	4605_S38_R1_001.fastq.gz	forward		4605_S38_R2_001.fastq.gz	reverse			
@@ -39,6 +41,7 @@ repertoire_id	subject_id	sample_processing_id	sample_id	sample_type	tissue	anato
 	3269		4675				high	81	days	"6, >8 Weeks Post-2nd Dose"													DNA				PCR			partial	none	22						IGH				fastq	4675_S30_L001_R1_001.fastq.gz	forward		4675_S30_L001_R2_001.fastq.gz	reverse			
 	3271		4677				high	49	days	"5, 3-8 Weeks Post-2nd Dose"													DNA				PCR			partial	none	22						IGH				fastq	4677_S35_L001_R1_001.fastq.gz	forward		4677_S35_L001_R2_001.fastq.gz	reverse			
 	3272		4678				high	0	days	"1, 0-4 Weeks Before Vaccination"													DNA				PCR			partial	none	17						IGH				fastq	4678_S39_L001_R1_001.fastq.gz	forward		4678_S39_L001_R2_001.fastq.gz	reverse			
+	3225		4680				high	10	days	"4, 0-3 Weeks Post-2nd Dose"													DNA				PCR			partial	none	17						IGH				fastq	4680_S18_L001_R1_001.fastq.gz	forward		4680_S18_L001_R2_001.fastq.gz	reverse			
 	3241		4683				low	0	days	"3, 0-48 Hours Pre-2nd Dose"													DNA				PCR			partial	none	19						IGH				fastq	4683_S8_L001_R1_001.fastq.gz	forward		4683_S8_L001_R2_001.fastq.gz	reverse			
 	3274		4694				high	29	days	"5, 3-8 Weeks Post-2nd Dose"													DNA				PCR			partial	none	17						IGH				fastq	4694_S31_L001_R1_001.fastq.gz	forward		4694_S31_L001_R2_001.fastq.gz	reverse			
 	3207		4700				high	22	days	"5, 3-8 Weeks Post-2nd Dose"													DNA				PCR			partial	none	17						IGH				fastq	4700_S5_L001_R1_001.fastq.gz	forward		4700_S5_L001_R2_001.fastq.gz	reverse			
@@ -51,8 +54,10 @@ repertoire_id	subject_id	sample_processing_id	sample_id	sample_type	tissue	anato
 	3246		4725				high	8	days	"4, 0-3 Weeks Post-2nd Dose"													DNA				PCR			partial	none	17						IGH				fastq	4725_S7_L001_R1_001.fastq.gz	forward		4725_S7_L001_R2_001.fastq.gz	reverse			
 	3289		4728				high	45	days	"5, 3-8 Weeks Post-2nd Dose"													DNA				PCR			partial	none	22						IGH				fastq	4728_S36_L001_R1_001.fastq.gz	forward		4728_S36_L001_R2_001.fastq.gz	reverse			
 	735		4732				high	28	days	"5, 3-8 Weeks Post-2nd Dose"													DNA				PCR			partial	none	22						IGH				fastq	4732_S27_L001_R1_001.fastq.gz	forward		4732_S27_L001_R2_001.fastq.gz	reverse			
+	2249		4736				low	0	days	"1, 0-4 Weeks Before Vaccination"													DNA				PCR			partial	none	17						IGH				fastq	4736_S23_L001_R1_001.fastq.gz	forward		4736_S23_L001_R2_001.fastq.gz	reverse			
 	3293		4739				low	-1	days	"1, 0-4 Weeks Before Vaccination"													DNA				PCR			partial	none	20						IGH				fastq	4739_S41_R1_001.fastq.gz	forward		4739_S41_R2_001.fastq.gz	reverse			
 	3264		4741				high	14	days	"4, 0-3 Weeks Post-2nd Dose"													DNA				PCR			partial	none	18						IGH				fastq	4741_S7_L001_R1_001.fastq.gz	forward		4741_S7_L001_R2_001.fastq.gz	reverse			
+	3298		4744				high	53	days	"5, 3-8 Weeks Post-2nd Dose"													DNA				PCR			partial	none	22						IGH				fastq	4744_S28_L001_R1_001.fastq.gz	forward		4744_S28_L001_R2_001.fastq.gz	reverse			
 	3196		4750				high	47	days	"5, 3-8 Weeks Post-2nd Dose"													DNA				PCR			partial	none	17						IGH				fastq	4750_S24_L001_R1_001.fastq.gz	forward		4750_S24_L001_R2_001.fastq.gz	reverse			
 	3304		4751				high	-186	days	"5, 3-8 Weeks Post-2nd Dose"													DNA				PCR			partial	none	17						IGH				fastq	4751_S25_L001_R1_001.fastq.gz	forward		4751_S25_L001_R2_001.fastq.gz	reverse			
 	3199		4756				high	10	days	"4, 0-3 Weeks Post-2nd Dose"													DNA				PCR			partial	none	17						IGH				fastq	4756_S19_L001_R1_001.fastq.gz	forward		4756_S19_L001_R2_001.fastq.gz	reverse			
@@ -61,6 +66,7 @@ repertoire_id	subject_id	sample_processing_id	sample_id	sample_type	tissue	anato
 	3308		4764				high	62	days	"6, >8 Weeks Post-2nd Dose"													DNA				PCR			partial	none	18						IGH				fastq	4764_S8_L001_R1_001.fastq.gz	forward		4764_S8_L001_R2_001.fastq.gz	reverse			
 	3313		4786				high	33	days	"5, 3-8 Weeks Post-2nd Dose"													DNA				PCR			partial	none	18						IGH				fastq	4786_S6_L001_R1_001.fastq.gz	forward		4786_S6_L001_R2_001.fastq.gz	reverse			
 	3324		4802				high	117	days	"6, >8 Weeks Post-2nd Dose"													DNA				PCR			partial	none	17						IGH				fastq	4802_S12_L001_R1_001.fastq.gz	forward		4802_S12_L001_R2_001.fastq.gz	reverse			
+	2249		4805				low	0	days	"3, 0-48 Hours Pre-2nd Dose"													DNA				PCR			partial	none	20						IGH				fastq	4805_S44_R1_001.fastq.gz	forward		4805_S44_R2_001.fastq.gz	reverse			
 	3327		4811				high	64	days	"6, >8 Weeks Post-2nd Dose"													DNA				PCR			partial	none	18						IGH				fastq	4811_S9_L001_R1_001.fastq.gz	forward		4811_S9_L001_R2_001.fastq.gz	reverse			
 	1315		4814				high	111	days	"6, >8 Weeks Post-2nd Dose"													DNA				PCR			partial	none	18						IGH				fastq	4814_S10_L001_R1_001.fastq.gz	forward		4814_S10_L001_R2_001.fastq.gz	reverse			
 	3281		4817				high	36	days	"5, 3-8 Weeks Post-2nd Dose"													DNA				PCR			partial	none	18						IGH				fastq	4817_S11_L001_R1_001.fastq.gz	forward		4817_S11_L001_R2_001.fastq.gz	reverse			
@@ -70,7 +76,9 @@ repertoire_id	subject_id	sample_processing_id	sample_id	sample_type	tissue	anato
 	3241		4832				high	49	days	"5, 3-8 Weeks Post-2nd Dose"													DNA				PCR			partial	none	19						IGH				fastq	4832_S14_L001_R1_001.fastq.gz	forward		4832_S14_L001_R2_001.fastq.gz	reverse			
 	3242		4833				high	49	days	"5, 3-8 Weeks Post-2nd Dose"													DNA				PCR			partial	none	20						IGH				fastq	4833_S42_R1_001.fastq.gz	forward		4833_S42_R2_001.fastq.gz	reverse			
 	3334		4834				low	132	days	"6, >8 Weeks Post-2nd Dose"													DNA				PCR			partial	none	22						IGH				fastq	4834_S32_L001_R1_001.fastq.gz	forward		4834_S32_L001_R2_001.fastq.gz	reverse			
+	3335		4835				high	83	days	"6, >8 Weeks Post-2nd Dose"													DNA				PCR			partial	none	18						IGH				fastq	4835_S15_L001_R1_001.fastq.gz	forward		4835_S15_L001_R2_001.fastq.gz	reverse			
 	3194		4845				high	80	days	"6, >8 Weeks Post-2nd Dose"													DNA				PCR			partial	none	22						IGH				fastq	4845_S33_L001_R1_001.fastq.gz	forward		4845_S33_L001_R2_001.fastq.gz	reverse			
+	3343		4855				high	115	days	"6, >8 Weeks Post-2nd Dose"													DNA				PCR			partial	none	19						IGH				fastq	4855_S18_L001_R1_001.fastq.gz	forward		4855_S18_L001_R2_001.fastq.gz	reverse			
 	3349		4869				high	119	days	"6, >8 Weeks Post-2nd Dose"													DNA				PCR			partial	none	18						IGH				fastq	4869_S22_L001_R1_001.fastq.gz	forward		4869_S22_L001_R2_001.fastq.gz	reverse			
 	3353		4876				high	146	days	"6, >8 Weeks Post-2nd Dose"													DNA				PCR			partial	none	19						IGH				fastq	4876_S23_L001_R1_001.fastq.gz	forward		4876_S23_L001_R2_001.fastq.gz	reverse			
 	3361		4886				high	91	days	"6, >8 Weeks Post-2nd Dose"													DNA				PCR			partial	none	19						IGH				fastq	4886_S24_L001_R1_001.fastq.gz	forward		4886_S24_L001_R2_001.fastq.gz	reverse			
@@ -91,9 +99,11 @@ repertoire_id	subject_id	sample_processing_id	sample_id	sample_type	tissue	anato
 	3385		4941				high	147	days	"6, >8 Weeks Post-2nd Dose"													DNA				PCR			partial	none	19						IGH				fastq	4941_S33_L001_R1_001.fastq.gz	forward		4941_S33_L001_R2_001.fastq.gz	reverse			
 	3389		4955				high	151	days	"6, >8 Weeks Post-2nd Dose"													DNA				PCR			partial	none	22						IGH				fastq	4955_S39_L001_R1_001.fastq.gz	forward		4955_S39_L001_R2_001.fastq.gz	reverse			
 	3392		4963				high	145	days	"6, >8 Weeks Post-2nd Dose"													DNA				PCR			partial	none	22						IGH				fastq	4963_S40_L001_R1_001.fastq.gz	forward		4963_S40_L001_R2_001.fastq.gz	reverse			
+	2249		4974				high	48	days	"5, 3-8 Weeks Post-2nd Dose"													DNA				PCR			partial	none	17						IGH				fastq	4974_S14_L001_R1_001.fastq.gz	forward		4974_S14_L001_R2_001.fastq.gz	reverse			
 	3394		4978				low	-15	days	"1, 0-4 Weeks Before Vaccination"													DNA				PCR			partial	none	22						IGH				fastq	4978_S41_L001_R1_001.fastq.gz	forward		4978_S41_L001_R2_001.fastq.gz	reverse			
 	3395		4979				high	161	days	"6, >8 Weeks Post-2nd Dose"													DNA				PCR			partial	none	22						IGH				fastq	4979_S42_L001_R1_001.fastq.gz	forward		4979_S42_L001_R2_001.fastq.gz	reverse			
 	3396		4982				high	113	days	"6, >8 Weeks Post-2nd Dose"													DNA				PCR			partial	none	17						IGH				fastq	4982_S22_L001_R1_001.fastq.gz	forward		4982_S22_L001_R2_001.fastq.gz	reverse			
+	3403		4989				high	171	days	"6, >8 Weeks Post-2nd Dose"													DNA				PCR			partial	none	18						IGH				fastq	4989_S26_L001_R1_001.fastq.gz	forward		4989_S26_L001_R2_001.fastq.gz	reverse			
 	3401		4990				high	177	days	"6, >8 Weeks Post-2nd Dose"													DNA				PCR			partial	none	22						IGH				fastq	4990_S43_L001_R1_001.fastq.gz	forward		4990_S43_L001_R2_001.fastq.gz	reverse			
 	3402		4992				high	112	days	"6, >8 Weeks Post-2nd Dose"													DNA				PCR			partial	none	17						IGH				fastq	4992_S26_L001_R1_001.fastq.gz	forward		4992_S26_L001_R2_001.fastq.gz	reverse			
 	3276		4993				high	0	days	"1, 0-4 Weeks Before Vaccination"													DNA				PCR			partial	none	17						IGH				fastq	4993_S27_L001_R1_001.fastq.gz	forward		4993_S27_L001_R2_001.fastq.gz	reverse			
@@ -143,6 +153,7 @@ repertoire_id	subject_id	sample_processing_id	sample_id	sample_type	tissue	anato
 	3483		5165				high	25	days	"5, 3-8 Weeks Post-2nd Dose"													DNA				PCR			partial	none	20						IGH				fastq	5165_S46_R1_001.fastq.gz	forward		5165_S46_R2_001.fastq.gz	reverse			
 	3484		5166				high	172	days	"6, >8 Weeks Post-2nd Dose"													DNA				PCR			partial	none	20						IGH				fastq	5166_S14_R1_001.fastq.gz	forward		5166_S14_R2_001.fastq.gz	reverse			
 	3487		5174				high	187	days	"6, >8 Weeks Post-2nd Dose"													DNA				PCR			partial	none	20						IGH				fastq	5174_S15_R1_001.fastq.gz	forward		5174_S15_R2_001.fastq.gz	reverse			
+	3403		5176				high	31	days	"7, Post-3rd Dose"													DNA				PCR			partial	none	19						IGH				fastq	5176_S3_L001_R1_001.fastq.gz	forward		5176_S3_L001_R2_001.fastq.gz	reverse			
 	3361		5179				high	175	days	"6, >8 Weeks Post-2nd Dose"													DNA				PCR			partial	none	20						IGH				fastq	5179_S16_R1_001.fastq.gz	forward		5179_S16_R2_001.fastq.gz	reverse			
 	3260		5181				high	17	days	"7, Post-3rd Dose"													DNA				PCR			partial	none	20						IGH				fastq	5181_S17_R1_001.fastq.gz	forward		5181_S17_R2_001.fastq.gz	reverse			
 	3349		5183				high	18	days	"7, Post-3rd Dose"													DNA				PCR			partial	none	19						IGH				fastq	5183_S4_L001_R1_001.fastq.gz	forward		5183_S4_L001_R2_001.fastq.gz	reverse			
