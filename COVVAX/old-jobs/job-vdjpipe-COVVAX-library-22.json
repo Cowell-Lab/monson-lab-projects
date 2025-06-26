@@ -1,0 +1,144 @@
+{
+    "name": "COVVAX - library 22",
+    "appId": "vdjpipe-ls6",
+    "appVersion": "0.2",
+    "maxMinutes": 480,
+    "nodeCount": 1,
+    "archiveSystemId": "data-storage.vdjserver.org",
+    "archiveSystemDir": "/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/analyses/${JobUUID}",
+    "fileInputArrays": [
+        {
+            "name": "SequenceForwardPairedFiles",
+            "sourceUrls": [
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/4600_S34_L001_R1_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/4675_S30_L001_R1_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/4677_S35_L001_R1_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/4728_S36_L001_R1_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/4732_S27_L001_R1_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/4744_S28_L001_R1_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/4758_S29_L001_R1_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/4834_S32_L001_R1_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/4845_S33_L001_R1_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/4931_S37_L001_R1_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/4935_S38_L001_R1_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/4955_S39_L001_R1_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/4963_S40_L001_R1_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/4978_S41_L001_R1_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/4979_S42_L001_R1_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/4990_S43_L001_R1_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/5219_S44_L001_R1_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/5220_S31_L001_R1_001.fastq.gz"
+            ]
+        },
+        {
+            "name": "SequenceReversePairedFiles",
+            "sourceUrls": [
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/4600_S34_L001_R2_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/4675_S30_L001_R2_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/4677_S35_L001_R2_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/4728_S36_L001_R2_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/4732_S27_L001_R2_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/4744_S28_L001_R2_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/4758_S29_L001_R2_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/4834_S32_L001_R2_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/4845_S33_L001_R2_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/4931_S37_L001_R2_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/4935_S38_L001_R2_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/4955_S39_L001_R2_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/4963_S40_L001_R2_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/4978_S41_L001_R2_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/4979_S42_L001_R2_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/4990_S43_L001_R2_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/5219_S44_L001_R2_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/5220_S31_L001_R2_001.fastq.gz"
+            ]
+        }
+    ],
+    "fileInputs": [
+        {
+            "name": "ForwardPrimerFile",
+            "sourceUrl": "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/primers.fasta",
+            "targetPath": "primers.fasta"
+        }
+    ],
+    "parameterSet": {
+        "schedulerOptions": [
+            {
+                "name": "allocation",
+                "arg": "-A MCB23006"
+            }
+        ],
+        "containerArgs": [],
+        "appArgs": [],
+        "envVariables": [
+            {
+                "key": "Workflow",
+                "value": "paired"
+            },
+            {
+                "key": "SequenceForwardPairedFiles",
+                "value": "4600_S34_L001_R1_001.fastq.gz 4675_S30_L001_R1_001.fastq.gz 4677_S35_L001_R1_001.fastq.gz 4728_S36_L001_R1_001.fastq.gz 4732_S27_L001_R1_001.fastq.gz 4744_S28_L001_R1_001.fastq.gz 4758_S29_L001_R1_001.fastq.gz 4834_S32_L001_R1_001.fastq.gz 4845_S33_L001_R1_001.fastq.gz 4931_S37_L001_R1_001.fastq.gz 4935_S38_L001_R1_001.fastq.gz 4955_S39_L001_R1_001.fastq.gz 4963_S40_L001_R1_001.fastq.gz 4978_S41_L001_R1_001.fastq.gz 4979_S42_L001_R1_001.fastq.gz 4990_S43_L001_R1_001.fastq.gz 5219_S44_L001_R1_001.fastq.gz 5220_S31_L001_R1_001.fastq.gz"
+            },
+            {
+                "key": "SequenceForwardPairedFilesMetadata",
+                "value": "12348"
+            },
+            {
+                "key": "SequenceReversePairedFiles",
+                "value": "4600_S34_L001_R2_001.fastq.gz 4675_S30_L001_R2_001.fastq.gz 4677_S35_L001_R2_001.fastq.gz 4728_S36_L001_R2_001.fastq.gz 4732_S27_L001_R2_001.fastq.gz 4744_S28_L001_R2_001.fastq.gz 4758_S29_L001_R2_001.fastq.gz 4834_S32_L001_R2_001.fastq.gz 4845_S33_L001_R2_001.fastq.gz 4931_S37_L001_R2_001.fastq.gz 4935_S38_L001_R2_001.fastq.gz 4955_S39_L001_R2_001.fastq.gz 4963_S40_L001_R2_001.fastq.gz 4978_S41_L001_R2_001.fastq.gz 4979_S42_L001_R2_001.fastq.gz 4990_S43_L001_R2_001.fastq.gz 5219_S44_L001_R2_001.fastq.gz 5220_S31_L001_R2_001.fastq.gz"
+            },
+            {
+                "key": "SequenceReversePairedFilesMetadata",
+                "value": "4567"
+            },
+            {
+                "key": "MergeMinimumScore",
+                "value": "10"
+            },
+            {
+                "key": "PreFilterStatisticsFlag",
+                "value": "1"
+            },
+            {
+                "key": "FilterFlag",
+                "value": "1"
+            },
+            {
+                "key": "PostFilterStatisticsFlag",
+                "value": "1"
+            },
+            {
+                "key": "MinimumAverageQuality",
+                "value": "35"
+            },
+            {
+                "key": "MinimumLength",
+                "value": "200"
+            },
+            {
+                "key": "MaximumHomopolymer",
+                "value": "20"
+            },
+            {
+                "key": "ForwardPrimer",
+                "value": "1"
+            },
+            {
+                "key": "ForwardPrimerMaximumMismatches",
+                "value": "1"
+            },
+            {
+                "key": "ForwardPrimerTrim",
+                "value": "1"
+            },
+            {
+                "key": "ForwardPrimerSearchWindow",
+                "value": "50"
+            },
+            {
+                "key": "FindUniqueFlag",
+                "value": "1"
+            }
+        ]
+    }
+}

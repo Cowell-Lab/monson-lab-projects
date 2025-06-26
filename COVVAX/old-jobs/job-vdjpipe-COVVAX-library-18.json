@@ -1,0 +1,198 @@
+{
+    "name": "COVVAX - library 18",
+    "appId": "vdjpipe-ls6",
+    "appVersion": "0.2",
+    "maxMinutes": 480,
+    "nodeCount": 1,
+    "archiveSystemId": "data-storage.vdjserver.org",
+    "archiveSystemDir": "/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/analyses/${JobUUID}",
+    "fileInputArrays": [
+        {
+            "name": "SequenceForwardPairedFiles",
+            "sourceUrls": [
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/4490_S16_L001_R1_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/4492_S1_L001_R1_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/4538_S17_L001_R1_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/4539_S18_L001_R1_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/4540_S19_L001_R1_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/4543_S20_L001_R1_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/4574_S2_L001_R1_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/4578_S3_L001_R1_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/4625_S21_L001_R1_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/4664_S12_L001_R1_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/4674_S4_L001_R1_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/4708_S13_L001_R1_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/4741_S7_L001_R1_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/4764_S8_L001_R1_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/4786_S6_L001_R1_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/4811_S9_L001_R1_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/4814_S10_L001_R1_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/4817_S11_L001_R1_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/4828_S14_L001_R1_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/4835_S15_L001_R1_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/4869_S22_L001_R1_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/4899_S5_L001_R1_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/4909_S23_L001_R1_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/4927_S24_L001_R1_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/4928_S25_L001_R1_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/4989_S26_L001_R1_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/5000_S27_L001_R1_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/5003_S28_L001_R1_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/5041_S29_L001_R1_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/5068_S30_L001_R1_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/5070_S31_L001_R1_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/5074_S32_L001_R1_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/5092_S33_L001_R1_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/5093_S34_L001_R1_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/5106_S35_L001_R1_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/5119_S36_L001_R1_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/5123_S37_L001_R1_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/5125_S38_L001_R1_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/5127_S39_L001_R1_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/5132_S40_L001_R1_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/5136_S41_L001_R1_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/5138_S42_L001_R1_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/5142_S43_L001_R1_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/5143_S44_L001_R1_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/5154_S45_L001_R1_001.fastq.gz"
+            ]
+        },
+        {
+            "name": "SequenceReversePairedFiles",
+            "sourceUrls": [
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/4490_S16_L001_R2_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/4492_S1_L001_R2_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/4538_S17_L001_R2_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/4539_S18_L001_R2_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/4540_S19_L001_R2_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/4543_S20_L001_R2_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/4574_S2_L001_R2_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/4578_S3_L001_R2_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/4625_S21_L001_R2_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/4664_S12_L001_R2_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/4674_S4_L001_R2_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/4708_S13_L001_R2_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/4741_S7_L001_R2_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/4764_S8_L001_R2_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/4786_S6_L001_R2_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/4811_S9_L001_R2_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/4814_S10_L001_R2_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/4817_S11_L001_R2_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/4828_S14_L001_R2_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/4835_S15_L001_R2_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/4869_S22_L001_R2_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/4899_S5_L001_R2_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/4909_S23_L001_R2_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/4927_S24_L001_R2_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/4928_S25_L001_R2_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/4989_S26_L001_R2_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/5000_S27_L001_R2_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/5003_S28_L001_R2_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/5041_S29_L001_R2_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/5068_S30_L001_R2_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/5070_S31_L001_R2_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/5074_S32_L001_R2_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/5092_S33_L001_R2_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/5093_S34_L001_R2_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/5106_S35_L001_R2_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/5119_S36_L001_R2_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/5123_S37_L001_R2_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/5125_S38_L001_R2_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/5127_S39_L001_R2_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/5132_S40_L001_R2_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/5136_S41_L001_R2_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/5138_S42_L001_R2_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/5142_S43_L001_R2_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/5143_S44_L001_R2_001.fastq.gz",
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/5154_S45_L001_R2_001.fastq.gz"
+            ]
+        }
+    ],
+    "fileInputs": [
+        {
+            "name": "ForwardPrimerFile",
+            "sourceUrl": "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/primers.fasta",
+            "targetPath": "primers.fasta"
+        }
+    ],
+    "parameterSet": {
+        "schedulerOptions": [
+            {
+                "name": "allocation",
+                "arg": "-A MCB23006"
+            }
+        ],
+        "containerArgs": [],
+        "appArgs": [],
+        "envVariables": [
+            {
+                "key": "Workflow",
+                "value": "paired"
+            },
+            {
+                "key": "SequenceForwardPairedFiles",
+                "value": "4490_S16_L001_R1_001.fastq.gz 4492_S1_L001_R1_001.fastq.gz 4538_S17_L001_R1_001.fastq.gz 4539_S18_L001_R1_001.fastq.gz 4540_S19_L001_R1_001.fastq.gz 4543_S20_L001_R1_001.fastq.gz 4574_S2_L001_R1_001.fastq.gz 4578_S3_L001_R1_001.fastq.gz 4625_S21_L001_R1_001.fastq.gz 4664_S12_L001_R1_001.fastq.gz 4674_S4_L001_R1_001.fastq.gz 4708_S13_L001_R1_001.fastq.gz 4741_S7_L001_R1_001.fastq.gz 4764_S8_L001_R1_001.fastq.gz 4786_S6_L001_R1_001.fastq.gz 4811_S9_L001_R1_001.fastq.gz 4814_S10_L001_R1_001.fastq.gz 4817_S11_L001_R1_001.fastq.gz 4828_S14_L001_R1_001.fastq.gz 4835_S15_L001_R1_001.fastq.gz 4869_S22_L001_R1_001.fastq.gz 4899_S5_L001_R1_001.fastq.gz 4909_S23_L001_R1_001.fastq.gz 4927_S24_L001_R1_001.fastq.gz 4928_S25_L001_R1_001.fastq.gz 4989_S26_L001_R1_001.fastq.gz 5000_S27_L001_R1_001.fastq.gz 5003_S28_L001_R1_001.fastq.gz 5041_S29_L001_R1_001.fastq.gz 5068_S30_L001_R1_001.fastq.gz 5070_S31_L001_R1_001.fastq.gz 5074_S32_L001_R1_001.fastq.gz 5092_S33_L001_R1_001.fastq.gz 5093_S34_L001_R1_001.fastq.gz 5106_S35_L001_R1_001.fastq.gz 5119_S36_L001_R1_001.fastq.gz 5123_S37_L001_R1_001.fastq.gz 5125_S38_L001_R1_001.fastq.gz 5127_S39_L001_R1_001.fastq.gz 5132_S40_L001_R1_001.fastq.gz 5136_S41_L001_R1_001.fastq.gz 5138_S42_L001_R1_001.fastq.gz 5142_S43_L001_R1_001.fastq.gz 5143_S44_L001_R1_001.fastq.gz 5154_S45_L001_R1_001.fastq.gz"
+            },
+            {
+                "key": "SequenceForwardPairedFilesMetadata",
+                "value": "12348"
+            },
+            {
+                "key": "SequenceReversePairedFiles",
+                "value": "4490_S16_L001_R2_001.fastq.gz 4492_S1_L001_R2_001.fastq.gz 4538_S17_L001_R2_001.fastq.gz 4539_S18_L001_R2_001.fastq.gz 4540_S19_L001_R2_001.fastq.gz 4543_S20_L001_R2_001.fastq.gz 4574_S2_L001_R2_001.fastq.gz 4578_S3_L001_R2_001.fastq.gz 4625_S21_L001_R2_001.fastq.gz 4664_S12_L001_R2_001.fastq.gz 4674_S4_L001_R2_001.fastq.gz 4708_S13_L001_R2_001.fastq.gz 4741_S7_L001_R2_001.fastq.gz 4764_S8_L001_R2_001.fastq.gz 4786_S6_L001_R2_001.fastq.gz 4811_S9_L001_R2_001.fastq.gz 4814_S10_L001_R2_001.fastq.gz 4817_S11_L001_R2_001.fastq.gz 4828_S14_L001_R2_001.fastq.gz 4835_S15_L001_R2_001.fastq.gz 4869_S22_L001_R2_001.fastq.gz 4899_S5_L001_R2_001.fastq.gz 4909_S23_L001_R2_001.fastq.gz 4927_S24_L001_R2_001.fastq.gz 4928_S25_L001_R2_001.fastq.gz 4989_S26_L001_R2_001.fastq.gz 5000_S27_L001_R2_001.fastq.gz 5003_S28_L001_R2_001.fastq.gz 5041_S29_L001_R2_001.fastq.gz 5068_S30_L001_R2_001.fastq.gz 5070_S31_L001_R2_001.fastq.gz 5074_S32_L001_R2_001.fastq.gz 5092_S33_L001_R2_001.fastq.gz 5093_S34_L001_R2_001.fastq.gz 5106_S35_L001_R2_001.fastq.gz 5119_S36_L001_R2_001.fastq.gz 5123_S37_L001_R2_001.fastq.gz 5125_S38_L001_R2_001.fastq.gz 5127_S39_L001_R2_001.fastq.gz 5132_S40_L001_R2_001.fastq.gz 5136_S41_L001_R2_001.fastq.gz 5138_S42_L001_R2_001.fastq.gz 5142_S43_L001_R2_001.fastq.gz 5143_S44_L001_R2_001.fastq.gz 5154_S45_L001_R2_001.fastq.gz"
+            },
+            {
+                "key": "SequenceReversePairedFilesMetadata",
+                "value": "4567"
+            },
+            {
+                "key": "MergeMinimumScore",
+                "value": "10"
+            },
+            {
+                "key": "PreFilterStatisticsFlag",
+                "value": "1"
+            },
+            {
+                "key": "FilterFlag",
+                "value": "1"
+            },
+            {
+                "key": "PostFilterStatisticsFlag",
+                "value": "1"
+            },
+            {
+                "key": "MinimumAverageQuality",
+                "value": "35"
+            },
+            {
+                "key": "MinimumLength",
+                "value": "200"
+            },
+            {
+                "key": "MaximumHomopolymer",
+                "value": "20"
+            },
+            {
+                "key": "ForwardPrimer",
+                "value": "1"
+            },
+            {
+                "key": "ForwardPrimerMaximumMismatches",
+                "value": "1"
+            },
+            {
+                "key": "ForwardPrimerTrim",
+                "value": "1"
+            },
+            {
+                "key": "ForwardPrimerSearchWindow",
+                "value": "50"
+            },
+            {
+                "key": "FindUniqueFlag",
+                "value": "1"
+            }
+        ]
+    }
+}
