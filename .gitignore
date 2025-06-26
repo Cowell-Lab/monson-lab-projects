@@ -1,5 +1,10 @@
-# Ignore files
+# Ignore files with extension
 *.pdf
+*.zip
+
+# Ignore files
 .DS_Store
+tapisjob.err
+tapisjob.out
 
 # Ignore direcories
