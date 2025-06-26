@@ -1,1 +1,5 @@
+# Ignore files
 *.pdf
+.DS_Store
+
+# Ignore direcories
