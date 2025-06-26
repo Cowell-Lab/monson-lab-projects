@@ -26,7 +26,7 @@
             {"key": "query", "value": "BR2180_trust_vdjseq.fasta" },
             {"key": "repertoires", "value": "3153842a-fa80-4743-948f-67cbf47e785c" },
             {"key": "species", "value": "human" },
-            {"key": "ig_seqtype", "value": "IG" },
+            {"key": "ig_seqtype", "value": "Ig" },
             {"key": "ClonalTool", "value": "changeo" }
         ]
     }
