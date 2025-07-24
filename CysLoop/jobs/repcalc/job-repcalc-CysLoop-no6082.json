@@ -1,0 +1,68 @@
+{
+    "name": "CysLoop",
+    "appId": "repcalc2-ls6",
+    "appVersion": "0.3",
+    "maxMinutes": 1440,
+    "nodeCount": 8,
+    "archiveSystemId": "data-storage.vdjserver.org",
+    "archiveSystemDir": "/projects/bb436002-9fd5-43c0-817e-a742d77f3f90/analyses/${JobUUID}",
+    "fileInputs": [
+        {
+            "name": "AIRRMetadata",
+            "sourceUrl": "tapis://data-storage.vdjserver.org/projects/bb436002-9fd5-43c0-817e-a742d77f3f90/files/repertoires.airr.json",
+            "targetPath": "repertoires.airr.json"
+        }
+    ],
+    "fileInputArrays": [
+        {
+            "name": "JobFiles",
+            "sourceUrls": [
+                "tapis://data-storage.vdjserver.org/projects/bb436002-9fd5-43c0-817e-a742d77f3f90/analyses/3ec8bcc8-db20-4a8e-965e-e8587914dca8-007/3ec8bcc8-db20-4a8e-965e-e8587914dca8-007.zip"
+            ]
+        }
+    ],
+    "parameterSet": {
+        "schedulerOptions": [
+            {
+                "name": "allocation",
+                "arg": "-A MCB23006"
+            }
+        ],
+        "containerArgs": [],
+        "appArgs": [],
+        "envVariables": [
+            {
+                "key": "JobFiles",
+                "value": "3ec8bcc8-db20-4a8e-965e-e8587914dca8-007.zip"
+            },
+            {
+                "key": "species",
+                "value": "human"
+            },
+            {
+                "key": "locus",
+                "value": "IG"
+            },
+            {
+                "key": "GeneSegmentFlag",
+                "value": "1"
+            },
+            {
+                "key": "CDR3Flag",
+                "value": "1"
+            },
+            {
+                "key": "DiversityFlag",
+                "value": "1"
+            },
+            {
+                "key": "ClonalFlag",
+                "value": "1"
+            },
+            {
+                "key": "MutationalFlag",
+                "value": "1"
+            }
+        ]
+    }
+}

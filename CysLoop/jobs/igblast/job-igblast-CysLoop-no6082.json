@@ -1,0 +1,112 @@
+{
+    "name": "CysLoop",
+    "appId": "igblast-ls6",
+    "appVersion": "0.3",
+    "maxMinutes": 2880,
+    "nodeCount": 8,
+    "archiveSystemId": "data-storage.vdjserver.org",
+    "archiveSystemDir": "/projects/bb436002-9fd5-43c0-817e-a742d77f3f90/analyses/${JobUUID}",
+    "fileInputs": [
+        {
+            "name": "AIRRMetadata",
+            "sourceUrl": "tapis://data-storage.vdjserver.org/projects/bb436002-9fd5-43c0-817e-a742d77f3f90/files/repertoires.airr.json",
+            "targetPath": "repertoires.airr.json"
+        }
+    ],
+    "fileInputArrays": [
+        {
+            "name": "query",
+            "sourceUrls": [
+                "tapis://data-storage.vdjserver.org/projects/bb436002-9fd5-43c0-817e-a742d77f3f90/files/TRUST4_JIRA1277_1079.fasta",
+                "tapis://data-storage.vdjserver.org/projects/bb436002-9fd5-43c0-817e-a742d77f3f90/files/TRUST4_JIRA1680_1215.fasta",
+                "tapis://data-storage.vdjserver.org/projects/bb436002-9fd5-43c0-817e-a742d77f3f90/files/TRUST4_JIRA1680_1299.fasta",
+                "tapis://data-storage.vdjserver.org/projects/bb436002-9fd5-43c0-817e-a742d77f3f90/files/TRUST4_JIRA1680_1400.fasta",
+                "tapis://data-storage.vdjserver.org/projects/bb436002-9fd5-43c0-817e-a742d77f3f90/files/TRUST4_JIRA1680_1455.fasta",
+                "tapis://data-storage.vdjserver.org/projects/bb436002-9fd5-43c0-817e-a742d77f3f90/files/TRUST4_JIRA1680_1468.fasta",
+                "tapis://data-storage.vdjserver.org/projects/bb436002-9fd5-43c0-817e-a742d77f3f90/files/TRUST4_JIRA1485_1470.fasta",
+                "tapis://data-storage.vdjserver.org/projects/bb436002-9fd5-43c0-817e-a742d77f3f90/files/TRUST4_JIRA1680_1507.fasta",
+                "tapis://data-storage.vdjserver.org/projects/bb436002-9fd5-43c0-817e-a742d77f3f90/files/TRUST4_JIRA1485_1515.fasta",
+                "tapis://data-storage.vdjserver.org/projects/bb436002-9fd5-43c0-817e-a742d77f3f90/files/TRUST4_JIRA1016_1533.fasta",
+                "tapis://data-storage.vdjserver.org/projects/bb436002-9fd5-43c0-817e-a742d77f3f90/files/TRUST4_JIRA1680_1551.fasta",
+                "tapis://data-storage.vdjserver.org/projects/bb436002-9fd5-43c0-817e-a742d77f3f90/files/TRUST4_JIRA1017_1602.fasta",
+                "tapis://data-storage.vdjserver.org/projects/bb436002-9fd5-43c0-817e-a742d77f3f90/files/TRUST4_JIRA1672_UTSW1763.fasta",
+                "tapis://data-storage.vdjserver.org/projects/bb436002-9fd5-43c0-817e-a742d77f3f90/files/TRUST4_JIRA1672_UTSW1767.fasta",
+                "tapis://data-storage.vdjserver.org/projects/bb436002-9fd5-43c0-817e-a742d77f3f90/files/TRUST4_JIRA1485_1783.fasta",
+                "tapis://data-storage.vdjserver.org/projects/bb436002-9fd5-43c0-817e-a742d77f3f90/files/TRUST4_JIRA1485_1792.fasta",
+                "tapis://data-storage.vdjserver.org/projects/bb436002-9fd5-43c0-817e-a742d77f3f90/files/TRUST4_JIRA1680_1823.fasta",
+                "tapis://data-storage.vdjserver.org/projects/bb436002-9fd5-43c0-817e-a742d77f3f90/files/TRUST4_JIRA1277_1839.fasta",
+                "tapis://data-storage.vdjserver.org/projects/bb436002-9fd5-43c0-817e-a742d77f3f90/files/TRUST4_JIRA1485_1924.fasta",
+                "tapis://data-storage.vdjserver.org/projects/bb436002-9fd5-43c0-817e-a742d77f3f90/files/TRUST4_JIRA1275_1956.fasta",
+                "tapis://data-storage.vdjserver.org/projects/bb436002-9fd5-43c0-817e-a742d77f3f90/files/TRUST4_JIRA1672_UTSW1963.fasta",
+                "tapis://data-storage.vdjserver.org/projects/bb436002-9fd5-43c0-817e-a742d77f3f90/files/TRUST4_JIRA1276_1982.fasta",
+                "tapis://data-storage.vdjserver.org/projects/bb436002-9fd5-43c0-817e-a742d77f3f90/files/TRUST4_JIRA1275_20045.fasta",
+                "tapis://data-storage.vdjserver.org/projects/bb436002-9fd5-43c0-817e-a742d77f3f90/files/TRUST4_JIRA1276_2035.fasta",
+                "tapis://data-storage.vdjserver.org/projects/bb436002-9fd5-43c0-817e-a742d77f3f90/files/TRUST4_JIRA1680_2133.fasta",
+                "tapis://data-storage.vdjserver.org/projects/bb436002-9fd5-43c0-817e-a742d77f3f90/files/TRUST4_JIRA1276_2140.fasta",
+                "tapis://data-storage.vdjserver.org/projects/bb436002-9fd5-43c0-817e-a742d77f3f90/files/TRUST4_JIRA1277_2149.fasta",
+                "tapis://data-storage.vdjserver.org/projects/bb436002-9fd5-43c0-817e-a742d77f3f90/files/TRUST4_JIRA1274_2161.fasta",
+                "tapis://data-storage.vdjserver.org/projects/bb436002-9fd5-43c0-817e-a742d77f3f90/files/TRUST4_JIRA1275_2162.fasta",
+                "tapis://data-storage.vdjserver.org/projects/bb436002-9fd5-43c0-817e-a742d77f3f90/files/TRUST4_JIRA1274_2177.fasta",
+                "tapis://data-storage.vdjserver.org/projects/bb436002-9fd5-43c0-817e-a742d77f3f90/files/TRUST4_JIRA1274_2180.fasta",
+                "tapis://data-storage.vdjserver.org/projects/bb436002-9fd5-43c0-817e-a742d77f3f90/files/TRUST4_JIRA1274_2227.fasta",
+                "tapis://data-storage.vdjserver.org/projects/bb436002-9fd5-43c0-817e-a742d77f3f90/files/TRUST4_JIRA1277_2265.fasta",
+                "tapis://data-storage.vdjserver.org/projects/bb436002-9fd5-43c0-817e-a742d77f3f90/files/TRUST4_JIRA1672_UTSW2405.fasta",
+                "tapis://data-storage.vdjserver.org/projects/bb436002-9fd5-43c0-817e-a742d77f3f90/files/TRUST4_JIRA1275_2443.fasta",
+                "tapis://data-storage.vdjserver.org/projects/bb436002-9fd5-43c0-817e-a742d77f3f90/files/TRUST4_JIRA1672_UTSW2778.fasta",
+                "tapis://data-storage.vdjserver.org/projects/bb436002-9fd5-43c0-817e-a742d77f3f90/files/TRUST4_JIRA1672_UTSW2929.fasta",
+                "tapis://data-storage.vdjserver.org/projects/bb436002-9fd5-43c0-817e-a742d77f3f90/files/TRUST4_JIRA1672_UTSW2989.fasta",
+                "tapis://data-storage.vdjserver.org/projects/bb436002-9fd5-43c0-817e-a742d77f3f90/files/TRUST4_JIRA1741_3094.fasta",
+                "tapis://data-storage.vdjserver.org/projects/bb436002-9fd5-43c0-817e-a742d77f3f90/files/TRUST4_JIRA1672_UTSW3851.fasta",
+                "tapis://data-storage.vdjserver.org/projects/bb436002-9fd5-43c0-817e-a742d77f3f90/files/TRUST4_JIRA1741_5873.fasta",
+                "tapis://data-storage.vdjserver.org/projects/bb436002-9fd5-43c0-817e-a742d77f3f90/files/TRUST4_JIRA1741_6527.fasta",
+                "tapis://data-storage.vdjserver.org/projects/bb436002-9fd5-43c0-817e-a742d77f3f90/files/TRUST4_JIRA1016_HD279.fasta",
+                "tapis://data-storage.vdjserver.org/projects/bb436002-9fd5-43c0-817e-a742d77f3f90/files/TRUST4_JIRA1680_UTSW0001.fasta",
+                "tapis://data-storage.vdjserver.org/projects/bb436002-9fd5-43c0-817e-a742d77f3f90/files/TRUST4_JIRA1680_UTSW0002.fasta",
+                "tapis://data-storage.vdjserver.org/projects/bb436002-9fd5-43c0-817e-a742d77f3f90/files/TRUST4_JIRA1672_UTSW0003.fasta",
+                "tapis://data-storage.vdjserver.org/projects/bb436002-9fd5-43c0-817e-a742d77f3f90/files/TRUST4_JIRA1672_UTSW0009.fasta",
+                "tapis://data-storage.vdjserver.org/projects/bb436002-9fd5-43c0-817e-a742d77f3f90/files/TRUST4_JIRA1680_UTSW0013.fasta",
+                "tapis://data-storage.vdjserver.org/projects/bb436002-9fd5-43c0-817e-a742d77f3f90/files/TRUST4_JIRA1680_UTSW0014.fasta",
+                "tapis://data-storage.vdjserver.org/projects/bb436002-9fd5-43c0-817e-a742d77f3f90/files/TRUST4_JIRA1680_UTSW0015.fasta",
+                "tapis://data-storage.vdjserver.org/projects/bb436002-9fd5-43c0-817e-a742d77f3f90/files/TRUST4_JIRA1672_UTSW0017.fasta",
+                "tapis://data-storage.vdjserver.org/projects/bb436002-9fd5-43c0-817e-a742d77f3f90/files/TRUST4_JIRA1672_UTSW0018.fasta",
+                "tapis://data-storage.vdjserver.org/projects/bb436002-9fd5-43c0-817e-a742d77f3f90/files/TRUST4_JIRA1672_UTSW0019.fasta",
+                "tapis://data-storage.vdjserver.org/projects/bb436002-9fd5-43c0-817e-a742d77f3f90/files/TRUST4_JIRA1672_UTSW0020.fasta",
+                "tapis://data-storage.vdjserver.org/projects/bb436002-9fd5-43c0-817e-a742d77f3f90/files/TRUST4_JIRA1672_UTSW0022.fasta",
+                "tapis://data-storage.vdjserver.org/projects/bb436002-9fd5-43c0-817e-a742d77f3f90/files/TRUST4_JIRA1680_UTSW0023.fasta",
+                "tapis://data-storage.vdjserver.org/projects/bb436002-9fd5-43c0-817e-a742d77f3f90/files/TRUST4_JIRA1672_UTSW0033.fasta"
+            ]
+        }
+    ],
+    "parameterSet": {
+        "schedulerOptions": [
+            {
+                "name": "allocation",
+                "arg": "-A MCB23006"
+            }
+        ],
+        "containerArgs": [],
+        "appArgs": [],
+        "envVariables": [
+            {
+                "key": "query",
+                "value": "TRUST4_JIRA1277_1079.fasta TRUST4_JIRA1680_1215.fasta TRUST4_JIRA1680_1299.fasta TRUST4_JIRA1680_1400.fasta TRUST4_JIRA1680_1455.fasta TRUST4_JIRA1680_1468.fasta TRUST4_JIRA1485_1470.fasta TRUST4_JIRA1680_1507.fasta TRUST4_JIRA1485_1515.fasta TRUST4_JIRA1016_1533.fasta TRUST4_JIRA1680_1551.fasta TRUST4_JIRA1017_1602.fasta TRUST4_JIRA1672_UTSW1763.fasta TRUST4_JIRA1672_UTSW1767.fasta TRUST4_JIRA1485_1783.fasta TRUST4_JIRA1485_1792.fasta TRUST4_JIRA1680_1823.fasta TRUST4_JIRA1277_1839.fasta TRUST4_JIRA1485_1924.fasta TRUST4_JIRA1275_1956.fasta TRUST4_JIRA1672_UTSW1963.fasta TRUST4_JIRA1276_1982.fasta TRUST4_JIRA1275_20045.fasta TRUST4_JIRA1276_2035.fasta TRUST4_JIRA1680_2133.fasta TRUST4_JIRA1276_2140.fasta TRUST4_JIRA1277_2149.fasta TRUST4_JIRA1274_2161.fasta TRUST4_JIRA1275_2162.fasta TRUST4_JIRA1274_2177.fasta TRUST4_JIRA1274_2180.fasta TRUST4_JIRA1274_2227.fasta TRUST4_JIRA1277_2265.fasta TRUST4_JIRA1672_UTSW2405.fasta TRUST4_JIRA1275_2443.fasta TRUST4_JIRA1672_UTSW2778.fasta TRUST4_JIRA1672_UTSW2929.fasta TRUST4_JIRA1672_UTSW2989.fasta TRUST4_JIRA1741_3094.fasta TRUST4_JIRA1672_UTSW3851.fasta TRUST4_JIRA1741_5873.fasta TRUST4_JIRA1741_6527.fasta TRUST4_JIRA1016_HD279.fasta TRUST4_JIRA1680_UTSW0001.fasta TRUST4_JIRA1680_UTSW0002.fasta TRUST4_JIRA1672_UTSW0003.fasta TRUST4_JIRA1672_UTSW0009.fasta TRUST4_JIRA1680_UTSW0013.fasta TRUST4_JIRA1680_UTSW0014.fasta TRUST4_JIRA1680_UTSW0015.fasta TRUST4_JIRA1672_UTSW0017.fasta TRUST4_JIRA1672_UTSW0018.fasta TRUST4_JIRA1672_UTSW0019.fasta TRUST4_JIRA1672_UTSW0020.fasta TRUST4_JIRA1672_UTSW0022.fasta TRUST4_JIRA1680_UTSW0023.fasta TRUST4_JIRA1672_UTSW0033.fasta"
+            },
+            {
+                "key": "repertoires",
+                "value": "173ed87c-7bd9-432f-8292-e31452661cdd cdd740a2-494d-4c9e-a2a6-e445423c53a8 f5626529-2dd9-4c77-b43a-361a25365386 9801a002-cb06-4f9c-a0ca-33fadbc56983 1f211472-c88b-42b1-96a9-3fe0f54042ab 354030af-a2b0-4bb9-bfe4-c7a5bbc49b74 b5a2b07a-ee77-4331-a791-4fbf25a3ee9a cb1f00d1-766b-40f7-bbf9-001e8a010316 da478df4-1b20-4238-a44e-b5b90d709df3 dba5ebca-5256-4316-90ce-87bf712d1e79 f321b34d-0784-46f8-baf6-bba6643bed4f 98fc646b-c0d7-4c4f-88d9-fc2842bafa8f 172e8b32-bf3b-4ea3-b493-7ed67ee0db61 0f77a55d-e93c-4f3e-b5fe-407f2ca4139e 2309cf08-14fb-4438-abbe-c375e784d997 5e81318d-6bfd-4486-ad3a-bf6d2265c746 c9a87df5-a3a1-421f-9a8b-14c3dbab21d6 cbd86427-3668-4950-a417-c995905f63fa e8c6e585-a4f0-4317-8999-7298eb55ea68 46ba0190-5f01-4498-a0c8-e0a7012d54a9 3fa546b7-1d2f-4792-8a4f-8dc3fe1e5066 8f02a7a5-da50-44d9-a80a-a998f2b5defc f097e8d7-585a-4db7-bcd5-2024085a16f6 999ba142-5827-4be8-8e68-3c8c6d7a8a74 d3735cb5-e7fa-43fb-a21f-3fabe95c65c7 2cd533e3-b843-47e2-8d6a-bffcec0e82e2 469c6b68-146c-4e51-bf4a-48a61a328bee 73ec5949-cefd-4c44-9f8c-f47ef05631f3 eae6e75f-fd9f-4e25-8d8b-c185481e0f2e b8c2c992-f2e1-4773-b080-31f0459bade4 c7effaf2-8e6d-4743-a0c5-bba4a9a47d96 59bbf580-a2c3-4735-8d2d-1c92636a71db d9e9dc26-a509-4a94-8099-9c29a5fd7674 026904e8-ba98-469b-a2e3-0850e5d56784 672b372b-93dd-4a65-818e-48a20adbf1d2 ef42ed44-3a9f-4616-a702-e3e71395ef56 35e0c7e7-8927-4443-a962-41e6470a5125 ed75a9fd-c1db-493f-90cf-9af08791e19a 1b813ba5-941a-4042-95ed-f989880b8499 13d65519-0e06-4efe-b1d3-a2de3ebd5a5a f5ed20b2-413c-4c18-bf0b-508a12000207 ee508fc3-28f1-4966-bbc5-658e206b67a9 a4554cf7-be20-46ee-96e7-d5ea790c0892 b7322424-c10e-4187-a79b-686ce41967a2 f7c0c5ea-07f3-4c3e-97be-b839816add5a ededf32a-b206-441e-9577-6df0fbc8e659 87c8049e-4258-4f12-97bf-0b51ca42cbec ee82d407-5ab5-4e0c-9133-58bad1e1d443 f43e311b-b606-452f-9564-9e8a2b3beec0 a8d76e58-86d8-47f2-aa7f-356eaac034b7 407f5334-bfbf-4901-897d-7094e41c4235 5b9554f3-ae76-4c41-a2a7-f33c5b5e8c39 0991ec7c-5bbd-44de-96f1-d5d2f069cc4a 200b8bd7-8dbb-4342-93da-a95c14ae33d4 3e96c63c-bfb3-44c2-ba31-4a482ac9ee00 1e02e75f-e37c-4f5f-8b93-40e751507165 c5bd3f9c-2bd2-4153-a660-3b8c2ba04dd4"
+            },
+            {
+                "key": "species",
+                "value": "human"
+            },
+            {
+                "key": "ig_seqtype",
+                "value": "Ig"
+            },
+            {
+                "key": "ClonalTool",
+                "value": "changeo"
+            }
+        ]
+    }
+}

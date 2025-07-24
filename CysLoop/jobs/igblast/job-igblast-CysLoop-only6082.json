@@ -1,0 +1,56 @@
+{
+    "name": "CysLoop",
+    "appId": "igblast-ls6",
+    "appVersion": "0.3",
+    "maxMinutes": 60,
+    "nodeCount": 1,
+    "archiveSystemId": "data-storage.vdjserver.org",
+    "archiveSystemDir": "/projects/bb436002-9fd5-43c0-817e-a742d77f3f90/analyses/${JobUUID}",
+    "fileInputs": [
+        {
+            "name": "AIRRMetadata",
+            "sourceUrl": "tapis://data-storage.vdjserver.org/projects/bb436002-9fd5-43c0-817e-a742d77f3f90/files/repertoires.airr.json",
+            "targetPath": "repertoires.airr.json"
+        }
+    ],
+    "fileInputArrays": [
+        {
+            "name": "query",
+            "sourceUrls": [
+                "tapis://data-storage.vdjserver.org/projects/bb436002-9fd5-43c0-817e-a742d77f3f90/files/scPCR_plt1_6082.fasta"
+            ]
+        }
+    ],
+    "parameterSet": {
+        "schedulerOptions": [
+            {
+                "name": "allocation",
+                "arg": "-A MCB23006"
+            }
+        ],
+        "containerArgs": [],
+        "appArgs": [],
+        "envVariables": [
+            {
+                "key": "query",
+                "value": "scPCR_plt1_6082.fasta"
+            },
+            {
+                "key": "repertoires",
+                "value": "1bf67ffb-75de-40b3-b33c-580f013f1b41"
+            },
+            {
+                "key": "species",
+                "value": "human"
+            },
+            {
+                "key": "ig_seqtype",
+                "value": "Ig"
+            },
+            {
+                "key": "ClonalTool",
+                "value": "changeo"
+            }
+        ]
+    }
+}
