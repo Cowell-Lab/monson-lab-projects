@@ -82,7 +82,7 @@ def main():
     parser = argparse.ArgumentParser(
         prog='Ordering Script',
         description="Produce orderable vectors")
-    parser.add_argument('--data', required=True, help='Path to input igblast makedb airr tsv file; /path/to/<FILE_NAME>.igblast.makedb.aiir.tsv')
+    parser.add_argument('--data', required=True, help='Path to input igblast makedb airr tsv file; /path/to/<FILE_NAME>.igblast.makedb.airr.tsv')
     parser.add_argument('--v_call', required=True, help='Path to v-call reference; /path/to/genes_v_call.csv')
     args = parser.parse_args()
 
