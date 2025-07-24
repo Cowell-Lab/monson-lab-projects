@@ -41,7 +41,7 @@ merged_df['seqID'] = merged_df['sequence_id'].apply(extract_br_code_from_seqid)
 merged_df['chain_type'] = merged_df['sequence_id'].str.extract(r'\.(heavy|kappa|lambda)\.')
 
 #create a match key, extract well id
-merged_df['match_key'] = merged_df['sequence_id'].str.extract(r'^(113-*.)')
+merged_df['match_key'] = merged_df['seqID']
 
 #seperate into heavy and light chains
 heavy_df = merged_df[merged_df['chain_type'] == 'heavy'].copy()
