@@ -28,10 +28,13 @@ codons = {'TTT':'TTC', 'TTC':'TTT', # phe
           'GCT':'GCC', 'GCC':'GCA', 'GCA':'GCG', 'GCG':'GCT', # ala
           'GAT':'GAC', 'GAC':'GAC', # asp
           'GAA':'GAG', 'GAG':'GAA', # glu
-          'GGT':'GGC', 'GGC':'GGA', 'GGA':'GGG', 'GGG':'GGT'  # gly
+          'GGT':'GGC', 'GGC':'GGA', 'GGA':'GGG', 'GGG':'GGT',  # gly
+          'TAA':'TAG', 'TAG':'TGA', 'TGA':'TAA' #stop
          }
 
-def restriction_replacement(seq, selector):
+stop_codons = ['TAA, TAG, TGA']
+
+def restriction_replacement(seq_id, seq, selector, i):
 
     '''
     Replaces the first codon in a restriction site that is not within the respective start or end regions.
@@ -75,6 +78,9 @@ def restriction_replacement(seq, selector):
             while i2 < 0:
                 i2 += 3
             new_seq = seq[0:i2] + codons[seq[i2:i2+3]] + seq[i2+3:]
+        
+        if codons[seq[i1:i1+3]].isin(stop_codons) or codons[seq[i2:i2+3]].isin(stop_codons):
+            print(f'STOP CODON ENCOUNTERED @ {i}; {seq_id}')
 
     return new_seq
 
@@ -137,7 +143,7 @@ def main():
     # find and replace restriction site
     for i in range(len(order_df)):
         prev_seq = order_df.loc[i, 'to_order']
-        order_df.loc[i, 'to_order'] = restriction_replacement(order_df.loc[i, 'to_order'], dict_selector)
+        order_df.loc[i, 'to_order'] = restriction_replacement(order_df.loc[i, 'sequence_id'], order_df.loc[i, 'to_order'], dict_selector, i)
         if prev_seq != order_df.loc[i, 'to_order']:
             print(f'Restriction site(s) within internal region detected and replaced at row index {i}.')
     
