@@ -70,6 +70,9 @@ def restriction_replacement(seq_id, seq, selector, i):
             while i1 < 0:
                 i1 += 3
             new_seq = seq[0:i1] + codons[seq[i1:i1+3]] + seq[i1+3:]
+
+            if codons[seq[i1:i1+3]].isin(stop_codons):
+                print(f'STOP CODON ENCOUNTERED when replacing restriction site 1 @ {i}; {seq_id}')
             
         # second restriction site outside of (or overlapping with) the universal end (rs needed there)
         i2 = seq[:len(new_seq)-len(uend)].find(rsites[1])
@@ -78,9 +81,11 @@ def restriction_replacement(seq_id, seq, selector, i):
             while i2 < 0:
                 i2 += 3
             new_seq = seq[0:i2] + codons[seq[i2:i2+3]] + seq[i2+3:]
+
+            if codons[seq[i2:i2+3]].isin(stop_codons):
+                print(f'STOP CODON ENCOUNTERED when replacing restriction site 1 @ {i}; {seq_id}')
         
-        if codons[seq[i1:i1+3]].isin(stop_codons) or codons[seq[i2:i2+3]].isin(stop_codons):
-            print(f'STOP CODON ENCOUNTERED @ {i}; {seq_id}')
+        
 
     return new_seq
 
