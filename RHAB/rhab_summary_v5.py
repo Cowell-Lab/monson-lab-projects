@@ -31,19 +31,19 @@ if (__name__=="__main__"):
 
     if args.ten_x:
         cell_10X_fields = ['cell_id', 'clone_id', 'repertoire_id', 'is_cell', 'adc_annotation_cell_id', 'adc_annotation_sequence_id', 'adc_annotation_clone_id']
-    base_fields = ['productive', 'v_call', 'd_call', 'j_call', 'fwr1', 'cdr1', 'fwr2', 'cdr2', 'fwr3', 'cdr3', 'fwr4', 'v_identity', 'sequence_alignment']
+    base_fields = ['sequence_id', 'productive', 'v_call', 'd_call', 'j_call', 'fwr1', 'cdr1', 'fwr2', 'cdr2', 'fwr3', 'cdr3', 'fwr4', 'v_identity', 'sequence_alignment']
     if args.ten_x:
         base_fields += cell_10X_fields
     charge_fields = ['cdr3_aa_charge']
     # mut_fields = charge_fields + ['mu_total_count_fwr1','mu_total_count_cdr1','mu_total_count_fwr2','mu_total_count_cdr2','mu_total_count_fwr3']
-    mut_fields = ['sequence_id']
+    
     # mut_fields += charge_fields
-    mut_fields += ['mu_total_count_fwr1','mu_total_count_cdr1','mu_total_count_fwr2','mu_total_count_cdr2','mu_total_count_fwr3']
+    mut_fields = ['mu_total_count_fwr1','mu_total_count_cdr1','mu_total_count_fwr2','mu_total_count_cdr2','mu_total_count_fwr3']
     mut_fields += ['mu_count_fwr1_r','mu_count_fwr1_s','mu_count_cdr1_r','mu_count_cdr1_s','mu_count_fwr2_r','mu_count_fwr2_s','mu_count_cdr2_r','mu_count_cdr2_s','mu_count_fwr3_r','mu_count_fwr3_s']
     mut_fields += ['mu_total_count_fwr1_aa','mu_total_count_cdr1_aa','mu_total_count_fwr2_aa','mu_total_count_cdr2_aa','mu_total_count_fwr3_aa']
     mut_fields += ['mu_count_fwr1_r_aa','mu_count_fwr1_s_aa','mu_count_cdr1_r_aa','mu_count_cdr1_s_aa','mu_count_fwr2_r_aa','mu_count_fwr2_s_aa','mu_count_cdr2_r_aa','mu_count_cdr2_s_aa','mu_count_fwr3_r_aa','mu_count_fwr3_s_aa']
     # fieldnames = ['sequence_id', 'productive', 'v_call', 'd_call', 'j_call', 'fwr1', 'cdr1', 'fwr2', 'cdr2', 'fwr3', 'cdr3', 'cdr3_aa_length', 'cdr3_aa_charge', 'mu_aa_count_v_r', 'v_identity', 'sequence_alignment']
-    fieldnames = ['productive', 'v_call', 'd_call', 'j_call', 'fwr1', 'cdr1', 'fwr2', 'cdr2', 'fwr3', 'cdr3', 'fwr4', 'cdr3_aa_length', 'cdr3_aa_charge', 'mu_aa_count_v_r', 'v_identity', 'sequence_alignment']
+    fieldnames = ['sequence_id', 'productive', 'v_call', 'd_call', 'j_call', 'fwr1', 'cdr1', 'fwr2', 'cdr2', 'fwr3', 'cdr3', 'fwr4', 'cdr3_aa_length', 'cdr3_aa_charge', 'mu_aa_count_v_r', 'v_identity', 'sequence_alignment']
     fieldnames += mut_fields
 
     if args.ten_x:
