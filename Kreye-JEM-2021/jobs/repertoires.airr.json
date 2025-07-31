@@ -1,0 +1,375 @@
+{
+  "Info": {
+    "title": "AIRR Schema",
+    "description": "Schema definitions for AIRR standards objects",
+    "version": 1.5,
+    "contact": {
+      "name": "AIRR Community",
+      "url": "https://github.com/airr-community"
+    },
+    "license": {
+      "name": "Creative Commons Attribution 4.0 International",
+      "url": "https://creativecommons.org/licenses/by/4.0/"
+    }
+  },
+  "Repertoire": [
+    {
+      "repertoire_id": "a4a761a2-a8f2-447a-a184-6abe37d9c8db",
+      "repertoire_name": "positive",
+      "repertoire_description": "Positive for binding to GABAAR",
+      "study": {
+        "study_id": "",
+        "study_title": "Kreye JEM 2021",
+        "study_type": {
+          "id": null,
+          "label": null
+        },
+        "study_description": "Data from doi: 10.1084/jem.20210012",
+        "inclusion_exclusion_criteria": "",
+        "grants": "",
+        "study_contact": null,
+        "collected_by": "",
+        "lab_name": "",
+        "lab_address": "",
+        "submitted_by": "",
+        "pub_ids": "",
+        "keywords_study": [
+          "contains_ig"
+        ],
+        "adc_publish_date": null,
+        "adc_update_date": null,
+        "vdjserver": {
+          "vdjserver_uuid": null,
+          "version": null,
+          "owner": null,
+          "keywords": null
+        }
+      },
+      "subject": {
+        "subject_id": "113",
+        "synthetic": false,
+        "species": {
+          "id": "NCBITAXON:9606",
+          "label": "Homo sapiens"
+        },
+        "sex": null,
+        "age_min": null,
+        "age_max": null,
+        "age_unit": {
+          "id": null,
+          "label": null
+        },
+        "age_event": null,
+        "ancestry_population": null,
+        "ethnicity": null,
+        "race": null,
+        "strain_name": null,
+        "linked_subjects": null,
+        "link_type": null,
+        "diagnosis": [
+          {
+            "study_group_description": null,
+            "disease_diagnosis": {
+              "id": null,
+              "label": null
+            },
+            "disease_length": null,
+            "disease_stage": null,
+            "prior_therapies": null,
+            "immunogen": null,
+            "intervention": null,
+            "medical_history": null
+          }
+        ],
+        "genotype": null,
+        "vdjserver": {
+          "vdjserver_uuid": "47d5e203-f167-4915-b1de-e5b16eaf4702",
+          "version": "2.0"
+        }
+      },
+      "sample": [
+        {
+          "sample_processing_id": null,
+          "sample_id": "positive",
+          "sample_type": null,
+          "tissue": {
+            "id": null,
+            "label": null
+          },
+          "anatomic_site": null,
+          "disease_state_sample": null,
+          "collection_time_point_relative": null,
+          "collection_time_point_relative_unit": {
+            "id": null,
+            "label": null
+          },
+          "collection_time_point_reference": null,
+          "biomaterial_provider": null,
+          "tissue_processing": null,
+          "cell_subset": {
+            "id": null,
+            "label": null
+          },
+          "cell_phenotype": null,
+          "cell_species": {
+            "id": null,
+            "label": null
+          },
+          "single_cell": null,
+          "cell_number": null,
+          "cells_per_reaction": null,
+          "cell_storage": null,
+          "cell_quality": null,
+          "cell_isolation": null,
+          "cell_processing_protocol": null,
+          "template_class": "DNA",
+          "template_quality": null,
+          "template_amount": null,
+          "template_amount_unit": {
+            "id": null,
+            "label": null
+          },
+          "library_generation_method": "PCR",
+          "library_generation_protocol": null,
+          "library_generation_kit_version": null,
+          "pcr_target": [
+            {
+              "pcr_target_locus": "IGH",
+              "forward_pcr_primer_target_location": null,
+              "reverse_pcr_primer_target_location": null
+            },
+            {
+              "pcr_target_locus": "IGK",
+              "forward_pcr_primer_target_location": null,
+              "reverse_pcr_primer_target_location": null
+            },
+            {
+              "pcr_target_locus": "IGL",
+              "forward_pcr_primer_target_location": null,
+              "reverse_pcr_primer_target_location": null
+            }
+          ],
+          "complete_sequences": "partial",
+          "physical_linkage": "none",
+          "sequencing_run_id": null,
+          "total_reads_passing_qc_filter": null,
+          "sequencing_platform": null,
+          "sequencing_facility": null,
+          "sequencing_run_date": null,
+          "sequencing_kit": null,
+          "sequencing_files": {
+            "sequencing_data_id": null,
+            "file_type": "fasta",
+            "filename": "positive.fasta",
+            "read_direction": null,
+            "read_length": null,
+            "paired_filename": null,
+            "paired_read_direction": null,
+            "paired_read_length": null,
+            "index_filename": null,
+            "index_length": null
+          },
+          "vdjserver": {
+            "vdjserver_uuid": "01ca3bf3-73b9-4825-b094-330a63cef1de",
+            "version": "2.0"
+          }
+        }
+      ],
+      "data_processing": [
+        {
+          "data_processing_id": null,
+          "primary_annotation": false,
+          "software_versions": null,
+          "paired_reads_assembly": null,
+          "quality_thresholds": null,
+          "primer_match_cutoffs": null,
+          "collapsing_method": null,
+          "data_processing_protocols": null,
+          "data_processing_files": null,
+          "germline_database": null,
+          "germline_set_ref": null,
+          "analysis_provenance_id": null
+        }
+      ]
+    },
+    {
+      "repertoire_id": "d3bbcbdd-92b4-4a8b-8c9a-57e263d81932",
+      "repertoire_name": "negative",
+      "repertoire_description": "Negative for binding to GABAAR",
+      "study": {
+        "study_id": "",
+        "study_title": "Kreye JEM 2021",
+        "study_type": {
+          "id": null,
+          "label": null
+        },
+        "study_description": "Data from doi: 10.1084/jem.20210012",
+        "inclusion_exclusion_criteria": "",
+        "grants": "",
+        "study_contact": null,
+        "collected_by": "",
+        "lab_name": "",
+        "lab_address": "",
+        "submitted_by": "",
+        "pub_ids": "",
+        "keywords_study": [
+          "contains_ig"
+        ],
+        "adc_publish_date": null,
+        "adc_update_date": null,
+        "vdjserver": {
+          "vdjserver_uuid": null,
+          "version": null,
+          "owner": null,
+          "keywords": null
+        }
+      },
+      "subject": {
+        "subject_id": "113",
+        "synthetic": false,
+        "species": {
+          "id": "NCBITAXON:9606",
+          "label": "Homo sapiens"
+        },
+        "sex": null,
+        "age_min": null,
+        "age_max": null,
+        "age_unit": {
+          "id": null,
+          "label": null
+        },
+        "age_event": null,
+        "ancestry_population": null,
+        "ethnicity": null,
+        "race": null,
+        "strain_name": null,
+        "linked_subjects": null,
+        "link_type": null,
+        "diagnosis": [
+          {
+            "study_group_description": null,
+            "disease_diagnosis": {
+              "id": null,
+              "label": null
+            },
+            "disease_length": null,
+            "disease_stage": null,
+            "prior_therapies": null,
+            "immunogen": null,
+            "intervention": null,
+            "medical_history": null
+          }
+        ],
+        "genotype": null,
+        "vdjserver": {
+          "vdjserver_uuid": "47d5e203-f167-4915-b1de-e5b16eaf4702",
+          "version": "2.0"
+        }
+      },
+      "sample": [
+        {
+          "sample_processing_id": null,
+          "sample_id": "negative",
+          "sample_type": null,
+          "tissue": {
+            "id": null,
+            "label": null
+          },
+          "anatomic_site": null,
+          "disease_state_sample": null,
+          "collection_time_point_relative": null,
+          "collection_time_point_relative_unit": {
+            "id": null,
+            "label": null
+          },
+          "collection_time_point_reference": null,
+          "biomaterial_provider": null,
+          "tissue_processing": null,
+          "cell_subset": {
+            "id": null,
+            "label": null
+          },
+          "cell_phenotype": null,
+          "cell_species": {
+            "id": null,
+            "label": null
+          },
+          "single_cell": null,
+          "cell_number": null,
+          "cells_per_reaction": null,
+          "cell_storage": null,
+          "cell_quality": null,
+          "cell_isolation": null,
+          "cell_processing_protocol": null,
+          "template_class": "DNA",
+          "template_quality": null,
+          "template_amount": null,
+          "template_amount_unit": {
+            "id": null,
+            "label": null
+          },
+          "library_generation_method": "PCR",
+          "library_generation_protocol": null,
+          "library_generation_kit_version": null,
+          "pcr_target": [
+            {
+              "pcr_target_locus": "IGH",
+              "forward_pcr_primer_target_location": null,
+              "reverse_pcr_primer_target_location": null
+            },
+            {
+              "pcr_target_locus": "IGK",
+              "forward_pcr_primer_target_location": null,
+              "reverse_pcr_primer_target_location": null
+            },
+            {
+              "pcr_target_locus": "IGL",
+              "forward_pcr_primer_target_location": null,
+              "reverse_pcr_primer_target_location": null
+            }
+          ],
+          "complete_sequences": "partial",
+          "physical_linkage": "none",
+          "sequencing_run_id": null,
+          "total_reads_passing_qc_filter": null,
+          "sequencing_platform": null,
+          "sequencing_facility": null,
+          "sequencing_run_date": null,
+          "sequencing_kit": null,
+          "sequencing_files": {
+            "sequencing_data_id": null,
+            "file_type": "fasta",
+            "filename": "negative.fasta",
+            "read_direction": null,
+            "read_length": null,
+            "paired_filename": null,
+            "paired_read_direction": null,
+            "paired_read_length": null,
+            "index_filename": null,
+            "index_length": null
+          },
+          "vdjserver": {
+            "vdjserver_uuid": "870ce6f4-20b0-4860-9f13-dcfef9e78cbc",
+            "version": "2.0"
+          }
+        }
+      ],
+      "data_processing": [
+        {
+          "data_processing_id": null,
+          "primary_annotation": false,
+          "software_versions": null,
+          "paired_reads_assembly": null,
+          "quality_thresholds": null,
+          "primer_match_cutoffs": null,
+          "collapsing_method": null,
+          "data_processing_protocols": null,
+          "data_processing_files": null,
+          "germline_database": null,
+          "germline_set_ref": null,
+          "analysis_provenance_id": null
+        }
+      ]
+    }
+  ]
+}
