@@ -1,0 +1,42 @@
+{
+    "name": "igblast_CysLoop",
+    "appId": "igblast-ls6",
+    "appVersion": "0.3",
+    "maxMinutes": 180,
+    "nodeCount": 1,
+    "archiveSystemId": "data-storage.vdjserver.org",
+    "archiveSystemDir": "/projects/bb436002-9fd5-43c0-817e-a742d77f3f90/analyses/${JobUUID}",
+    "fileInputs":[
+      { "name":"AIRRMetadata", "sourceUrl":"tapis://data-storage.vdjserver.org/projects/bb436002-9fd5-43c0-817e-a742d77f3f90/files/repertoires.airr.json", "targetPath":"repertoires.airr.json" }
+    ],
+    "fileInputArrays":[
+      { "name":"query", "sourceUrls": [
+            "tapis://data-storage.vdjserver.org/projects/bb436002-9fd5-43c0-817e-a742d77f3f90/files/cysloop1079_trust_vdjseq.fasta",
+            "tapis://data-storage.vdjserver.org/projects/bb436002-9fd5-43c0-817e-a742d77f3f90/files/cysloop1470_trust_vdjseq.fasta",
+            "tapis://data-storage.vdjserver.org/projects/bb436002-9fd5-43c0-817e-a742d77f3f90/files/cysloop1515_trust_vdjseq.fasta",
+            "tapis://data-storage.vdjserver.org/projects/bb436002-9fd5-43c0-817e-a742d77f3f90/files/cysloop1783_trust_vdjseq.fasta",
+            "tapis://data-storage.vdjserver.org/projects/bb436002-9fd5-43c0-817e-a742d77f3f90/files/cysloop1792_trust_vdjseq.fasta",
+            "tapis://data-storage.vdjserver.org/projects/bb436002-9fd5-43c0-817e-a742d77f3f90/files/cysloop1839_trust_vdjseq.fasta",
+            "tapis://data-storage.vdjserver.org/projects/bb436002-9fd5-43c0-817e-a742d77f3f90/files/cysloop1924_trust_vdjseq.fasta",
+            "tapis://data-storage.vdjserver.org/projects/bb436002-9fd5-43c0-817e-a742d77f3f90/files/cysloop3094_trust_vdjseq.fasta",
+            "tapis://data-storage.vdjserver.org/projects/bb436002-9fd5-43c0-817e-a742d77f3f90/files/cysloop5873_trust_vdjseq.fasta",
+            "tapis://data-storage.vdjserver.org/projects/bb436002-9fd5-43c0-817e-a742d77f3f90/files/cysloop6527_trust_vdjseq.fasta"
+            ]}
+    ],
+    "parameterSet": {
+        "schedulerOptions": [
+            { "name":"allocation", "arg":"-A MCB23006" }
+        ],
+        "containerArgs": [
+        ],
+        "appArgs": [
+        ],
+        "envVariables": [
+            {"key": "query", "value": "cysloop1079_trust_vdjseq.fasta cysloop1470_trust_vdjseq.fasta cysloop1515_trust_vdjseq.fasta cysloop1783_trust_vdjseq.fasta cysloop1792_trust_vdjseq.fasta cysloop1839_trust_vdjseq.fasta cysloop1924_trust_vdjseq.fasta cysloop3094_trust_vdjseq.fasta cysloop5873_trust_vdjseq.fasta cysloop6527_trust_vdjseq.fasta" },
+            {"key": "repertoires", "value": "119287da-944f-47be-b767-e69973d4a65d c118beae-cc4a-4576-ae41-76c83351c73b 04513494-b065-43cd-a7e4-f7614972e95f 577f246b-b31f-4f5f-b6d3-7ecbc998a4e2 526330a0-98de-4920-99ba-5550cc2f1059 ac1985ac-b2a2-4a18-9719-b68dc4dd4612 11394aab-c18c-45a6-8d36-6951531ebea4 077f3414-0817-407f-84d7-a45a46ee0b6c d9e0c5f1-0ca4-4844-a4bd-8e06cb41ea65 5e1d2c75-32cf-4f2a-ae7a-9dba8d9a94db" },
+            {"key": "species", "value": "human" },
+            {"key": "ig_seqtype", "value": "Ig" },
+            {"key": "ClonalTool", "value": "changeo" }
+        ]
+    }
+}
