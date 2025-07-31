@@ -1,6 +1,7 @@
 # Ignore files with extension
 *.pdf
 *.zip
+*.xlsm
 
 # Ignore files
 .DS_Store
@@ -8,3 +9,5 @@ tapisjob.err
 tapisjob.out
 
 # Ignore direcories
+**/__pycache__/
+*-007
