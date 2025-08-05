@@ -104,6 +104,7 @@ def main():
     # make order df
     order_df = igblast_makedb.loc[:,['sequence_id']]
     order_df['to_order'] = ['']*len(igblast_makedb)
+    order_df['full_sequence'] = ['']*len(igblast_makedb)
     for i in range(len(igblast_makedb)): # *** TEMP loop through all of igblast_makedb
         # select dictionary index
         locus = igblast_makedb.loc[i,'locus']
@@ -142,6 +143,11 @@ def main():
                                         igblast_makedb.loc[i,'fwr3'] + igblast_makedb.loc[i,'cdr3'] + \
                                         igblast_makedb.loc[i,'fwr4'] + \
                                         consts_df['end'][dict_selector]).translate({ord('.'): None})
+        
+        order_df.loc[i, 'full_sequence'] = str(igblast_makedb.loc[i,'fwr1'] + igblast_makedb.loc[i,'cdr1'] + \
+                                               igblast_makedb.loc[i,'fwr2'] + igblast_makedb.loc[i,'cdr2'] + \
+                                               igblast_makedb.loc[i,'fwr3'] + igblast_makedb.loc[i,'cdr3'] + \
+                                               igblast_makedb.loc[i,'fwr4']).translate({ord('.'): None})
 
     # find and replace restriction site
     for i in range(len(order_df)):

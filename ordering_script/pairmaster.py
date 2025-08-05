@@ -9,11 +9,13 @@ field_names = ['Subject_ID', 'Sample_ID']
 heavy_names = ['Sequence_ID_HC', 'VH_Gene', 'JH_Gene',
                 'FWR1_HC', 'CDR1_HC', 'FWR2_HC', 'CDR2_HC', 'FWR3_HC', 'CDR3_HC',
                 'CDR3_AA_Length_HC', 'CDR3_AA_Charge_HC', 'Replacement_Mutations_HC',
-                '%Homology_HC', 'Nucleotide_Sequence_HC', 'Analysis_Reference_HC']
+                '%Homology_HC', 'Nucleotide_Sequence_HC', 'IDT_Order_sequence_HC',
+                'Analysis_Reference_HC']
 light_names = ['Sequence_ID_LC', 'VL_Gene', 'JL_Gene',
                 'FWR1_LC', 'CDR1_LC', 'FWR2_LC', 'CDR2_LC', 'FWR3_LC', 'CDR3_LC',
                 'CDR3_AA_Length_LC', 'CDR3_AA_Charge_LC', 'Replacement_Mutations_LC',
-                '%Homology_LC', 'Nucleotide_Sequence_LC', 'Analysis_Reference_LC']
+                '%Homology_LC', 'Nucleotide_Sequence_LC', 'IDT_Order_sequence_LC',
+                'Analysis_Reference_LC']
 field_names += heavy_names
 field_names += light_names
 
@@ -48,7 +50,7 @@ def pairmaster(
 
     grouped_df = sum_ord_df.groupby(['subject_id', 'sample_id'])
 
-    pairmaster = pd.DataFrame(columns=field_names)
+    pairmaster_df = pd.DataFrame(columns=field_names)
     for sub_samp_id, group_df in grouped_df:
         group_df = group_df.reset_index()
 
@@ -87,7 +89,8 @@ def pairmaster(
                 new_row.loc[i,'CDR3_AA_Charge_HC'] = h['cdr3_aa_charge']
                 new_row.loc[i,'Replacement_Mutations_HC'] = h['mu_aa_count_v_r']
                 new_row.loc[i,'%Homology_HC'] = h['v_identity']
-                new_row.loc[i,'Nucleotide_Sequence_HC'] = h['to_order']
+                new_row.loc[i,'Nucleotide_Sequence_HC'] = h['full_sequence']
+                new_row.loc[i,'IDT_Order_sequence_HC'] = h['to_order']
                 new_row.loc[i,'Analysis_Reference_HC'] = ''
 
                 # LC
@@ -105,20 +108,21 @@ def pairmaster(
                 new_row.loc[i,'CDR3_AA_Charge_LC'] = l['cdr3_aa_charge']
                 new_row.loc[i,'Replacement_Mutations_LC'] = l['mu_aa_count_v_r']
                 new_row.loc[i,'%Homology_LC'] = l['v_identity']
-                new_row.loc[i,'Nucleotide_Sequence_LC'] = l['to_order']
+                new_row.loc[i,'Nucleotide_Sequence_LC'] = l['full_sequence']
+                new_row.loc[i,'IDT_Order_sequence_LC'] = l['to_order']
                 new_row.loc[i,'Analysis_Reference_LC'] = ''
 
                 # create dataframe
-                pairmaster = pd.concat([pairmaster, new_row], ignore_index=True)
+                pairmaster_df = pd.concat([pairmaster_df, new_row], ignore_index=True)
 
     if output is not None:
-        pairmaster.to_csv(output, index=False)
+        pairmaster_df.to_csv(output, index=False)
 
-    return pairmaster
+    return pairmaster_df
 
 def main():
     """
-    Runs the pairmaster function with the given arguments
+    Runs the pairmaster function with the given arguments.
     """
     parser = argparse.ArgumentParser(
         prog='PairMaster Script',
