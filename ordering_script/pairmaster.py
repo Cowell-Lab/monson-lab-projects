@@ -7,12 +7,12 @@ import pandas as pd
 
 field_names = ['Subject_ID', 'Sample_ID']
 heavy_names = ['Sequence_ID_HC', 'VH_Gene', 'JH_Gene',
-                'FWR1_HC', 'CDR1_HC', 'FWR2_HC', 'CDR2_HC', 'FWR3_HC', 'CDR3_HC',
+                'FWR1_HC', 'CDR1_HC', 'FWR2_HC', 'CDR2_HC', 'FWR3_HC', 'CDR3_HC', 'FWR4_HC'
                 'CDR3_AA_Length_HC', 'CDR3_AA_Charge_HC', 'Replacement_Mutations_HC',
                 '%Homology_HC', 'Nucleotide_Sequence_HC', 'IDT_Order_sequence_HC',
                 'Analysis_Reference_HC']
 light_names = ['Sequence_ID_LC', 'VL_Gene', 'JL_Gene',
-                'FWR1_LC', 'CDR1_LC', 'FWR2_LC', 'CDR2_LC', 'FWR3_LC', 'CDR3_LC',
+                'FWR1_LC', 'CDR1_LC', 'FWR2_LC', 'CDR2_LC', 'FWR3_LC', 'CDR3_LC', 'FWR4_LC'
                 'CDR3_AA_Length_LC', 'CDR3_AA_Charge_LC', 'Replacement_Mutations_LC',
                 '%Homology_LC', 'Nucleotide_Sequence_LC', 'IDT_Order_sequence_LC',
                 'Analysis_Reference_LC']
@@ -85,6 +85,7 @@ def pairmaster(
                 new_row.loc[i,'CDR2_HC'] = h['cdr2']
                 new_row.loc[i,'FWR3_HC'] = h['fwr3']
                 new_row.loc[i,'CDR3_HC'] = h['cdr3']
+                new_row.loc[i,'FWR4_HC'] = h['fwr4']
                 new_row.loc[i,'CDR3_AA_Length_HC'] = h['cdr3_aa_length']
                 new_row.loc[i,'CDR3_AA_Charge_HC'] = h['cdr3_aa_charge']
                 new_row.loc[i,'Replacement_Mutations_HC'] = h['mu_aa_count_v_r']
@@ -104,6 +105,7 @@ def pairmaster(
                 new_row.loc[i,'CDR2_LC'] = l['cdr2']
                 new_row.loc[i,'FWR3_LC'] = l['fwr3']
                 new_row.loc[i,'CDR3_LC'] = l['cdr3']
+                new_row.loc[i,'FWR4_LC'] = l['fwr4']
                 new_row.loc[i,'CDR3_AA_Length_LC'] = l['cdr3_aa_length']
                 new_row.loc[i,'CDR3_AA_Charge_LC'] = l['cdr3_aa_charge']
                 new_row.loc[i,'Replacement_Mutations_LC'] = l['mu_aa_count_v_r']
