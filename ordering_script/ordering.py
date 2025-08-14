@@ -1,5 +1,6 @@
-import pandas as pd
 import argparse
+import pandas as pd
+from repcalc import gldb
 
 consts_df = {'vector' : ['IGH', 'IGK', 'IGL'], # 'HC', 'KLC', 'LLC'
              'start' : ['CTGCAACCGGTGTACATTCC', 'TGTGCTGCAACCGGTGTACAT', 'CTGCTACCGGT'],
@@ -33,6 +34,11 @@ codons = {'TTT':'TTC', 'TTC':'TTT', # phe
          }
 
 stop_codons = ['TAA', 'TAG', 'TGA']
+
+# load germlines
+germline_IGH = gldb.loadGermline('./data/Homo_sapiens_IGH_VDJ_rev_9_ex.json')
+germline_IGK = gldb.loadGermline('./data/Homo_sapiens_IGKappa_VJ_rev_4_ex.json')
+germline_IGL = gldb.loadGermline('./data/Homo_sapiens_IGLambda_VJ_rev_3_ex.json')
 
 def restriction_replacement(seq_id, seq, selector, i):
 
@@ -102,10 +108,13 @@ def main():
     var_df = pd.read_csv(args.v_call).drop(columns=['Unnamed: 0'])
 
     # make order df
-    order_df = igblast_makedb.loc[:,['sequence_id']]
-    order_df['to_order'] = ['']*len(igblast_makedb)
-    order_df['full_sequence'] = ['']*len(igblast_makedb)
+    order_df = pd.DataFrame()
+    # order_df = igblast_makedb.loc[:,['sequence_id']]
+    # order_df['to_order'] = ['']*len(igblast_makedb)
+    # order_df['full_sequence'] = ['']*len(igblast_makedb) # unedited, no restriction replacement
     for i in range(len(igblast_makedb)): # *** TEMP loop through all of igblast_makedb
+        order_df.loc[i, 'sequence_id'] = igblast_makedb.loc[i, 'sequence_id']
+
         # select dictionary index
         locus = igblast_makedb.loc[i,'locus']
         for ii in range(len(consts_df['vector'])):
@@ -135,21 +144,85 @@ def main():
         else:
             var = ''
         
-        # Construct insert
-        order_df.loc[i, 'to_order'] = str(consts_df['start'][dict_selector] + \
-                                        var + \
-                                        igblast_makedb.loc[i,'fwr1'] + igblast_makedb.loc[i,'cdr1'] + \
-                                        igblast_makedb.loc[i,'fwr2'] + igblast_makedb.loc[i,'cdr2'] + \
-                                        igblast_makedb.loc[i,'fwr3'] + igblast_makedb.loc[i,'cdr3'] + \
-                                        igblast_makedb.loc[i,'fwr4'] + \
-                                        consts_df['end'][dict_selector]).translate({ord('.'): None})
-        
+        # construct fwr1-fwr4 w/o edits (i.e. restriction site replacement, missing nucleotides, universal start/end, variable region prior to fwr1)
         order_df.loc[i, 'full_sequence'] = str(igblast_makedb.loc[i,'fwr1'] + igblast_makedb.loc[i,'cdr1'] + \
                                                igblast_makedb.loc[i,'fwr2'] + igblast_makedb.loc[i,'cdr2'] + \
                                                igblast_makedb.loc[i,'fwr3'] + igblast_makedb.loc[i,'cdr3'] + \
                                                igblast_makedb.loc[i,'fwr4']).translate({ord('.'): None})
+        
+        # add in missing nucleotides from germline
+        locus = igblast_makedb.loc[i,'locus']
+        v_call = igblast_makedb.loc[i, 'v_call']
+        j_call = igblast_makedb.loc[i, 'j_call']
+        fwr1_makedb = igblast_makedb.loc[i, 'fwr1']
+        fwr4_makedb = igblast_makedb.loc[i, 'fwr4']
 
-    # find and replace restriction site
+        # if multiple v/j calls, take first
+        if len(v_call.split(',')) > 1:
+            v_call = v_call.split(',')[0]
+        if len(j_call.split(',')) > 1:
+            j_call = j_call.split(',')[0]
+
+        # load germline
+        if locus == 'IGH':
+            germline = germline_IGH
+        elif locus == 'IGK':
+            germline = germline_IGK
+        elif locus == 'IGL':
+            germline = germline_IGL
+        
+        # bug detection within makedb
+        # if igblast_makedb.loc[i,'v_germline_start'] != 1:
+        #     print(igblast_makedb.loc[i,'v_germline_start'])
+        #     break
+
+        # try to find v_call in germline
+        try:
+            germline_v_seq = germline['allele_descriptions'][v_call]['coding_sequence']
+            # print(f'V_CALL {v_call} found.')
+            # print((df.loc[i,'fwr1']))
+            # print("".join(germline_v_seq[i] if ch=='.' else ch for i, ch in enumerate(fwr1_makedb)))
+            # print((df.loc[i,'fwr1']))
+            full_fwr1 = "".join(germline_v_seq[i] if ch=='.' else ch for i, ch in enumerate(fwr1_makedb))
+        except:
+            print(f'V_CALL {v_call} not found. FWR1: {fwr1_makedb}')
+            order_df.loc[i,'to_order']
+            full_fwr1 = None
+        # try to find j_call in germline
+        try:
+            j_call = 'IGHJ6*02' if j_call == 'IGHJ6*01' else j_call
+            j_call = 'IGHJ4*02' if j_call == 'IGHJ4*01' else j_call
+            print(j_call)
+            germline_j_seq = germline['allele_descriptions'][j_call]['coding_sequence']
+            # print(f'J_CALL FOUND: {j_call}')
+            # print((df.loc[i,['fwr4', 'j_germline_start', 'j_germline_end']]))
+            # print((igblast.loc[i,['j_call', 'j_germline_start', 'j_germline_end']]))
+            # print(f'Germline J Seq:', germline_j_seq)
+            # print("New FWR4:", "".join(germline_j_seq[i] if ch=='.' else ch for i, ch in enumerate(fwr4_makedb)))
+            full_fwr4 = "".join(germline_j_seq[i] if ch=='.' else ch for i, ch in enumerate(fwr4_makedb))
+        except:
+            print(f'J_CALL {j_call} not found. FWR4: {fwr4_makedb}')
+            full_fwr4 = None
+
+        
+        # Construct insert
+        order_df.loc[i, 'to_oder'] = ''
+        if full_fwr1 is None:
+            order_df.loc[i, 'to_oder'] += f'V_CALL {v_call} not found in germline. '
+        if full_fwr4 is None:
+            order_df.loc[i, 'to_oder'] += f'J_CALL {j_call} not found in germline. '
+        if full_fwr1 and full_fwr4:
+            order_df.loc[i, 'to_order'] = str(consts_df['start'][dict_selector] + \
+                                            var + \
+                                            full_fwr1 + igblast_makedb.loc[i,'cdr1'] + \
+                                            igblast_makedb.loc[i,'fwr2'] + igblast_makedb.loc[i,'cdr2'] + \
+                                            igblast_makedb.loc[i,'fwr3'] + igblast_makedb.loc[i,'cdr3'] + \
+                                            full_fwr4 + \
+                                            consts_df['end'][dict_selector]).translate({ord('.'): None})
+        else:
+            order_df.loc[i, 'This should never print.']
+
+    # find and replace restriction site within to_order seq
     for i in range(len(order_df)):
         prev_seq = order_df.loc[i, 'to_order']
         order_df.loc[i, 'to_order'] = restriction_replacement(order_df.loc[i, 'sequence_id'], order_df.loc[i, 'to_order'], dict_selector, i)
