@@ -28,7 +28,6 @@ merged_df['sequence_id'] = merged_df['sequence_id'].astype(str)
 merged_df['productive'] = merged_df['productive'].astype(str).str.lower()
 merged_df = merged_df[merged_df['productive'] == 'true']
 
-
 #extract seq ID
 def extract_br_code_from_seqid(seq_id):
     for code in seqID_list:
