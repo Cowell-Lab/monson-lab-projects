@@ -1,0 +1,73 @@
+{
+    "name": "COVVAX",
+    "appId": "repcalc2-ls6",
+    "appVersion": "0.5",
+    "maxMinutes": 2880,
+    "nodeCount": 8,
+    "archiveSystemId": "data-storage.vdjserver.org",
+    "archiveSystemDir": "/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/analyses/${JobUUID}",
+    "fileInputs": [
+        {
+            "name": "AIRRMetadata",
+            "sourceUrl": "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/cat3-7groups_with_RF.airr.json",
+            "targetPath": "cat3-7groups_with_RF.airr.json"
+        },
+        {
+            "name": "RepertoireGroupMetadata", 
+            "sourceUrl": "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/files/cat3-7groups_with_RF.airr.json",
+            "targetPath": "cat3-7groups_with_RF.airr.json" 
+        }
+    ],
+    "fileInputArrays": [
+        {
+            "name": "JobFiles",
+            "sourceUrls": [
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/analyses/ef5e4692-a50f-403d-a358-acffb2309d71-007/ef5e4692-a50f-403d-a358-acffb2309d71-007.zip"
+            ]
+        }
+    ],
+    "parameterSet": {
+        "schedulerOptions": [
+            {
+                "name": "allocation",
+                "arg": "-A MCB23006"
+            }
+        ],
+        "containerArgs": [],
+        "appArgs": [],
+        "envVariables": [
+            {
+                "key": "JobFiles",
+                "value": "ef5e4692-a50f-403d-a358-acffb2309d71-007.zip"
+            },
+            {
+                "key": "species",
+                "value": "human"
+            },
+            {
+                "key": "locus",
+                "value": "IG"
+            },
+            {
+                "key": "GeneSegmentFlag",
+                "value": "1"
+            },
+            {
+                "key": "CDR3Flag",
+                "value": "1"
+            },
+            {
+                "key": "DiversityFlag",
+                "value": "1"
+            },
+            {
+                "key": "ClonalFlag",
+                "value": "1"
+            },
+            {
+                "key": "MutationalFlag",
+                "value": "1"
+            }
+        ]
+    }
+}
