@@ -143,7 +143,7 @@ def create_igblast_job_file(data, project_id, job_id_dict, project_name='', save
     json_contents = {
         'name' : project_name,
         'appId' : 'igblast-ls6',
-        'appVersion' : '0.3',
+        'appVersion' : '0.5',
         'maxMinutes' : 2*24*60,
         'nodeCount' : 8,
         'archiveSystemId' : 'data-storage.vdjserver.org',
@@ -162,7 +162,7 @@ def create_igblast_job_file(data, project_id, job_id_dict, project_name='', save
                 {'key' : 'query', 'value' : seq_for_files },
                 {'key' : 'repertoires', 'value' :  rep_ids},
                 {'key' : 'species', 'value' : 'human' },
-                {'key' : 'ig_seqtype', 'value' : 'Ig' },
+                {'key' : 'locus', 'value' : 'IG' },
                 {'key' : 'ClonalTool', 'value' : 'changeo' }
             ]
         }
