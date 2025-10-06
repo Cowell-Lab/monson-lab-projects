@@ -1,7 +1,7 @@
 {
     "name": "COVVAX",
     "appId": "igblast-ls6",
-    "appVersion": "0.3",
+    "appVersion": "0.5",
     "maxMinutes": 2880,
     "nodeCount": 8,
     "archiveSystemId": "data-storage.vdjserver.org",
@@ -220,8 +220,8 @@
                 "value": "human"
             },
             {
-                "key": "ig_seqtype",
-                "value": "Ig"
+                "key": "locus",
+                "value": "IG"
             },
             {
                 "key": "ClonalTool",
