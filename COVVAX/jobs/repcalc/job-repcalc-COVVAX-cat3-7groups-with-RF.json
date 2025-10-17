@@ -22,7 +22,7 @@
         {
             "name": "JobFiles",
             "sourceUrls": [
-                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/analyses/ef5e4692-a50f-403d-a358-acffb2309d71-007/ef5e4692-a50f-403d-a358-acffb2309d71-007.zip"
+                "tapis://data-storage.vdjserver.org/projects/c0aef9ef-362d-46fd-abba-39ac0945bd66/analyses/ded5d21b-d4b5-44af-bbb5-096de9fc6eb3-007/ded5d21b-d4b5-44af-bbb5-096de9fc6eb3-007.zip"
             ]
         }
     ],
@@ -38,7 +38,7 @@
         "envVariables": [
             {
                 "key": "JobFiles",
-                "value": "ef5e4692-a50f-403d-a358-acffb2309d71-007.zip"
+                "value": "ded5d21b-d4b5-44af-bbb5-096de9fc6eb3-007.zip"
             },
             {
                 "key": "species",
