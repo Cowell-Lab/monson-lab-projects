@@ -22,3 +22,10 @@ This project consists of files from multiple sequencing libraries.
 + Library 29, job id: 6ef52f66-e3c8-4113-b834-a456a15b25f3-007
 + Library 30, job id: a70b9800-1dff-49e3-9684-aaa8de5b75c0-007
 
+## IgBlast job
+
+job id: 50524118-e81a-47f6-bc9d-2345969b9bfe-007
+
+## RepCalc job
+
+job id: d2296f11-4358-4972-9abd-263dde5c3287-007
