@@ -12,10 +12,10 @@ dir = '../'
 #dir = '../stats/'
 #in_stage = 'ighv4.mutations'
 #out_stage = 'ighv4.ighj3.mutations'
-#in_stage = 'gene.mutations.aa_properties'
-#out_stage = 'ighj3.gene.mutations.aa_properties'
-in_stage = 'gt3shm.mutations.aa_properties'
-out_stage = 'ighj3.gt3shm.mutations.aa_properties'
+in_stage = 'gene.mutations.aa_properties'
+out_stage = 'ighj3.gene.mutations.aa_properties'
+#in_stage = 'gt3shm.mutations.aa_properties'
+#out_stage = 'ighj3.gt3shm.mutations.aa_properties'
 
 def get_duplicate_count(fields):
     if fields.get('duplicate_count') is None: return 1

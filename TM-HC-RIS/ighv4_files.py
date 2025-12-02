@@ -16,17 +16,17 @@ import csv
 #in_stage = 'gene.mutations.aa_properties'
 #out_stage = 'ighv4.mutations.aa_properties'
 
-dir = '../gt3shm/'
-in_stage = 'gt3shm.mutations.aa_properties'
-out_stage = 'gt3shm.ighv4.mutations.aa_properties'
+#dir = '../gt3shm/'
+#in_stage = 'gt3shm.mutations.aa_properties'
+#out_stage = 'gt3shm.ighv4.mutations.aa_properties'
 
 #dir = '../gt3shm/'
 #in_stage = 'gt3shm.mutations'
 #out_stage = 'gt3shm.ighv4.mutations'
 
-#dir = '../'
-#in_stage = 'ighj6.gene.mutations.aa_properties'
-#out_stage = 'ighv4.ighj6.gene.mutations.aa_properties'
+dir = '../'
+in_stage = 'ighj6.gene.mutations.aa_properties'
+out_stage = 'ighv4.ighj6.gene.mutations.aa_properties'
 
 #dir = '../'
 #in_stage = 'ighj6.gt3shm.mutations.aa_properties'

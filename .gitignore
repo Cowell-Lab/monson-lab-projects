@@ -2,6 +2,7 @@
 *.pdf
 *.zip
 *.xlsm
+*.png
 
 # Ignore files
 .DS_Store

@@ -1,0 +1,16 @@
+repcalc gene_usage_config.json
+repcalc gene_combo_config.json
+repcalc junction_length_config.json
+repcalc mutations_config.json
+cd ighj1
+repcalc junction_length_config.json
+cd ../ighj2
+repcalc junction_length_config.json
+cd ../ighj3
+repcalc junction_length_config.json
+cd ../ighj4
+repcalc junction_length_config.json
+cd ../ighj5
+repcalc junction_length_config.json
+cd ../ighj6
+repcalc junction_length_config.json

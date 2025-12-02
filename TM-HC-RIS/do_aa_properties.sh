@@ -6,7 +6,7 @@
 metadata_file=../../repertoires.v2.airr.json
 #group_file=../../repertoire_groups.airr.json
 germline_db=/work/vdjserver/db/db.2019.01.23/germline/vdjserver_human_germline.airr.json
-common_dir=/work/vdjserver/irplus/tapis/vdjserver/common
+common_dir=/work/vdjserver/vdjserver-tapis/scripts
 
 # Create environment similar to Tapis app
 cp ${common_dir}/common_functions.sh .

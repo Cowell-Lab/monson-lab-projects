@@ -60,27 +60,63 @@ data = airr.read_airr(rep_file)
 reps = data['Repertoire']
 rep_dict = { obj['repertoire_id'] : obj for obj in data['Repertoire'] }
 
-#cohorts = { "RIS_PB_DNA": [], "HC_PB_DNA": [], "CIS_PB_DNA": [],
-#    "RIS_ADVANCING": [], "RIS_STABLE": [], "RIS_POS": [], "RIS_NEG": [] }
-cohorts = { "CIS_PB_DNA": [] }
+cohorts = { "RIS_PB_DNA": [], "HC_PB_DNA": [], "CIS_PB_DNA": [],
+    "ADVANCING": [], "STABLE": [], "CORD_POS": [], "CORD_NEG": [],
+    "RIS_ADVANCING": [], "RIS_STABLE": [], "RIS_POS": [], "RIS_NEG": [],
+    "RIS_CSRHI": [], "RIS_CSRLO": [],
+    "CIS_ADVANCING": [], "CIS_POS": [], "CIS_NEG": [] }
 
 for r in reps:
     if r['repertoire_id'] in exclude_repertoires:
         continue
-#    if r['sample'][0]['disease_state_sample'] not in [ 'RIS', 'HC', 'CIS' ]:
-    if r['sample'][0]['disease_state_sample'] not in [ 'CIS' ]:
+    if r['sample'][0]['disease_state_sample'] not in [ 'RIS', 'HC', 'CIS' ]:
         continue
     if r['sample'][0]['cell_subset']['id'] == 'CL:0000980':
         if r['sample'][0]['template_class'] == 'DNA':
             cohorts[r['sample'][0]['disease_state_sample'] + '_PB_DNA'].append({'repertoire_id':r['repertoire_id']})
-            if r['subject']['diagnosis'][0]['study_group_description'] == 'RIS-CORD-POS':
-                cohorts['RIS_POS'].append({'repertoire_id':r['repertoire_id']})
-            if r['subject']['diagnosis'][0]['study_group_description'] == 'RIS-CORD-NEG':
-                cohorts['RIS_NEG'].append({'repertoire_id':r['repertoire_id']})
+
+            if 'CORD-POS' in r['subject']['diagnosis'][0]['study_group_description']:
+                cohorts['CORD_POS'].append({'repertoire_id':r['repertoire_id']})
+                if r['sample'][0]['disease_state_sample'] == 'RIS':
+                    cohorts['RIS_POS'].append({'repertoire_id':r['repertoire_id']})
+                if r['sample'][0]['disease_state_sample'] == 'CIS':
+                    cohorts['CIS_POS'].append({'repertoire_id':r['repertoire_id']})
+            if 'CORD-NEG' in r['subject']['diagnosis'][0]['study_group_description']:
+                cohorts['CORD_NEG'].append({'repertoire_id':r['repertoire_id']})
+                if r['sample'][0]['disease_state_sample'] == 'RIS':
+                    cohorts['RIS_NEG'].append({'repertoire_id':r['repertoire_id']})
+                if r['sample'][0]['disease_state_sample'] == 'CIS':
+                    cohorts['CIS_NEG'].append({'repertoire_id':r['repertoire_id']})
+
+            if 'CSRHI' in r['subject']['diagnosis'][0]['study_group_description']:
+                cohorts['RIS_CSRHI'].append({'repertoire_id':r['repertoire_id']})
+            if 'CSRLO' in r['subject']['diagnosis'][0]['study_group_description']:
+                cohorts['RIS_CSRLO'].append({'repertoire_id':r['repertoire_id']})
+
             if r['subject']['diagnosis'][0]['disease_stage'] == 'advancing':
-                cohorts['RIS_ADVANCING'].append({'repertoire_id':r['repertoire_id']})
+                cohorts['ADVANCING'].append({'repertoire_id':r['repertoire_id']})
+                if r['sample'][0]['disease_state_sample'] == 'RIS':
+                    cohorts['RIS_ADVANCING'].append({'repertoire_id':r['repertoire_id']})
+                if r['sample'][0]['disease_state_sample'] == 'CIS':
+                    cohorts['CIS_ADVANCING'].append({'repertoire_id':r['repertoire_id']})
             if r['subject']['diagnosis'][0]['disease_stage'] == 'stable':
-                cohorts['RIS_STABLE'].append({'repertoire_id':r['repertoire_id']}) 
+                cohorts['STABLE'].append({'repertoire_id':r['repertoire_id']}) 
+                if r['sample'][0]['disease_state_sample'] == 'RIS':
+                    cohorts['RIS_STABLE'].append({'repertoire_id':r['repertoire_id']}) 
+                if r['sample'][0]['disease_state_sample'] == 'CIS':
+                    cohorts['CIS_STABLE'].append({'repertoire_id':r['repertoire_id']}) 
+
+# MS2025
+exclude_subjects = ["UTSW03", "UTSW06", "UTSW21", "UTSW27", "UTSW28", "1842", "1985", "2229", "2260", "2364", "2405", "3166"]
+cohorts['MS2025_PB_DNA'] = []
+for rep in cohorts['RIS_PB_DNA']:
+    r = rep_dict[rep['repertoire_id']]
+    if r['subject']['subject_id'] not in exclude_subjects:
+        cohorts['MS2025_PB_DNA'].append({'repertoire_id':r['repertoire_id']})
+for rep in cohorts['CIS_PB_DNA']:
+    r = rep_dict[rep['repertoire_id']]
+    if r['subject']['subject_id'] not in exclude_subjects:
+        cohorts['MS2025_PB_DNA'].append({'repertoire_id':r['repertoire_id']})
 
 unique_reps = {}
 groups = { 'RepertoireGroup': [] }
