@@ -11,6 +11,11 @@
             "name": "AIRRMetadata",
             "sourceUrl": "tapis://data-storage.vdjserver.org/projects/16526c92-9ffb-4e1a-96ce-f9ed77baa3a6/files/repertoires.airr.json",
             "targetPath": "repertoires.airr.json"
+        },
+        {
+            "name": "RepertoireGroupMetadata",
+            "sourceUrl": "tapis://data-storage.vdjserver.org/projects/16526c92-9ffb-4e1a-96ce-f9ed77baa3a6/files/repertoires.airr.json",
+            "targetPath": "repertoires.airr.json"
         }
     ],
     "fileInputArrays": [
