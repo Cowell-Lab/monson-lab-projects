@@ -21,7 +21,10 @@ This project consists of files from multiple sequencing libraries.
 + Library 27, job id: 52bf3ece-4d58-4ae8-938b-78317613401a-007
 + Library 28, job id: d1d718cc-1622-429f-b30c-29721e0ecef1-007
 + Library 29, job id: 6ef52f66-e3c8-4113-b834-a456a15b25f3-007
-+ Library 30, job id: a70b9800-1dff-49e3-9684-aaa8de5b75c0-007
++ Library 30, job id: 0429df15-0635-4791-a784-bb9b652cba44-007
+
+For Library 30, it was discovered later that sample USCH028_S28_R1_001 was missing.
+The vdjpipe job above is newer job with that sample included.
 
 + Library 6, 8, 9, 10, 23: these are some fairly old libraries so instead of
 re-doing the pre-processing, I uploaded the post-filter FASTA file.
@@ -30,9 +33,14 @@ re-doing the pre-processing, I uploaded the post-filter FASTA file.
 
 job id: 50524118-e81a-47f6-bc9d-2345969b9bfe-007
 job id: adbaad15-6bbf-47fe-af6f-7553a44d9e21-007
+job id: e1769e2b-1624-4d5f-83c7-0552e1b26877-007 (for missing USCH028_S28_R1_001 sample)
 
 ## RepCalc job
 
-job id: d2296f11-4358-4972-9abd-263dde5c3287-007 (initial, not all repertoires)
+job id: d2296f11-4358-4972-9abd-263dde5c3287-007 (initial, not all repertoires, errors)
 
-job id: 721704be-de75-44b6-b5de-1056e7f6a378-007 (all repertoires, initial groups)
+job id: 721704be-de75-44b6-b5de-1056e7f6a378-007 (all repertoires, initial groups, errors)
+
+These jobs have partial results. Did not analyze the errors for the first job as we needed
+to add more repertoires and groups. For the second job, the error is sample
+USCH028_S28_R1_001 is missing.

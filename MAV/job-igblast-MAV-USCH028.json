@@ -1,0 +1,56 @@
+{
+    "name": "MAV",
+    "appId": "igblast-ls6",
+    "appVersion": "0.5",
+    "maxMinutes": 60,
+    "nodeCount": 1,
+    "archiveSystemId": "data-storage.vdjserver.org",
+    "archiveSystemDir": "/projects/16526c92-9ffb-4e1a-96ce-f9ed77baa3a6/analyses/${JobUUID}",
+    "fileInputs": [
+        {
+            "name": "AIRRMetadata",
+            "sourceUrl": "tapis://data-storage.vdjserver.org/projects/16526c92-9ffb-4e1a-96ce-f9ed77baa3a6/files/repertoires.airr.json",
+            "targetPath": "repertoires.airr.json"
+        }
+    ],
+    "fileInputArrays": [
+        {
+            "name": "query",
+            "sourceUrls": [
+                "tapis://data-storage.vdjserver.org/projects/16526c92-9ffb-4e1a-96ce-f9ed77baa3a6/analyses/fad91d57-fa9a-4331-b04d-1c53cc1eecb8/0429df15-0635-4791-a784-bb9b652cba44-007/USCH028_S28_R1_001.fastq.merged.unique.fasta"
+            ]
+        }
+    ],
+    "parameterSet": {
+        "schedulerOptions": [
+            {
+                "name": "allocation",
+                "arg": "-A MCB23006"
+            }
+        ],
+        "containerArgs": [],
+        "appArgs": [],
+        "envVariables": [
+            {
+                "key": "query",
+                "value": "USCH028_S28_R1_001.fastq.merged.unique.fasta"
+            },
+            {
+                "key": "repertoires",
+                "value": "44b58e2c-d670-41ef-bddd-b5f4836e8940"
+            },
+            {
+                "key": "species",
+                "value": "human"
+            },
+            {
+                "key": "locus",
+                "value": "IG"
+            },
+            {
+                "key": "ClonalTool",
+                "value": "changeo"
+            }
+        ]
+    }
+}
