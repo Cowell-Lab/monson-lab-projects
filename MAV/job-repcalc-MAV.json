@@ -23,6 +23,7 @@
             "name": "JobFiles",
             "sourceUrls": [
                 "tapis://data-storage.vdjserver.org/projects/16526c92-9ffb-4e1a-96ce-f9ed77baa3a6/analyses/50524118-e81a-47f6-bc9d-2345969b9bfe-007/50524118-e81a-47f6-bc9d-2345969b9bfe-007.zip",
+                "tapis://data-storage.vdjserver.org/projects/16526c92-9ffb-4e1a-96ce-f9ed77baa3a6/analyses/a10eaf13-a897-4802-9c83-2304e158f9ec-007/a10eaf13-a897-4802-9c83-2304e158f9ec-007.zip",
                 "tapis://data-storage.vdjserver.org/projects/16526c92-9ffb-4e1a-96ce-f9ed77baa3a6/analyses/1e04a710-aafe-4794-85b5-58bea9be8c94/adbaad15-6bbf-47fe-af6f-7553a44d9e21-007/adbaad15-6bbf-47fe-af6f-7553a44d9e21-007.zip"
             ]
         }
@@ -39,7 +40,7 @@
         "envVariables": [
             {
                 "key": "JobFiles",
-                "value": "50524118-e81a-47f6-bc9d-2345969b9bfe-007.zip adbaad15-6bbf-47fe-af6f-7553a44d9e21-007.zip"
+                "value": "50524118-e81a-47f6-bc9d-2345969b9bfe-007.zip a10eaf13-a897-4802-9c83-2304e158f9ec-007.zip adbaad15-6bbf-47fe-af6f-7553a44d9e21-007.zip"
             },
             {
                 "key": "species",

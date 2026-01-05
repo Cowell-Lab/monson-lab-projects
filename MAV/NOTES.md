@@ -33,7 +33,7 @@ re-doing the pre-processing, I uploaded the post-filter FASTA file.
 
 job id: 50524118-e81a-47f6-bc9d-2345969b9bfe-007
 job id: adbaad15-6bbf-47fe-af6f-7553a44d9e21-007
-job id: e1769e2b-1624-4d5f-83c7-0552e1b26877-007 (for missing USCH028_S28_R1_001 sample)
+job id: a10eaf13-a897-4802-9c83-2304e158f9ec-007 (for missing USCH028_S28_R1_001 sample)
 
 ## RepCalc job
 
@@ -44,3 +44,5 @@ job id: 721704be-de75-44b6-b5de-1056e7f6a378-007 (all repertoires, initial group
 These jobs have partial results. Did not analyze the errors for the first job as we needed
 to add more repertoires and groups. For the second job, the error is sample
 USCH028_S28_R1_001 is missing.
+
+job id: 
