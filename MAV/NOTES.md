@@ -31,14 +31,14 @@ For Library 22, additional samples were added, so the whole library was re-proce
 The vdjpipe job above is newer job with that sample included.
 
 + Library 4, 6, 8, 9, 10, 23: these are some fairly old libraries so instead of
-re-doing the pre-processing, I uploaded the post-filter FASTA file.
+  re-doing the pre-processing, I uploaded the post-filter FASTA file.
 
 ## IgBlast job
 
-job id: 50524118-e81a-47f6-bc9d-2345969b9bfe-007
+job id: 450c4a1e-df93-4589-a9eb-78bec1729779-007 (with libraries 4, 6, 8, 9, 10, 23)
+job id: 50524118-e81a-47f6-bc9d-2345969b9bfe-007 
 job id: adbaad15-6bbf-47fe-af6f-7553a44d9e21-007 (old, wrong germline DB)
 job id: e1769e2b-1624-4d5f-83c7-0552e1b26877-007 (for missing USCH028_S28_R1_001 sample)
-
 
 ## RepCalc job
 
