@@ -108,7 +108,9 @@ def create_igblast_job_file(data, project_id, job_id_dict, project_name='', save
     project_id : str
         - The project's UUID
     job_id_dict : dict
-        - A dictionary where repertoire sequencing id (library) are keys and job uuid are values
+        - A dictionary where repertoire sequencing id (library) are keys and job uuid are values. 
+        If a job uuid value of '' (an empty string) is passed, then it is assumed that the fasta
+        file is in the project's files.
     project_name : str
         - The name of the project to add to output files.
     save : boolean
@@ -126,8 +128,12 @@ def create_igblast_job_file(data, project_id, job_id_dict, project_name='', save
 
     for rep in data['Repertoire']:
         job_id = job_id_dict[rep['sample'][0]['sequencing_run_id']]
-        fasta_file_name = '.'.join((rep['sample'][0]['sequencing_files']['filename'].split('.')[0:-1] + ['merged', 'unique', 'fasta']))
-        seq_for_files_source_urls.append('tapis://data-storage.vdjserver.org/projects/'+project_id+'/analyses/'+job_id+'/'+fasta_file_name)
+        if job_id != '':
+            fasta_file_name = '.'.join((rep['sample'][0]['sequencing_files']['filename'].split('.')[0:-1] + ['merged', 'unique', 'fasta']))
+            seq_for_files_source_urls.append('tapis://data-storage.vdjserver.org/projects/'+project_id+'/analyses/'+job_id+'/'+fasta_file_name)
+        else:
+            fasta_file_name = rep['sample'][0]['sequencing_files']['filename']
+            seq_for_files_source_urls.append('tapis://data-storage.vdjserver.org/projects/'+project_id+'/files/'+fasta_file_name)
         seq_for_files.append(fasta_file_name)
         rep_ids.append(rep['repertoire_id'])
             
@@ -255,7 +261,7 @@ def main():
     data = airr.read_airr('repertoires.airr.json')
 
     # create_vdjpipe_job_files(data, project_id)
-    create_igblast_job_file(data, project_id, project_name='COVVAX')
+    # create_igblast_job_file(data, project_id, project_name='COVVAX')
 
 if __name__ == '__main__':
     main()
