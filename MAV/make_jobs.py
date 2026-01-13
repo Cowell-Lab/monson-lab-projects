@@ -41,13 +41,15 @@ def create_vdjpipe_job_files(data, project_id, project_name='', save=True):
         seq_rev_files_source_urls = []
         seq_rev_files = []
         for i in range(len(libraries[lib])):
+            if libraries[lib][i]['filename'].split('.')[-1] == 'fasta':
+                continue
             seq_for_files_source_urls.append('tapis://data-storage.vdjserver.org/projects/'+project_id+'/files/'+libraries[lib][i]['filename'])
             seq_for_files.append(libraries[lib][i]['filename'])
             seq_rev_files_source_urls.append('tapis://data-storage.vdjserver.org/projects/'+project_id+'/files/'+libraries[lib][i]['paired_filename'])
             seq_rev_files.append(libraries[lib][i]['paired_filename'])
-            
+
         seq_for_files = ' '.join(seq_for_files)
-        seq_rev_files = ' '.join(seq_rev_files) 
+        seq_rev_files = ' '.join(seq_rev_files)
 
         content = {
             'name' : 'COVVAX - library ' + lib,
@@ -58,7 +60,7 @@ def create_vdjpipe_job_files(data, project_id, project_name='', save=True):
             'archiveSystemId' : 'data-storage.vdjserver.org',
             'archiveSystemDir' : '/projects/'+project_id+'/analyses/${JobUUID}',
             'fileInputArrays' : [{'name' : 'SequenceForwardPairedFiles', 'sourceUrls' : seq_for_files_source_urls},
-                                {'name' : 'SequenceReversePairedFiles', 'sourceUrls' : seq_rev_files_source_urls}],
+                                 {'name' : 'SequenceReversePairedFiles', 'sourceUrls' : seq_rev_files_source_urls}],
             'fileInputs' : [{'name' : 'ForwardPrimerFile', 'sourceUrl' : 'tapis://data-storage.vdjserver.org/projects/'+project_id+'/files/primers.fasta', 'targetPath' : 'primers.fasta'}],
             'parameterSet' : {
                 'schedulerOptions' : [
@@ -150,7 +152,7 @@ def create_igblast_job_file(data, project_id, job_id_dict, project_name='', save
         'name' : project_name,
         'appId' : 'igblast-ls6',
         'appVersion' : '0.5',
-        'maxMinutes' : 2*24*60,
+        'maxMinutes' : 12*60,
         'nodeCount' : 8,
         'archiveSystemId' : 'data-storage.vdjserver.org',
         'archiveSystemDir' : '/projects/'+project_id+'/analyses/${JobUUID}',
@@ -222,12 +224,13 @@ def create_repcalc_job_file(data, project_id, job_id, project_name='', save=True
     json_contents = {
         'name' : project_name,
         'appId' : 'repcalc2-ls6',
-        'appVersion' : '0.2',
+        'appVersion' : '0.5',
         'maxMinutes' : 24*60,
         'nodeCount' : 8,
         'archiveSystemId' : 'data-storage.vdjserver.org',
         'archiveSystemDir' : '/projects/'+project_id+'/analyses/${JobUUID}',
-        'fileInputs' : [{'name' : 'AIRRMetadata', 'sourceUrl' : 'tapis://data-storage.vdjserver.org/projects/'+project_id+'/files/repertoires.airr.json', 'targetPath' : 'repertoires.airr.json'}],
+        'fileInputs' : [{'name' : 'AIRRMetadata', 'sourceUrl' : 'tapis://data-storage.vdjserver.org/projects/'+project_id+'/files/repertoires.airr.json', 'targetPath' : 'repertoires.airr.json'},
+                        {'name' : 'RepertoireGroupMetadata', 'sourceUrl' : 'tapis://data-storage.vdjserver.org/projects/'+project_id+'/files/repertoires.airr.json', 'targetPath' : 'repertoires.airr.json'}],
         'fileInputArrays' : [{'name' : 'JobFiles', 'sourceUrls' : zip_files_source_urls}],
         'parameterSet' : {
             'schedulerOptions' : [

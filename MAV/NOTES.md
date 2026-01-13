@@ -35,12 +35,16 @@ The vdjpipe job above is newer job with that sample included.
 
 ## IgBlast job
 
-job id: 450c4a1e-df93-4589-a9eb-78bec1729779-007 (with libraries 4, 6, 8, 9, 10, 23)
-job id: 50524118-e81a-47f6-bc9d-2345969b9bfe-007 
+job id: 02df0554-b2a5-4654-b8fe-560899bfa3ad-007 (with libraries 4, 6, 8, 9, 10, 23)
+job id: fcff124e-0b43-4ae0-a866-f8e07e86ca4a-007 (with libraries 4, 6, 8, 9, 10, 23; FAILED; couldn't find file)
+job id: 450c4a1e-df93-4589-a9eb-78bec1729779-007 (failed, wrong igblast version. with libraries 4, 6, 8, 9, 10, 23)
+job id: 50524118-e81a-47f6-bc9d-2345969b9bfe-007
 job id: adbaad15-6bbf-47fe-af6f-7553a44d9e21-007 (old, wrong germline DB)
 job id: e1769e2b-1624-4d5f-83c7-0552e1b26877-007 (for missing USCH028_S28_R1_001 sample)
 
 ## RepCalc job
+
+job id: 90666a6f-675f-46db-bde2-219704f0266f-007 (all groups v0.5)
 
 job id: d2296f11-4358-4972-9abd-263dde5c3287-007 (initial, not all repertoires, errors)
 
