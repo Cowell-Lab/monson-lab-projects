@@ -216,7 +216,7 @@ def create_repcalc_job_file(data, project_id, job_id, project_name='', save=True
     json_contents = {
         'name' : project_name,
         'appId' : 'repcalc2-ls6',
-        'appVersion' : '0.2',
+        'appVersion' : '0.5',
         'maxMinutes' : 24*60,
         'nodeCount' : 8,
         'archiveSystemId' : 'data-storage.vdjserver.org',
