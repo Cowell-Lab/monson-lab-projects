@@ -1,0 +1,5 @@
+for f in *.airr.tsv; do python3 airr_extract_fasta.py $f "${f%.airr.tsv}"; done
+
+for f in *.fasta; do vdjserver-tools files upload $f /projects/83589175-9c26-4adc-824e-ebba8700e362/files/$f; done
+
+for f in *.fasta; do vdjserver-tools project file-attach 83589175-9c26-4adc-824e-ebba8700e362 $f --file-type 3; done
